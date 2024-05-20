@@ -1,0 +1,375 @@
+{
+  "data": {
+    "home": {
+      "data": {
+        "attributes": {
+          "banner": {
+            "title": "MODERN WEB",
+            "subtitle": "REACT NATIVE",
+            "date": "25th July 2024",
+            "location": "Berlin"
+          },
+          "stats": {
+            "data": [
+              {
+                "attributes": {
+                  "statName": "Tracks",
+                  "count": "2"
+                }
+              },
+              {
+                "attributes": {
+                  "statName": "Sessions",
+                  "count": "25+"
+                }
+              },
+              {
+                "attributes": {
+                  "statName": "In-person Guests",
+                  "count": "500+"
+                }
+              },
+              {
+                "attributes": {
+                  "statName": "Online Attendees",
+                  "count": "5k+"
+                }
+              }
+            ]
+          },
+          "first_speakers": {
+            "data": [
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/sanket_d0a75d8ade.webp"
+                      }
+                    }
+                  },
+                  "Name": "Sanket Sahu",
+                  "Designation": "CEO, GeekyAnts",
+                  "twitterLink": "https://twitter.com/sanketsahu",
+                  "linkedinLink": "https://in.linkedin.com/in/sanketsahu",
+                  "youtubeLink": null,
+                  "personalWebsiteLink": null,
+                  "githubLink": null
+                }
+              },
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Saurabh_8a4a2614ed.webp"
+                      }
+                    }
+                  },
+                  "Name": "Saurabh Sahu",
+                  "Designation": "CTO, GeekyAnts",
+                  "twitterLink": "https://twitter.com/saurabhsahu13",
+                  "linkedinLink": "https://in.linkedin.com/in/saurabh-sahu-49088167",
+                  "youtubeLink": null,
+                  "personalWebsiteLink": null,
+                  "githubLink": null
+                }
+              },
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Tejas_168ca9c9b4.webp"
+                      }
+                    }
+                  },
+                  "Name": "Tejas Kumar",
+                  "Designation": "DevRel Consultant",
+                  "twitterLink": "https://twitter.com/TejasKumar_",
+                  "linkedinLink": "https://de.linkedin.com/in/tejasq",
+                  "youtubeLink": "https://www.youtube.com/@tejask",
+                  "personalWebsiteLink": null,
+                  "githubLink": null
+                }
+              },
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Khazali_29c4ee03ef.webp"
+                      }
+                    }
+                  },
+                  "Name": "Mo Khazali",
+                  "Designation": "Head of Mobile, Theodo UK",
+                  "twitterLink": "https://twitter.com/mo__javad",
+                  "linkedinLink": "https://uk.linkedin.com/in/mohammadkhazali",
+                  "youtubeLink": null,
+                  "personalWebsiteLink": null,
+                  "githubLink": null
+                }
+              },
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Kitze_30ceb926f4.webp"
+                      }
+                    }
+                  },
+                  "Name": "Kitze",
+                  "Designation": "Founder, sizzy.co + benji.so",
+                  "twitterLink": "https://twitter.com/thekitze",
+                  "linkedinLink": null,
+                  "youtubeLink": "https://www.youtube.com/kitze",
+                  "personalWebsiteLink": null,
+                  "githubLink": null
+                }
+              },
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Bruno_bee6f648bd.webp"
+                      }
+                    }
+                  },
+                  "Name": "Bruno Paulino",
+                  "Designation": "Tech Lead at N26",
+                  "twitterLink": "https://twitter.com/bpaulino0",
+                  "linkedinLink": "https://www.linkedin.com/authwall?trk=bf&trkInfo=AQHsR8wXxNQJWQAAAY5_xxu4EnpxKu4oIOk3WoJT0G73uoLsuLv8hZvB7gBPj4Lv1lzOmpPqueowsxb93xbL0msB-4T4mg2Ee0LFCIUTk0Wh0RMBq-dOxfQhehUydpW4KaxhcZk=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fbrunojppb",
+                  "youtubeLink": null,
+                  "personalWebsiteLink": "https://bpaulino.com/",
+                  "githubLink": "https://github.com/brunojppb"
+                }
+              },
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Oskar_d3b2d0e30d.webp"
+                      }
+                    }
+                  },
+                  "Name": "Oskar Kwaśniewski",
+                  "Designation": "Senior React Native Developer, Callstack",
+                  "twitterLink": "https://twitter.com/o_kwasniewski?lang=en",
+                  "linkedinLink": "https://pl.linkedin.com/in/oskar-kwa%C5%9Bniewski-452977207",
+                  "youtubeLink": null,
+                  "personalWebsiteLink": "https://www.oskarkwasniewski.dev/",
+                  "githubLink": "https://github.com/okwasniewski"
+                }
+              },
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Szymon_768fe99131.webp"
+                      }
+                    }
+                  },
+                  "Name": "Szymon Rybczak",
+                  "Designation": "React Native Developer, Callstack ",
+                  "twitterLink": "https://twitter.com/SzymonRybczak",
+                  "linkedinLink": "https://www.linkedin.com/authwall?trk=bf&trkInfo=AQE1vv4acEBtngAAAY7xDU7IjaNTHPCP6mtHyfpDidDFaPY7-F5YjtptJ-kTU21n0CfWHGKWM2youzdrJ86kvYcSD6fHu7gefH_kM6yyUDMFSV0m9__WqVBJhV4AC0smxvMrYwY=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fszymonrybczak%2F",
+                  "youtubeLink": null,
+                  "personalWebsiteLink": "https://szymonrybczak.dev/",
+                  "githubLink": "https://github.com/szymonrybczak"
+                }
+              }
+            ]
+          },
+          "sponsors": {
+            "data": [
+              {
+                "attributes": {
+                  "title": "Diamond Sponsor",
+                  "slotsAvailable": 2,
+                  "image": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Diamond_0fc5a6b509.svg"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "attributes": {
+                  "title": "Gold Sponsor",
+                  "slotsAvailable": 3,
+                  "image": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Gold_df8bb51ba3.svg"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "attributes": {
+                  "title": "Silver Sponsor",
+                  "slotsAvailable": 5,
+                  "image": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Silver_20e6c13b95.svg"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "program_committees": {
+            "data": [
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Aswathy_5451bd7017.webp"
+                      }
+                    }
+                  },
+                  "name": "Aswathy Anil",
+                  "designation": "CMO, GeekyAnts",
+                  "twitterLink": "https://twitter.com/AswathyAnil17",
+                  "linkedinLink": "https://in.linkedin.com/in/aswathy-anil-1ba260122",
+                  "youtubeLink": null
+                }
+              },
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Atul_031253f658.webp"
+                      }
+                    }
+                  },
+                  "name": "Atul Ranjan",
+                  "designation": "CPO, GeekyAnts",
+                  "twitterLink": "https://twitter.com/atulrp",
+                  "linkedinLink": "https://in.linkedin.com/in/atul-ranjan-47b56345?trk=people-guest_people_search-card",
+                  "youtubeLink": null
+                }
+              },
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Sathya_faedfa03f0.webp"
+                      }
+                    }
+                  },
+                  "name": "Sathya Gunasekaran",
+                  "designation": "Software Engineer | React Team - Meta",
+                  "twitterLink": "https://twitter.com/_gsathya",
+                  "linkedinLink": null,
+                  "youtubeLink": null
+                }
+              },
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Roy_efe0352721.webp"
+                      }
+                    }
+                  },
+                  "name": "Roy Derks",
+                  "designation": "Tech Author, Entrepreneur",
+                  "twitterLink": "https://twitter.com/gethackteam?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+                  "linkedinLink": null,
+                  "youtubeLink": "https://www.youtube.com/@gethackteam"
+                }
+              },
+              {
+                "attributes": {
+                  "profileImage": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/Manjula_1ef4a1037a.webp"
+                      }
+                    }
+                  },
+                  "name": "Manjula Dube",
+                  "designation": "Technical Delivery Lead",
+                  "twitterLink": "https://twitter.com/manjula_dube",
+                  "linkedinLink": "https://www.linkedin.com/authwall?trk=bf&trkInfo=AQEvBLENJ40x3QAAAY5BAKx4HTWdjeMDJIRzRfX5RUqqz7oN-bO_3hriOZDyeoJM5qVCtFs5R2KN9ukKjuTwBsZ5iYAsw2O4EqlFRFRjmJj6CcsaRTcmVKb0aCDMqCwnfxg1N7U=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fmanjula-dube-9b5b3550%2F",
+                  "youtubeLink": null
+                }
+              }
+            ]
+          },
+          "supporters": {
+            "data": [
+              {
+                "attributes": {
+                  "logo": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/expo_0d5b24ba43.svg"
+                      }
+                    }
+                  },
+                  "link": "https://expo.dev/",
+                  "name": "Expo"
+                }
+              },
+              {
+                "attributes": {
+                  "logo": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/epicweb_c1e9bd8cf6.svg"
+                      }
+                    }
+                  },
+                  "link": "https://www.epicweb.dev/",
+                  "name": "Epicweb"
+                }
+              },
+              {
+                "attributes": {
+                  "logo": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/jsnation_ca6db70e7b.png"
+                      }
+                    }
+                  },
+                  "link": "https://jsnation.com/",
+                  "name": "JS Nation"
+                }
+              },
+              {
+                "attributes": {
+                  "logo": {
+                    "data": {
+                      "attributes": {
+                        "url": "/uploads/reactsummit_32e38d4629.webp"
+                      }
+                    }
+                  },
+                  "link": "https://reactsummit.com/",
+                  "name": "React Summit"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
