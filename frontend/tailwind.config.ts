@@ -87,6 +87,7 @@ module.exports = {
           1150: '#F8F8F8',
           1200: '#565656',
           1250: '#949494',
+          1300: '#ACACAC'
         },
         white: {
           DEFAULT: '#fff',
@@ -222,7 +223,7 @@ module.exports = {
         flickerHide: 'hideContent .1s forwards 1s',
       },
       backgroundImage: {
-        'black-grad' : 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 64.36%, rgba(0, 0, 0, 0.60) 100%, lightgray 50%)'
+        'black-grad': 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 64.36%, rgba(0, 0, 0, 0.60) 100%, lightgray 50%)'
       },
       screens: {
         sm: '360px',
