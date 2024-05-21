@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google"
 import "./globals.css";
 import { cn } from "@/lib/utils"
+import Header from "./sections/header";
+import Footer from "./sections/footer";
 
 
 const fontSans = FontSans({
@@ -33,7 +35,9 @@ export default function RootLayout({
         " bg-white font-inter overscroll-none",
         fontSans.variable
       )}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
