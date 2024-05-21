@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slick-track {
+    @apply !flex;
+}
+div .slick-dots {
+    @apply lg:-bottom-12 -bottom-6;
+}
+div .slick-dots li {
+    @apply mx-0.5;
+}
+div .slick-dots li.slick-active   button:before {
+    @apply text-primary;
+}
+div .slick-dots li button:before {
+     @apply text-white-200 opacity-100 text-sm;
+}
