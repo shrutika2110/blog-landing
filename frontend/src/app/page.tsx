@@ -5,7 +5,8 @@ import { BlogService } from "@/service";
 import HeroSlider from "./sections/heroSlider";
 import HeroTab from "./sections/heroTab";
 import React, { useEffect, useState } from 'react';
-import Trending from "./sections/heroTab/trending";
+import Trending from "./sections/trending";
+import Videos from "./sections/videos";
 
 export default function Home() {
   const [blogsData, setBlogsData] = useState<any>("");
@@ -35,6 +36,7 @@ export default function Home() {
       </div>
       <HeroTab />
       <Trending />
+      <Videos />
     </div>
 
   );
