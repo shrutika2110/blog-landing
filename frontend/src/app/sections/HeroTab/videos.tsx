@@ -37,7 +37,7 @@ export default function Videos() {
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
                                             <div className="h-full">
-                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo />
+                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo roundedLeft />
                                             </div>
 
                                         </div>
@@ -64,7 +64,7 @@ export default function Videos() {
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
                                             <div className="h-full">
-                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo />
+                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo roundedLeft />
                                             </div>
                                         </div>
                                         <div className="col-span-8">
@@ -90,7 +90,7 @@ export default function Videos() {
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
                                             <div className="h-full">
-                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo />
+                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo roundedLeft />
                                             </div>
                                         </div>
                                         <div className="col-span-8">

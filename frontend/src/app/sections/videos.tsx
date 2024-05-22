@@ -18,7 +18,6 @@ export default function Videos() {
                 <div className="grid xl:grid-cols-2 gap-5 xl:gap-8 mt-5 mb-7">
                     <div className="xl:col-span-1">
                             <div className="relative h-full" >
-                                <Link href="/">
                                     <div className="relative min-h-97.5 h-full rounded overflow-hidden  w-full  after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad">
                                             <div className="h-full">
                                                 <CardBanner src="/images/blogs/smallVideo.mp4" isVideo />
@@ -30,7 +29,6 @@ export default function Videos() {
                                             Hypertension - causes, complications and cure
                                         </Text>
                                     </div>
-                                </Link>
                             </div>
                         </div>
                     <div className="xl:col-span-1">
@@ -40,7 +38,7 @@ export default function Videos() {
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
                                             <div className="h-full">
-                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo />
+                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo roundedLeft />
                                             </div>
 
                                         </div>
@@ -67,7 +65,7 @@ export default function Videos() {
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
                                             <div className="h-full">
-                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo />
+                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo roundedLeft />
                                             </div>
                                         </div>
                                         <div className="col-span-8">
@@ -93,7 +91,7 @@ export default function Videos() {
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
                                             <div className="h-full">
-                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo />
+                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo roundedLeft />
                                             </div>
                                         </div>
                                         <div className="col-span-8">
