@@ -2,9 +2,10 @@
 'use client'
 
 import { BlogService } from "@/service";
-import HeroSlider from "./sections/HeroSlider";
-import HeroTab from "./sections/HeroTab";
+import HeroSlider from "./sections/heroSlider";
+import HeroTab from "./sections/heroTab";
 import React, { useEffect, useState } from 'react';
+import Trending from "./sections/heroTab/trending";
 
 export default function Home() {
   const [blogsData, setBlogsData] = useState<any>("");
@@ -33,9 +34,7 @@ export default function Home() {
         <HeroSlider blogsData={blogsData} />
       </div>
       <HeroTab />
-
-     
-
+      <Trending />
     </div>
 
   );

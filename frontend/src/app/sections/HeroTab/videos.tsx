@@ -39,7 +39,7 @@ export default function Videos() {
                     </div>
                 <div className="xl:col-span-1">
                     <div className="flex flex-col gap-5 xl:gap-8">
-                        <Card className="border-none bg-gray-250 rounded">
+                        <Card className="border-none bg-gray-250 rounded  ">
                             <CardContent className="p-0">
                                 <div className="grid grid-cols-12">
                                     <div className="col-span-4">
@@ -70,7 +70,7 @@ export default function Videos() {
                             </CardContent>
                         </Card>
 
-                        <Card className="border-none bg-gray-250 rounded">
+                        <Card className="border-none bg-gray-250 rounded  ">
                             <CardContent className="p-0">
                                 <div className="grid grid-cols-12">
                                     <div className="col-span-4">

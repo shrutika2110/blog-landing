@@ -36,11 +36,9 @@ function BlogHeroSliderDetails(BlogSliders: any) {
 }
 
 export default function HeroSlider(blogsData:any) {
-
   if (blogsData) {
-   
     return (
-      <div className="animated fadeIn faster heroImgSlider mb-14 ">
+      <div className="mb-14 ">
         <div className="pb-4" id="slider-card">
           <Carousel
             slidesToShow={1}

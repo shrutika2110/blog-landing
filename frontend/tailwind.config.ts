@@ -139,6 +139,7 @@ module.exports = {
           DEFAULT: '#00B2ED',
           50: '#D9F3FC',
           100: '#EDFAFE',
+          150: '#5FA6BC',
           200: '#00B2ED',
           300: '#EDFAFE',
           400: '#004B74',
