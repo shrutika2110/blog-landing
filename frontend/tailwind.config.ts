@@ -31,6 +31,7 @@ module.exports = {
         display: ['Overpass'],
         regular: ['Overpass'],
         heading: ['Roboto'],
+        manrope: ['var(--font-manrope)'],
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -40,8 +41,7 @@ module.exports = {
         },
       }),
       lineHeight: {
-        relaxed: '27px',
-        minimum: '0',
+        'extra-tight': '30px',
       },
       colors: {
         primary: '#00B2ED',
@@ -71,7 +71,9 @@ module.exports = {
           50: '#374151',
           100: '#F1F2F6',
           200: '#B4BBC6',
+          250: '#EDEDED',
           300: '#E1E1E1',
+          350: '#919191',
           400: '#E6E6E6',
           500: '#878787',
           550: '#8B8B8B',
@@ -199,10 +201,18 @@ module.exports = {
         },
       },
       spacing: {
+        '4.5': '18px',
         '18.5': '74px',
         '120': '480px',
         '145': '580px'
       },
+      minHeight: {
+        '97.5': '390px'
+      },
+      maxWidth: {
+        '8/12': '66%'
+      },
+     
       animation: {
         'fadeIn-Slow': 'fadeIn 4s forwards',
         'fadeOut-Slow': 'fadeOut 4s forwards',
@@ -268,13 +278,13 @@ module.exports = {
             width: '100%',
           },
           '@screen lg': {
-            maxWidth: '768px',
+            maxWidth: '700px',
             marginLeft: 'auto',
             marginRight: 'auto',
             width: '100%',
           },
           '@screen xl': {
-            maxWidth: '1280px',
+            maxWidth: '1200px',
             marginLeft: 'auto',
             marginRight: 'auto',
             width: '100%',

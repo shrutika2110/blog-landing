@@ -3,8 +3,8 @@
 
 import { BlogService } from "@/service";
 import HeroSlider from "./sections/HeroSlider";
+import HeroTab from "./sections/HeroTab";
 import React, { useEffect, useState } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function Home() {
   const [blogsData, setBlogsData] = useState<any>("");
@@ -28,16 +28,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="container  min-h-120">
-      <HeroSlider blogsData={blogsData} />
-      <Tabs defaultValue="account" className="w-[400px]">
-        <TabsList>
-          <TabsTrigger value="account">Account</TabsTrigger>
-          <TabsTrigger value="password">Password</TabsTrigger>
-        </TabsList>
-        <TabsContent value="account">Make changes to your account here.</TabsContent>
-        <TabsContent value="password">Change your password here.</TabsContent>
-      </Tabs>
+    <div className="container  ">
+      <div className="min-h-120">
+        <HeroSlider blogsData={blogsData} />
+      </div>
+      <HeroTab />
+
+     
 
     </div>
 
