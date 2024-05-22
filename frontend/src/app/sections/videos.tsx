@@ -20,7 +20,7 @@ export default function Videos() {
                             <div className="relative h-full" >
                                     <div className="relative min-h-97.5 h-full rounded overflow-hidden  w-full  after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad">
                                             <div className="h-full">
-                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo />
+                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo isLarge />
                                             </div>
                                     </div>
 
