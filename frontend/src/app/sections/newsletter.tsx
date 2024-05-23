@@ -1,7 +1,7 @@
 'use client'
 import Heading from '@/components/composite/Heading';
 import Text from '@/components/composite/Text';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Image from "next/image"
 import { Input } from '@/components/ui/input';
@@ -12,7 +12,7 @@ import Modal from "@/components/utility/modal";
 export default function Newsletter() {
     
     const inputRef = useRef<any>(null);
-
+    const [isInputFocused, setIsInputFocused] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(true);
     
 
@@ -20,6 +20,21 @@ export default function Newsletter() {
         setIsModalVisible(false);
     };
 
+    useEffect(() => {
+        if (!isInputFocused) {
+            const timer = setTimeout(() => {
+                setIsModalVisible(false);
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [isInputFocused]);
+
+    const handleInputFocus = () => {
+        setIsInputFocused(true);
+    };
+
+    
   
     const newsletterContent = (
         <div className='container'>
@@ -42,7 +57,8 @@ export default function Newsletter() {
                             Subscribe to our Newsletter
                         </label>
                         <div className='relative'>
-                            <Input placeholder='Your email address' ref={inputRef} className='pr-14'></Input>
+                            <Input placeholder='Your email address' ref={inputRef} className='pr-14' onFocus={handleInputFocus}
+                               ></Input>
                             <Button className='absolute p-0 flex items-center justify-center top-1.5 right-1.5 bottom-1.5 !bg-primary h-7 w-9 rounded'>
                                 <IoSendSharp size="20" className='text-white' />
                             </Button>
