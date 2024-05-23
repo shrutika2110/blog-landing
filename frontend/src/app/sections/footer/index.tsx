@@ -31,12 +31,29 @@ export default function Footer() {
                         <Link href="/" className="text-sm lg:text-lg font-semibold">Privacy Policies</Link>
                     </div>
                     <div className="flex gap-10 my-10 justify-center">
-                        <FaGoogle size={48} />
-                        <FaFacebook size={48} />
-                        <FaInstagram size={48} />
-                        <FaYoutube size={48} />
-                        <FaLinkedin size={48} />  
-                        <FaXTwitter size={48} />
+                        <Link href="/">
+                            <FaGoogle size={48} />
+                        </Link>
+                        <Link href="/">
+                             <FaFacebook size={48} />
+                        </Link>
+
+                        <Link href="/">
+                            <FaInstagram size={48} />
+                        </Link>
+
+                        <Link href="/">
+                            <FaYoutube size={48} />
+                        </Link>
+
+                        <Link href="/">
+                            <FaLinkedin size={48} />
+                        </Link>
+
+                        <Link href="/">
+                            <FaXTwitter size={48} />
+                        </Link>
+
                     </div>
                     <Text className="lg:text-lg font-bold">
                         @ Kofuku Technologies
