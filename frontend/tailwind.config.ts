@@ -34,17 +34,13 @@ module.exports = {
         manrope: ['var(--font-manrope)'],
         rubik: ['var(--font-rubik)'],
       },
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            fontFamily: 'Overpass',
-          },
-        },
-      }),
       lineHeight: {
         '0.5': '2px',
         '7.5': '30px',
         '9.5': '38px',
+      },
+      zIndex: {
+        100 : 100
       },
       colors: {
         primary: '#00B2ED',
@@ -279,7 +275,7 @@ module.exports = {
   },
   plugins: [
 
-    function ({ addComponents }) {
+    function ({ addComponents }:any) {
       addComponents({
         '.container': {
           width: '100%',

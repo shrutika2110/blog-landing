@@ -1,6 +1,6 @@
 
-import HeroSlider from "./sections/heroSlider";
-import HeroTab from "./sections/heroTab";
+import HeroSlider from "./sections/HeroSlider";
+import HeroTab from "./sections/HeroTab";
 import Trending from "./sections/trending";
 import Videos from "./sections/videos";
 import BackToTop from "@/components/utility/backToTop";
