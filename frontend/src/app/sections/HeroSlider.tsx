@@ -19,7 +19,7 @@ function BlogHeroSliderDetails(BlogSliders: any) {
               }
               alt={data.attributes?.Title}
               fill={true}
-              objectFit="cover"
+              className='object-cover'
             />
           </div>
 

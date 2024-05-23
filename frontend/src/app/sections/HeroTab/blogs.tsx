@@ -41,7 +41,7 @@ export default function Blogs() {
                                     alt="Hypertension - causes, 
                                     complications and cure"
                                     fill={true}
-                                    objectFit="cover"
+                                    className='object-cover'
                                     />
                                 </div>
                                 <div className="absolute bottom-4.5 left-4.5 w-full">
