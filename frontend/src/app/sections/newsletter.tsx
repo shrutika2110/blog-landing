@@ -1,7 +1,7 @@
 'use client'
 import Heading from '@/components/composite/Heading';
 import Text from '@/components/composite/Text';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import Image from "next/image"
 import { Input } from '@/components/ui/input';
@@ -14,10 +14,7 @@ export default function Newsletter() {
     const inputRef = useRef<any>(null);
 
     const [isModalVisible, setIsModalVisible] = useState(true);
-
-    useEffect(() => {
-        inputRef?.current?.focus();
-    }, []);
+    
 
     const handleCloseModal = () => {
         setIsModalVisible(false);
@@ -30,9 +27,11 @@ export default function Newsletter() {
                 <div className='relative xl:h-109 xl:w-240 mx-auto'>
                     <Image src="/images/newsletterBg.svg" alt="Newsletter" fill={true}></Image>
                 </div>
-                <div className='absolute top-5 right-5 cursor-pointer text-offwhite-900 h-5 w-5 ' onClick={handleCloseModal}>
-                    <IoCloseOutline size={20} />
-                </div>
+                {isModalVisible &&
+                    <div className='absolute top-5 right-5 cursor-pointer text-offwhite-900 h-5 w-5 ' onClick={handleCloseModal}>
+                        <IoCloseOutline size={20} />
+                    </div>
+                }
                 <div className='xl:absolute z-10 top-35 left-105 right-65 '>
                     <Heading level={3} className='text-black-250 font-rubik lg:text-4xl font-bold xl:w-82 leading-9.5 mb-3'>Join the Kofuku family!</Heading>
                     <Text className='text-black lg:text-base'>
@@ -54,7 +53,17 @@ export default function Newsletter() {
         </div>
     );
 
-    return isModalVisible ? <Modal>{newsletterContent}</Modal> : newsletterContent;
+    return (
+        <>
+            {isModalVisible &&
+            ( <Modal>
+                    {newsletterContent}
+                </Modal>
+            )
+            }
+            {newsletterContent}
+        </>
+    );
 }
 
 
