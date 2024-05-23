@@ -76,7 +76,7 @@ function Carousel({
     slidesToShow: slidesToShow,
     slidesToScroll: slidesToScroll,
     autoplay: autoplay,
-    arrows: arrow ? arrow : true,
+    arrows: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     

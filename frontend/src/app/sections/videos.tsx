@@ -1,11 +1,7 @@
 
-import Image from "next/image";
 import Text from "@/components/composite/Text";
-
 import Heading from "@/components/composite/Heading";
-import { Card, CardBanner, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
-import { MdOutlineAccessTime } from "react-icons/md";
-import Link from "next/dist/client/link";
+import { Card, CardContent, CardDate, CardTime, CardTitle, CardVideo } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 
@@ -20,7 +16,7 @@ export default function Videos() {
                             <div className="relative h-full" >
                                     <div className="relative min-h-97.5 h-full rounded overflow-hidden  w-full  after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad">
                                             <div className="h-full">
-                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo isLarge />
+                                                <CardVideo src="/images/blogs/smallVideo.mp4" isLarge />
                                             </div>
                                     </div>
 
@@ -38,7 +34,7 @@ export default function Videos() {
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
                                             <div className="h-full">
-                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo roundedLeft />
+                                                <CardVideo src="/images/blogs/smallVideo.mp4"  roundedLeft />
                                             </div>
 
                                         </div>
@@ -49,10 +45,7 @@ export default function Videos() {
                                                 <div className="flex gap-3 items-center">
                                                      <CardDate>2 days ago</CardDate>
                                                     <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                    <div className="flex items-center gap-1 text-gray-350">
-                                                        <MdOutlineAccessTime />
-                                                        <CardTime>3 min</CardTime>
-                                                    </div>
+                                                    <CardTime>3 min</CardTime>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,7 +58,7 @@ export default function Videos() {
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
                                             <div className="h-full">
-                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo roundedLeft />
+                                                <CardVideo src="/images/blogs/smallVideo.mp4"  roundedLeft />
                                             </div>
                                         </div>
                                         <div className="col-span-8">
@@ -74,10 +67,7 @@ export default function Videos() {
                                                 <div className="flex gap-3 items-center">
                                                      <CardDate>2 days ago</CardDate>
                                                     <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                    <div className="flex items-center gap-1 text-gray-350">
-                                                        <MdOutlineAccessTime />
-                                                        <CardTime>3 min</CardTime>
-                                                    </div>
+                                                    <CardTime>3 min</CardTime>
                                                 </div>
                                             </div>
                                         </div>
@@ -91,7 +81,7 @@ export default function Videos() {
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
                                             <div className="h-full">
-                                                <CardBanner src="/images/blogs/smallVideo.mp4" isVideo roundedLeft />
+                                                <CardVideo src="/images/blogs/smallVideo.mp4"  roundedLeft />
                                             </div>
                                         </div>
                                         <div className="col-span-8">
@@ -100,10 +90,7 @@ export default function Videos() {
                                                 <div className="flex gap-3 items-center">
                                                      <CardDate>2 days ago</CardDate>
                                                     <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                    <div className="flex items-center gap-1 text-gray-350">
-                                                        <MdOutlineAccessTime />
-                                                        <CardTime>3 min</CardTime>
-                                                    </div>
+                                                    <CardTime>3 min</CardTime>
                                                 </div>
                                             </div>
                                         </div>
@@ -118,7 +105,7 @@ export default function Videos() {
                        <Card className="border-none bg-gray-250 rounded  ">
                             <CardContent className="p-0">
                                     <div className="h-48">
-                                        <CardBanner src="/images/blogs/smallVideo.mp4" isVideo />
+                                        <CardVideo src="/images/blogs/smallVideo.mp4"  />
                                     </div>
                                     <div >
                                         <div className="p-3 xl:p-5">
@@ -126,10 +113,7 @@ export default function Videos() {
                                             <div className="flex gap-3 items-center">
                                                  <CardDate>2 days ago</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                <div className="flex items-center gap-1 text-gray-350">
-                                                    <MdOutlineAccessTime />
-                                                    <CardTime>3 min</CardTime>
-                                                </div>
+                                                <CardTime>3 min</CardTime>
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +122,7 @@ export default function Videos() {
                        <Card className="border-none bg-gray-250 rounded  ">
                             <CardContent className="p-0">
                                     <div className="h-48">
-                                        <CardBanner src="/images/blogs/smallVideo.mp4" isVideo />
+                                        <CardVideo src="/images/blogs/smallVideo.mp4"  />
                                     </div>
                                     <div >
                                         <div className="p-3 xl:p-5">
@@ -146,10 +130,8 @@ export default function Videos() {
                                             <div className="flex gap-3 items-center">
                                                  <CardDate>2 days ago</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                <div className="flex items-center gap-1 text-gray-350">
-                                                    <MdOutlineAccessTime />
-                                                    <CardTime>3 min</CardTime>
-                                                </div>
+                                                <CardTime>3 min</CardTime>
+
                                             </div>
                                         </div>
                                     </div>
@@ -158,7 +140,7 @@ export default function Videos() {
                        <Card className="border-none bg-gray-250 rounded  ">
                             <CardContent className="p-0">
                                     <div className="h-48">
-                                        <CardBanner src="/images/blogs/smallVideo.mp4" isVideo />
+                                        <CardVideo src="/images/blogs/smallVideo.mp4"  />
                                     </div>
                                     <div >
                                         <div className="p-3 xl:p-5">
@@ -166,10 +148,8 @@ export default function Videos() {
                                             <div className="flex gap-3 items-center">
                                                  <CardDate>2 days ago</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                <div className="flex items-center gap-1 text-gray-350">
-                                                    <MdOutlineAccessTime />
-                                                    <CardTime>3 min</CardTime>
-                                                </div>
+                                                <CardTime>3 min</CardTime>
+
                                             </div>
                                         </div>
                                     </div>

@@ -6,7 +6,6 @@ import Image from "next/image";
 
 function BlogHeroSliderDetails(BlogSliders: any) {
   const sliderList = BlogSliders.blogsData;
-
   let filteredBlogs = sliderList.slice(0, 6);
 
   return filteredBlogs && filteredBlogs.map((data: any) => {
@@ -43,7 +42,7 @@ export default function HeroSlider(blogsData:any) {
           <Carousel
             slidesToShow={1}
             slidesToScroll={1}
-            arrow={true}
+            arrows={false}
             dots={true}
             mdSlidesToShow={1}
             smSlidesToShow={1}

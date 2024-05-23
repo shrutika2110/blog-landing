@@ -1,9 +1,7 @@
 import Heading from "@/components/composite/Heading";
 import Text from "@/components/composite/Text";
-import Link from "next/link";
 import Image from "next/image";
 import { Card, CardBanner, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
-import { MdOutlineAccessTime } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 
 
@@ -47,10 +45,8 @@ export default function Blogs() {
                                             <div className="flex gap-3 items-center">
                                                  <CardDate>2 days ago</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                <div className="flex items-center gap-1 text-gray-350">
-                                                    <MdOutlineAccessTime />
-                                                    <CardTime>3 min</CardTime>
-                                                </div>
+                                                <CardTime>3 min</CardTime>
+
                                             </div>
                                         </div>
                                     </div>
@@ -71,10 +67,8 @@ export default function Blogs() {
                                             <div className="flex gap-3 items-center">
                                                  <CardDate>2 days ago</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                <div className="flex items-center gap-1 text-gray-350">
-                                                    <MdOutlineAccessTime />
-                                                    <CardTime>3 min</CardTime>
-                                                </div>
+                                                <CardTime>3 min</CardTime>
+
                                             </div>
                                         </div>
                                     </div>
@@ -95,10 +89,8 @@ export default function Blogs() {
                                             <div className="flex gap-3 items-center">
                                                  <CardDate>2 days ago</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                <div className="flex items-center gap-1 text-gray-350">
-                                                    <MdOutlineAccessTime />
-                                                    <CardTime>3 min</CardTime>
-                                                </div>
+                                                <CardTime>3 min</CardTime>
+
                                             </div>
                                         </div>
                                     </div>

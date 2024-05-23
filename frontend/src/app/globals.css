@@ -17,3 +17,10 @@ div .slick-dots li.slick-active   button:before {
 div .slick-dots li button:before {
      @apply text-white-200 opacity-100 text-sm;
 }
+div .slick-prev, div .slick-next {
+    @apply h-7 w-7;
+}
+div .slick-prev:before, div .slick-next:before {
+    @apply text-primary text-4xl;
+
+}
