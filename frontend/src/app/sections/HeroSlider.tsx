@@ -6,7 +6,7 @@ import Image from "next/image";
 
 function BlogHeroSliderDetails(BlogSliders: any) {
   const sliderList = BlogSliders.blogsData;
-  let filteredBlogs = sliderList.slice(0, 6);
+  let filteredBlogs = sliderList.slice(0, 3);
 
   return filteredBlogs && filteredBlogs.map((data: any) => {
     return (

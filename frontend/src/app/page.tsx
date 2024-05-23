@@ -1,39 +1,31 @@
 
-'use client'
-
 import { BlogService } from "@/service";
 import HeroSlider from "./sections/heroSlider";
 import HeroTab from "./sections/heroTab";
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Trending from "./sections/trending";
 import Videos from "./sections/videos";
 import BackToTop from "@/components/utility/backToTop";
 import Newsletter from "./sections/newsletter";
 
-export default function Home() {
-  const [blogsData, setBlogsData] = useState<any>("");
+async function fetchBlogData() {
+  try {
+    const { data } = await BlogService();
+    const content = data.blogs.data;
+    return content
+  }
+  catch (e: any) {
+    console.log("error:\n", e.message);
+  }
+}
 
-  let blogsCategories;
+export default async function Home() {
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await BlogService();
-
-        const content = data.blogs.data;
-        blogsCategories = content;
-        setBlogsData(content);
-
-      } catch (error) {
-        console.log('error');
-      }
-    };
-    fetchData();
-  }, []);
+  const blogsData = await fetchBlogData();
 
   return (
     <div className="container relative ">
-      <div className="min-h-120">
+      <div className="min-h-140">
         <HeroSlider blogsData={blogsData} />
       </div>
       <HeroTab />

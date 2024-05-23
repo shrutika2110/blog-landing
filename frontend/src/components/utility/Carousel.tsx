@@ -57,14 +57,9 @@ function Carousel({
   children,
   slidesToShow,
   slidesToScroll,
-  initialSlide,
   smSlidesToShow,
   mdSlidesToShow,
-  arrow,
-  dots,
-  fade,
   autoplay,
-  infinite,
 }: any) {
   const [activeSlide, setActiveSlide] = useState(0);
 
