@@ -1,5 +1,5 @@
 import Heading from '@/components/composite/Heading';
-import Carousel from '@/components/utility/Carousel';
+import Carousel from '@/components/utility/carousel';
 import Link from 'next/link';
 import Image from "next/image";
 

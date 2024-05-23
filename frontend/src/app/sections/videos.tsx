@@ -6,6 +6,16 @@ import { Button } from "@/components/ui/button";
 
 
 export default function Videos() {
+    const videos = [
+        { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
+        { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
+        { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
+    ];
+    const otherVideos = [
+        { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
+        { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
+        { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
+    ];
     return (
             <div className="mb-5 mt-7 pt-10 border-t border-offwhite-700">
                 <Heading level={3} className="text-primary md:text-base xl:text-2xl font-extrabold">
@@ -21,7 +31,7 @@ export default function Videos() {
                                     </div>
 
                                     <div className="absolute bottom-4.5 left-4.5 w-full">
-                                        <Text className="text-white font-extrabold md:text-2xl xl:text-4xl xl:max-w-8/12 leading-extra-tight">
+                                        <Text className="text-white font-extrabold md:text-2xl xl:text-4xl xl:max-w-8/12 leading-7.5">
                                             Hypertension - causes, complications and cure
                                         </Text>
                                     </div>
@@ -29,132 +39,55 @@ export default function Videos() {
                         </div>
                     <div className="xl:col-span-1">
                         <div className="flex flex-col gap-5 xl:gap-8">
-                            <Card className="border-none bg-gray-250 rounded  ">
+                        {videos.map((video, index) => (
+                            <Card key={index}  >
                                 <CardContent className="p-0">
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
                                             <div className="h-full">
-                                                <CardVideo src="/images/blogs/smallVideo.mp4"  roundedLeft />
-                                            </div>
-
-                                        </div>
-                                       
-                                        <div className="col-span-8">
-                                            <div className="p-3 xl:p-5">
-                                                <CardTitle>Hypertension- causes, complications and cure space for longer text</CardTitle>
-                                                <div className="flex gap-3 items-center">
-                                                     <CardDate>2 days ago</CardDate>
-                                                    <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                    <CardTime>3 min</CardTime>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-
-                            <Card className="border-none bg-gray-250 rounded  ">
-                                <CardContent className="p-0">
-                                    <div className="grid grid-cols-12">
-                                        <div className="col-span-4">
-                                            <div className="h-full">
-                                                <CardVideo src="/images/blogs/smallVideo.mp4"  roundedLeft />
+                                                <CardVideo src={video.src} roundedLeft />
                                             </div>
                                         </div>
                                         <div className="col-span-8">
                                             <div className="p-5">
-                                                 <CardTitle>Hypertension- causes, complications and cure space for longer text</CardTitle>
+                                                <CardTitle>{video.title}</CardTitle>
                                                 <div className="flex gap-3 items-center">
-                                                     <CardDate>2 days ago</CardDate>
+                                                    <CardDate>{video.date}</CardDate>
                                                     <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                    <CardTime>3 min</CardTime>
+                                                    <CardTime>{video.time}</CardTime>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </CardContent>
                             </Card>
-
-
-                            <Card className="border-none bg-gray-250 rounded">
-                                <CardContent className="p-0">
-                                    <div className="grid grid-cols-12">
-                                        <div className="col-span-4">
-                                            <div className="h-full">
-                                                <CardVideo src="/images/blogs/smallVideo.mp4"  roundedLeft />
-                                            </div>
-                                        </div>
-                                        <div className="col-span-8">
-                                            <div className="p-5">
-                                                 <CardTitle>Hypertension- causes, complications and cure space for longer text</CardTitle>
-                                                <div className="flex gap-3 items-center">
-                                                     <CardDate>2 days ago</CardDate>
-                                                    <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                    <CardTime>3 min</CardTime>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                        ))}
                         </div>
                     </div>
 
                 </div>
                 <div className="grid lg:grid-cols-3 gap-5 my-5">
-                       <Card className="border-none bg-gray-250 rounded  ">
-                            <CardContent className="p-0">
-                                    <div className="h-48">
-                                        <CardVideo src="/images/blogs/smallVideo.mp4"  />
-                                    </div>
-                                    <div >
-                                        <div className="p-3 xl:p-5">
-                                             <CardTitle>Hypertension- causes, complications and cure space for longer text</CardTitle>
-                                            <div className="flex gap-3 items-center">
-                                                 <CardDate>2 days ago</CardDate>
-                                                <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                <CardTime>3 min</CardTime>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </CardContent>
-                       </Card>
-                       <Card className="border-none bg-gray-250 rounded  ">
-                            <CardContent className="p-0">
-                                    <div className="h-48">
-                                        <CardVideo src="/images/blogs/smallVideo.mp4"  />
-                                    </div>
-                                    <div >
-                                        <div className="p-3 xl:p-5">
-                                             <CardTitle>Hypertension- causes, complications and cure space for longer text</CardTitle>
-                                            <div className="flex gap-3 items-center">
-                                                 <CardDate>2 days ago</CardDate>
-                                                <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                <CardTime>3 min</CardTime>
+                        {otherVideos.map((video, index) => (
 
+                            <Card className="border-none bg-gray-250 rounded  ">
+                                    <CardContent className="p-0">
+                                            <div className="h-48">
+                                                <CardVideo src="/images/blogs/smallVideo.mp4"  />
                                             </div>
-                                        </div>
-                                    </div>
-                            </CardContent>
-                       </Card>
-                       <Card className="border-none bg-gray-250 rounded  ">
-                            <CardContent className="p-0">
-                                    <div className="h-48">
-                                        <CardVideo src="/images/blogs/smallVideo.mp4"  />
-                                    </div>
-                                    <div >
-                                        <div className="p-3 xl:p-5">
-                                             <CardTitle>Hypertension- causes, complications and cure space for longer text</CardTitle>
-                                            <div className="flex gap-3 items-center">
-                                                 <CardDate>2 days ago</CardDate>
-                                                <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                <CardTime>3 min</CardTime>
-
+                                            <div >
+                                                <div className="p-3 xl:p-5">
+                                                    <CardTitle>Hypertension- causes, complications and cure space for longer text</CardTitle>
+                                                    <div className="flex gap-3 items-center">
+                                                        <CardDate>2 days ago</CardDate>
+                                                        <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
+                                                        <CardTime>3 min</CardTime>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                            </CardContent>
-                       </Card>
+                                    </CardContent>
+                            </Card>
+                        ))}
+                      
                 </div>
                 <div className="flex items-end justify-end">
                     <Button variant="outline">

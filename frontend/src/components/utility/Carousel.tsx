@@ -69,9 +69,9 @@ function Carousel({
   const [activeSlide, setActiveSlide] = useState(0);
 
   const settings = {
-    dots: dots ? dots : false,
+    dots: true,
     fade: false,
-    infinite: infinite ? infinite : false,
+    infinite:false,
     speed: 500,
     slidesToShow: slidesToShow,
     slidesToScroll: slidesToScroll,
@@ -90,8 +90,6 @@ function Carousel({
         settings: {
           slidesToShow: mdSlidesToShow,
           slidesToScroll: slidesToScroll,
-          infinite: infinite ? infinite : false,
-          arrows: arrow ? arrow : true,
         },
       },
       {
@@ -100,8 +98,6 @@ function Carousel({
           slidesToShow: smSlidesToShow,
           slidesToScroll: 1,
           initialSlide: 1,
-          infinite: infinite ? infinite : false,
-          arrows: arrow ? arrow : true,
           swipeToSlide: true,
         },
       },
@@ -110,9 +106,6 @@ function Carousel({
         settings: {
           slidesToShow: smSlidesToShow,
           slidesToScroll: 1,
-          infinite: infinite ? infinite : false,
-          arrows: arrow ? arrow : true,
-          fade: fade ? false : true,
         },
       },
     ],

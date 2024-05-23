@@ -9,7 +9,7 @@ export default function Footer() {
     return (
         <footer className="bg-blue-400 p-5 xl:p-16 mt-20 text-white">
             <div className="container ">
-                <div className="max-w-[696px] mx-auto text-center">
+                <div className="max-w-174 mx-auto text-center">
                     <div className="relative w-18.5 h-5 lg:h-12 lg:w-44 mx-auto">
                         <Image src="/images/logoWhite.svg" alt="logo" fill={true} />
                     </div>
