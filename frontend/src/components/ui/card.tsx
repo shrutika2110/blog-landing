@@ -1,5 +1,5 @@
 import * as React from "react"
-
+import { useState, useRef } from "react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 
@@ -28,38 +28,60 @@ interface CardBannerProps extends React.HTMLAttributes<HTMLDivElement> {
     title?: string;
 }
 const CardBanner = React.forwardRef<HTMLDivElement, CardBannerProps>(
-    ({ className, src, isVideo, isLarge, title, bgColor = "#fff", roundedLeft = false }, ref) => (
-        isVideo ? 
-        <>
-        {(src as any) ? (
-            <div className="relative h-full">
-                <video muted preload="auto" className={`${className} relative object-cover h-full w-full overflow-hidden ${roundedLeft ? "rounded-l" : "rounded-t" }`} >
-                    <source src={src as any} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-                <div className={` absolute bottom-4 right-4 z-30 cursor-pointer ${isLarge ? "h-20 w-20" : "h-8 w-8" }`}>
-                    <Image src="/images/play.svg" alt="Play" fill={true}></Image>
-                </div>
+    ({ className, src, isVideo, isLarge, title, bgColor = "#fff", roundedLeft = false }, ref) => {
+        const videoRef = useRef<HTMLVideoElement>(null);
+        const [isPlaying, setIsPlaying] = useState(false);
+
+        const togglePlayPause = () => {
+            if (videoRef.current) {
+                if (isPlaying) {
+                    videoRef.current.pause();
+                } else {
+                    videoRef.current.play();
+                }
+                setIsPlaying(!isPlaying);
+            }
+        };
+
+        return isVideo ? (
+            <>
+                {src ? (
+                    <div className="relative h-full">
+                        <video
+                            ref={videoRef}
+                            muted
+                            preload="auto"
+                            className={`${className} relative object-cover h-full w-full overflow-hidden ${roundedLeft ? "rounded-l" : "rounded-t"}`}
+                        >
+                            <source src={src} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <div
+                            className={`absolute bottom-4 right-4 z-30 cursor-pointer playVideo ${isLarge ? "h-20 w-20" : "h-8 w-8"}`}
+                            onClick={togglePlayPause}
+                        >
+                            <Image src="/images/play.svg" alt="Play" fill={true}></Image>
+                        </div>
+                    </div>
+                ) : null}
+            </>
+        ) : (
+            <div
+                className={`${className} relative h-full w-full overflow-hidden ${roundedLeft ? "rounded-l" : "rounded-t"}`}
+                ref={ref}
+                style={{ backgroundColor: bgColor }}
+            >
+                {src ? (
+                    <Image
+                        src={src}
+                        alt={title ?? ""}
+                        fill={true}
+                        className={`object-cover `}
+                    />
+                ) : null}
             </div>
-        ) : null}
-        </>
-     : 
-        <div
-            className={`${className} relative h-full w-full overflow-hidden ${roundedLeft ? "rounded-l" : "rounded-t" }`}
-            ref={ref}
-            style={{ backgroundColor: bgColor }}
-        >
-            {(src as any) ? (
-                <Image
-                    src={src as any}
-                    alt={title ?? ""}
-                    fill={true}
-                    className={`object-cover `}
-                />
-            ) : null}
-        </div>
-        
-    )
+        );
+    }
 );
 CardBanner.displayName = "CardBanner";
 
