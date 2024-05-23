@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useRef, useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import Slider from 'react-slick';

@@ -1,12 +1,11 @@
 
-import { BlogService } from "@/service";
 import HeroSlider from "./sections/heroSlider";
 import HeroTab from "./sections/heroTab";
-import React from 'react';
 import Trending from "./sections/trending";
 import Videos from "./sections/videos";
 import BackToTop from "@/components/utility/backToTop";
 import Newsletter from "./sections/newsletter";
+import { BlogService } from "@/service";
 
 async function fetchBlogData() {
   try {
@@ -32,7 +31,7 @@ export default async function Home() {
       <Trending />
       <Videos />
       <Newsletter />
-      <BackToTop />
+      <BackToTop /> 
     </div>
 
   );

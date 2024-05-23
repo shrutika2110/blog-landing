@@ -1,4 +1,4 @@
-
+'use client'
 import Heading from "@/components/composite/Heading";
 import { Card, CardBanner, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import Slider from "react-slick";

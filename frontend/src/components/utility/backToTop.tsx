@@ -1,4 +1,5 @@
 
+'use client'
 import { IoIosArrowRoundUp } from "react-icons/io";
 
 export default function BackToTop() {

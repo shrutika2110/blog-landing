@@ -1,12 +1,9 @@
 import Heading from '@/components/composite/Heading';
 import Text from '@/components/composite/Text';
-import Link from 'next/link';
 import Image from "next/image"
 import { Input } from '@/components/ui/input';
 import { IoSendSharp } from 'react-icons/io5';
 import { Button } from '@/components/ui/button';
-
-
 
 export default function Newsletter() {
     return(
