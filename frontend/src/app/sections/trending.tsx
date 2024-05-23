@@ -79,7 +79,7 @@ export default function Trending() {
                 <div className="my-5">
                 <Slider {...settings}>
                     {cardData.map((card, index) => (
-                        <Card key={index} className="">
+                        <Card key={index} >
                             <CardContent className="p-0">
                                 <div className="h-48">
                                     <CardBanner src={card.src}></CardBanner>

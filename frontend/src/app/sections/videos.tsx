@@ -68,19 +68,18 @@ export default function Videos() {
                 </div>
                 <div className="grid lg:grid-cols-3 gap-5 my-5">
                         {otherVideos.map((video, index) => (
-
-                            <Card className="border-none bg-gray-250 rounded  ">
+                            <Card className="border-none bg-gray-250 rounded " key={index}>
                                     <CardContent className="p-0">
                                             <div className="h-48">
                                                 <CardVideo src="/images/blogs/smallVideo.mp4"  />
                                             </div>
                                             <div >
                                                 <div className="p-3 xl:p-5">
-                                                    <CardTitle>Hypertension- causes, complications and cure space for longer text</CardTitle>
+                                                    <CardTitle>{video.title}</CardTitle>
                                                     <div className="flex gap-3 items-center">
-                                                        <CardDate>2 days ago</CardDate>
+                                                        <CardDate>{video.date}</CardDate>
                                                         <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                        <CardTime>3 min</CardTime>
+                                                        <CardTime>{video.time}</CardTime>
                                                     </div>
                                                 </div>
                                             </div>
