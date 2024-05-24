@@ -40,7 +40,7 @@ module.exports = {
         '9.5': '38px',
       },
       zIndex: {
-        100 : 100
+        100: 100
       },
       colors: {
         primary: '#00B2ED',
@@ -218,7 +218,9 @@ module.exports = {
         '140': '560px',
         '145': '580px',
         '174': '696px',
-        '240': '960px'
+        '240': '960px',
+        '200': '50rem' //800px
+
       },
       minHeight: {
         '97.5': '390px'
@@ -226,11 +228,11 @@ module.exports = {
       maxWidth: {
         '8/12': '66%'
       },
-      shadow : {
-       '2xl': 'box-shadow: 0px 8px 20px 0px #0000001A',
+      shadow: {
+        '2xl': 'box-shadow: 0px 8px 20px 0px #0000001A',
 
       },
-     
+
       animation: {
         'fadeIn-Slow': 'fadeIn 4s forwards',
         'fadeOut-Slow': 'fadeOut 4s forwards',
@@ -276,7 +278,7 @@ module.exports = {
   },
   plugins: [
 
-    function ({ addComponents }:any) {
+    function ({ addComponents }: any) {
       addComponents({
         '.container': {
           width: '100%',
