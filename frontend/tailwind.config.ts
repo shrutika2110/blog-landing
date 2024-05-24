@@ -70,6 +70,7 @@ module.exports = {
           DEFAULT: '#FCFBF9',
           50: '#374151',
           100: '#F1F2F6',
+          150: '#ABABAB',
           200: '#B4BBC6',
           250: '#EDEDED',
           300: '#E1E1E1',
@@ -226,6 +227,9 @@ module.exports = {
       maxWidth: {
         '8/12': '66%'
       },
+      borderRadius: {
+        '1.75': '7px'
+      },
       shadow : {
        '2xl': 'box-shadow: 0px 8px 20px 0px #0000001A',
 
@@ -251,7 +255,8 @@ module.exports = {
         flickerHide: 'hideContent .1s forwards 1s',
       },
       backgroundImage: {
-        'black-grad': 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 64.36%, rgba(0, 0, 0, 0.60) 100%, lightgray 50%)'
+        'black-grad': 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 64.36%, rgba(0, 0, 0, 0.60) 100%, lightgray 50%)',
+        'search-grad' :'linear-gradient(90deg, #00B2ED 0%, rgba(0, 178, 237, 0) 100%)'
       },
       screens: {
         sm: '360px',
