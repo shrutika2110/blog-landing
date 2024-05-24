@@ -17,7 +17,7 @@ export default function Videos() {
         { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
     ];
     return (
-            <div className="mt-7 pt-10 border-t border-offwhite-700 border-b  pb-4 mb-10">
+            <div className="mt-7 pt-5 border-t border-offwhite-700 border-b  pb-4 mb-10" id="videos">
                 <Heading level={3} className="text-primary md:text-base xl:text-2xl font-extrabold">
                     Videos
                 </Heading>

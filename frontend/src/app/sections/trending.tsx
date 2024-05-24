@@ -12,33 +12,6 @@ interface Props {
 
 export default function Trending({blogsData}: Props) {
 
-    const settings = {
-        dots: false,
-        arrows: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 800,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    };
-
     const trendingBlogs = blogsData
           .filter((data: any) => data?.attributes?.trending)
           .sort(
@@ -74,7 +47,7 @@ export default function Trending({blogsData}: Props) {
                                     </div>
                                     <div>
                                         <div className="p-3 xl:p-5">
-                                            <CardTitle className="h-10 max-h-10 line-clamp-2">{card?.attributes?.Title}</CardTitle>
+                                            <CardTitle>{card?.attributes?.Title}</CardTitle>
                                             <div className="flex gap-3 items-center">
                                                 <CardDate>{dateFormate(card?.attributes?.publish_date)}</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>

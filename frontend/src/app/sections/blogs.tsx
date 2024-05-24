@@ -3,32 +3,27 @@ import Text from "@/components/composite/Text";
 import Image from "next/image";
 import { Card, CardBanner, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { dateFormate } from "@/lib/helpers";
+import extractAndCalculateReadTime from "@/components/utility/calculateReadTime";
 
-const blogData = [
-    {
-        imageUrl: "/images/blogs/blog2.svg",
-        title: "Hypertension - causes, complications and cure space for longer text",
-        date: "2 days ago",
-        time: "3 min"
-    },
-    {
-        imageUrl: "/images/blogs/blog2.svg",
-        title: "Hypertension - causes, complications and cure space for longer text",
-        date: "2 days ago",
-        time: "3 min"
-    },
-    {
-        imageUrl: "/images/blogs/blog2.svg",
-        title: "Hypertension - causes, complications and cure space for longer text",
-        date: "2 days ago",
-        time: "3 min"
-    }
-];
+interface Props {
+    blogsData?: any;
+}
 
-export default function Blogs() {
+export default function Blogs({blogsData}: any) {
+
+    // For now added good read as filter , after confirmation from client will change it
+    
+    const otherBlogs = blogsData &&
+    blogsData
+      .filter((data: any) => data?.attributes?.good_read)
+      .sort(
+        (a: any, b: any) => b.attributes.views - a.attributes.views,
+      )
+      .slice(0, 3)
 
     return (
-        <>
+        <div className="pt-5 mt-3" id="blogs">
             <Heading level={3} className="text-primary md:text-base xl:text-2xl font-extrabold">
                 Blogs
             </Heading>
@@ -53,20 +48,20 @@ export default function Blogs() {
                     </div>
                 <div className="xl:col-span-1">
                     <div className="flex flex-col gap-5 xl:gap-8">
-                        {blogData.map((blog, index) => (
+                        {otherBlogs && otherBlogs.map((blog:any, index:any) => (
                             <Card key={index}  >
                                 <CardContent className="p-0">
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
-                                            <CardBanner src={blog.imageUrl} roundedLeft></CardBanner>
+                                            <CardBanner src={blog?.attributes?.coverImg?.data?.attributes?.url} roundedLeft></CardBanner>
                                         </div>
                                         <div className="col-span-8">
                                             <div className="p-3 xl:p-5">
-                                                <CardTitle>{blog.title}</CardTitle>
+                                                <CardTitle>{blog?.attributes?.Title}</CardTitle>
                                                 <div className="flex gap-3 items-center">
-                                                    <CardDate>{blog.date}</CardDate>
+                                                    <CardDate>{dateFormate(blog?.attributes?.publish_date)}</CardDate>
                                                     <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                    <CardTime>{blog.time}</CardTime>
+                                                    <CardTime>{extractAndCalculateReadTime(blog)}</CardTime>
                                                 </div>
                                             </div>
                                         </div>
@@ -84,6 +79,6 @@ export default function Blogs() {
                     See all
                 </Button>
             </div>
-        </>
+        </div>
     );
 };

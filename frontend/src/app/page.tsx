@@ -6,6 +6,7 @@ import BackToTop from "@/components/utility/backToTop";
 import { BlogService } from "@/service";
 import HeroSlider from "./sections/HeroSlider";
 import Newsletter from "./sections/newsletter";
+import Blogs from "./sections/blogs";
 
 async function fetchBlogData() {
   try {
@@ -28,6 +29,7 @@ export default async function Home() {
         <HeroSlider blogsData={blogsData} />
       </div>
       <HeroTab />
+      <Blogs blogsData={blogsData} />
       <Trending blogsData={blogsData} />
       <Videos />
       <Newsletter />
