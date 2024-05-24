@@ -37,7 +37,7 @@ export default function Videos() {
                             <div className="relative h-full" >
                                     <div className="relative min-h-97.5 h-full rounded overflow-hidden  w-full  after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad">
                                             <div className="h-full">
-                                                <CardVideo src="/images/blogs/smallVideo.mp4"  isLarge />
+                                                <CardVideo src="/images/blogs/smallVideo.mp4"  isLarge autoplay loop />
                                             </div>
                                     </div>
 
@@ -50,7 +50,7 @@ export default function Videos() {
                         </div>
                     <div className="xl:col-span-1">
                         <div className="flex flex-col gap-5 xl:gap-8">
-                        {videoData.slice(1).map((video, index) => (
+                        {videoData.map((video, index) => (
                             <Card key={index}  >
                                 <CardContent className="p-0">
                                     <div className="grid grid-cols-12">
