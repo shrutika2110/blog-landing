@@ -8,33 +8,45 @@ import { Input } from '@/components/ui/input';
 import { IoCloseOutline, IoSendSharp } from 'react-icons/io5';
 import { Button } from '@/components/ui/button';
 import Modal from "@/components/utility/modal";
+import { setCookie, getCookie } from 'cookies-next';
 
 export default function Newsletter() {
     
     const inputRef = useRef<any>(null);
     const [isInputFocused, setIsInputFocused] = useState(false);
-    const [isModalVisible, setIsModalVisible] = useState(true);
-    
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
     const handleCloseModal = () => {
         setIsModalVisible(false);
     };
 
     useEffect(() => {
-        if (!isInputFocused) {
+        const isSubscribedCookie = getCookie('isSubscribed');
+        if (isSubscribedCookie === 'true') {
+            setIsModalVisible(false);
+        } else {
+            setIsModalVisible(true);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (!isInputFocused && isModalVisible) {
             const timer = setTimeout(() => {
                 setIsModalVisible(false);
             }, 3000);
 
             return () => clearTimeout(timer);
         }
-    }, [isInputFocused]);
+    }, [isInputFocused, isModalVisible]);
 
     const handleInputFocus = () => {
         setIsInputFocused(true);
     };
 
-    
+   const handleClick = () => {
+        setCookie('isSubscribed', 'true');
+        setIsModalVisible(false);
+    };
   
     const newsletterContent = (
         <div className='container'>
@@ -57,9 +69,9 @@ export default function Newsletter() {
                             Subscribe to our Newsletter
                         </label>
                         <div className='relative'>
-                            <Input placeholder='Your email address' ref={inputRef} className='pr-14' onFocus={handleInputFocus}
+                            <Input placeholder='Your email address' ref={inputRef} className='pr-14' onFocus={handleInputFocus} 
                                ></Input>
-                            <Button className='absolute p-0 flex items-center justify-center top-1.5 right-1.5 bottom-1.5 !bg-primary h-7 w-9 rounded'>
+                            <Button onClick={handleClick} className='absolute p-0 flex items-center justify-center top-1.5 right-1.5 bottom-1.5 !bg-primary h-7 w-9 rounded'>
                                 <IoSendSharp size="20" className='text-white' />
                             </Button>
                         </div>
