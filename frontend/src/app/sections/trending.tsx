@@ -46,7 +46,6 @@ export default function Trending({blogsData}: Props) {
               new Date(a.attributes?.publish_date).getTime(),
           )
 
-          console.log('trendingBlogs', trendingBlogs);
 
     return (
             <div className="my-5">
