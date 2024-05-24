@@ -60,9 +60,11 @@ interface CardVideoProps extends React.HTMLAttributes<HTMLDivElement> {
     bgColor?: string;
     src?: string;
     title?: string;
+    autoplay?: boolean;
+    loop?: boolean;
 }
 const CardVideo = React.forwardRef<HTMLDivElement, CardVideoProps>(
-    ({ className, src, isLarge, title, bgColor = "#fff", roundedLeft = false }, ref) => {
+    ({ className, src, isLarge, autoplay, loop, bgColor = "#fff", roundedLeft = false }, ref) => {
       const videoRef = useRef<HTMLVideoElement>(null);
       const [isPlaying, setIsPlaying] = useState(false);
   
@@ -84,6 +86,8 @@ const CardVideo = React.forwardRef<HTMLDivElement, CardVideoProps>(
               <video
                 ref={videoRef}
                 muted
+                autoPlay={autoplay}
+                loop={loop}
                 preload="auto"
                 className={`relative object-cover h-full w-full overflow-hidden ${roundedLeft ? "rounded-l" : "rounded-t"}`}
               >
