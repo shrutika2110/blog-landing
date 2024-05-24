@@ -13,7 +13,7 @@ export default function HeroTab() {
                     <TabsTrigger value="blogs">Blogs</TabsTrigger>
                     <TabsTrigger value="videos">Videos</TabsTrigger>
                     <div className="text-sm lg:text-2xl font-bold px-7 py-1 text-black-200">
-                        <Link href="https://kofuku.com/" target="_blank">
+                        <Link href="https://www.kofuku.com/" target="_blank">
                             About us
                         </Link>
                     </div>
