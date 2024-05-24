@@ -1,11 +1,11 @@
 
-import HeroSlider from "./sections/HeroSlider";
 import HeroTab from "./sections/HeroTab";
 import Trending from "./sections/trending";
 import Videos from "./sections/videos";
 import BackToTop from "@/components/utility/backToTop";
 import Newsletter from "./sections/newsletter";
 import { BlogService } from "@/service";
+import HeroSlider from "./sections/HeroSlider";
 
 async function fetchBlogData() {
   try {
