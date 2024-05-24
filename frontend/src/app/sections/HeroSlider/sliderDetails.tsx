@@ -2,7 +2,7 @@ import Heading from '@/components/composite/Heading';
 import Link from 'next/link';
 import Image from "next/image";
 
-type SliderProps = {
+interface SliderProps {
     BlogSliders ?: any;
 }
 
