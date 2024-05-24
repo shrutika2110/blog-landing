@@ -5,11 +5,11 @@ export default function HeroSlider(blogsData: any) {
   if (blogsData) {
     return (
       <div className="mb-14 ">
-        <div className="pb-4" id="slider-card">
+        <div className="pb-4 hero-slider" >
           <Carousel
             slidesToShow={1}
             slidesToScroll={1}
-            arrows={false}
+            arrows={true}
             dots={true}
             mdSlidesToShow={1}
             smSlidesToShow={1}

@@ -1,57 +1,31 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react';
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { GoChevronLeft, GoChevronRight } from 'react-icons/go';
 
-function SamplePrevArrow(props: any) {
+function SamplePrevArrow(props:any) {
   const { className, onClick } = props;
-  const prevArrowRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setTimeout(() => {
-      const prevArrowElement = document.querySelector('.slick-prev');
-      if (prevArrowElement) {
-        prevArrowElement.classList.add('slick-disable');
-      }
-    }, 0);
-  }, []);
-
-  return (
-    <div onClick={onClick} className={`${className}`} ref={prevArrowRef}>
-      <FaAngleLeft />
+  return(
+    <div onClick={onClick} className={` ${className}`}>
+       <div className='text-white '>
+          <GoChevronLeft /> 
+       </div>
     </div>
-  );
-}
-function SampleNextArrow(props: any) {
+  )
+  }
+
+function SampleNextArrow(props:any) {
   const { className, onClick } = props;
-  const nextArrowRef = useRef<HTMLDivElement>(null);
-  const [isDisabled, setIsDisabled] = useState(false);
-  const handleClick = () => {
-    setIsDisabled(true);
-    if (typeof onClick === 'function') {
-      onClick();
-    }
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (isDisabled) {
-        const prevArrowElement = document.querySelector('.slick-prev');
-        if (prevArrowElement) {
-          prevArrowElement.classList.remove('slick-disable');
-        }
-      }
-    }, 0);
-  }, [isDisabled]);
-
-  return (
-    <div onClick={handleClick} className={`${className}`} ref={nextArrowRef}>
-      <FaAngleRight />
+  return(
+    <div onClick={onClick} className={` ${className}`} >
+      <div className='text-white '>
+          <GoChevronRight /> 
+       </div>
     </div>
-  );
+  )
 }
 
 function Carousel({
@@ -60,22 +34,25 @@ function Carousel({
   slidesToScroll,
   smSlidesToShow,
   mdSlidesToShow,
+  arrow,
+  dots,
+  fade,
   autoplay,
+  infinite,
 }: any) {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const settings = {
-    dots: true,
+    dots: dots ? dots : false,
     fade: false,
-    infinite:false,
+    infinite: infinite ? infinite : false,
     speed: 500,
     slidesToShow: slidesToShow,
     slidesToScroll: slidesToScroll,
     autoplay: autoplay,
-    arrows: false,
+    arrows: arrow ? arrow : true,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    
+    prevArrow: <SamplePrevArrow  />,
     touchThreshold: 10,
     draggable: true,
     afterChange: (index: number) => setActiveSlide(index),
@@ -86,6 +63,8 @@ function Carousel({
         settings: {
           slidesToShow: mdSlidesToShow,
           slidesToScroll: slidesToScroll,
+          infinite: infinite ? infinite : false,
+          arrows: arrow ? arrow : true,
         },
       },
       {
@@ -94,6 +73,8 @@ function Carousel({
           slidesToShow: smSlidesToShow,
           slidesToScroll: 1,
           initialSlide: 1,
+          infinite: infinite ? infinite : false,
+          arrows: arrow ? arrow : true,
           swipeToSlide: true,
         },
       },
@@ -102,20 +83,25 @@ function Carousel({
         settings: {
           slidesToShow: smSlidesToShow,
           slidesToScroll: 1,
+          infinite: infinite ? infinite : false,
+          arrows: arrow ? arrow : true,
+          fade: fade ? false : true,
         },
       },
     ],
   };
 
   return (
-    <div >
+    <div>
       <style jsx global>{`
-        .slick-slide {
+         .slick-slide > div{
           margin: 0 10px;
-        }
-        .slick-list {
+      }
+    
+      /* the parent */
+      .slick-list {
           margin: 0 -10px;
-        }
+      }
         @media only screen and (max-width: 1279px) {
           .slick-slide {
             margin: 0;
@@ -134,7 +120,7 @@ function Carousel({
           }
         }
       `}</style>
-      <div >
+      <div>
         <Slider swipe {...settings}>
           {children}
         </Slider>
