@@ -1,7 +1,7 @@
 
 import Text from "@/components/composite/Text";
 import Heading from "@/components/composite/Heading";
-import { Card, CardContent, CardDate, CardTime, CardTitle, CardVideo } from "@/components/ui/card";
+import { Card, CardBannerGadient, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle, CardVideo } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 
@@ -23,19 +23,17 @@ export default function Videos() {
                 </Heading>
                 <div className="grid xl:grid-cols-2 gap-5 xl:gap-8 mt-5 mb-7">
                     <div className="xl:col-span-1">
-                            <div className="relative h-full" >
-                                    <div className="relative min-h-97.5 h-full rounded overflow-hidden  w-full  after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad">
-                                            <div className="h-full">
-                                                <CardVideo src="/images/blogs/smallVideo.mp4" isLarge autoplay loop />
-                                            </div>
-                                    </div>
+                            <Card className="h-full">
+                                <CardContent className="relative h-full p-0">
+                                    <CardBannerGadient className="min-h-97.5 rounded overflow-hidden  ">
+                                        <CardVideo src="/images/blogs/smallVideo.mp4" isLarge autoplay loop />
+                                    </CardBannerGadient>
+                                    <CardCoverTitle>
+                                        Hypertension - causes, complications and cure
+                                    </CardCoverTitle>
+                                </CardContent>
+                            </Card>
 
-                                    <div className="absolute bottom-4.5 left-4.5 w-full">
-                                        <Text className="text-white font-extrabold md:text-2xl xl:text-4xl xl:max-w-8/12 leading-7.5">
-                                            Hypertension - causes, complications and cure
-                                        </Text>
-                                    </div>
-                            </div>
                         </div>
                     <div className="xl:col-span-1">
                         <div className="flex flex-col gap-5 xl:gap-8">

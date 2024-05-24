@@ -1,7 +1,5 @@
 import Heading from "@/components/composite/Heading";
-import Text from "@/components/composite/Text";
-import Image from "next/image";
-import { Card, CardBanner, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
+import { Card, CardBanner, CardBannerGadient, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { dateFormate } from "@/lib/helpers";
 import extractAndCalculateReadTime from "@/components/utility/calculateReadTime";
@@ -14,13 +12,10 @@ export default function Blogs({blogsData}: any) {
 
     // For now added good read as filter , after confirmation from client will change it
     
-    const otherBlogs = blogsData &&
-    blogsData
-      .filter((data: any) => data?.attributes?.good_read)
-      .sort(
-        (a: any, b: any) => b.attributes.views - a.attributes.views,
-      )
-      .slice(0, 3)
+    const firstBlog = blogsData && blogsData[0];
+    const otherBlogs = blogsData && blogsData
+        .filter((data: any) => data?.attributes?.good_read)
+        .sort((a: any, b: any) => b.attributes.views - a.attributes.views).slice(1, 4);
 
     return (
         <div className="pt-5 mt-3" id="blogs">
@@ -29,22 +24,16 @@ export default function Blogs({blogsData}: any) {
             </Heading>
             <div className="grid xl:grid-cols-2 gap-5 xl:gap-8 mt-5 mb-7">
                 <div className="xl:col-span-1">
-                        <div className="relative h-full" >
-                                <div className="relative min-h-97.5 h-full rounded overflow-hidden  w-full  after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad">
-                                    <Image
-                                    src="/images/blogs/blog1.jpeg"
-                                    alt="Hypertension - causes, 
-                                    complications and cure"
-                                    fill={true}
-                                    className='object-cover'
-                                    />
-                                </div>
-                                <div className="absolute bottom-4.5 left-4.5 w-full">
-                                    <Text className="text-white font-extrabold md:text-2xl xl:text-4xl xl:max-w-8/12 leading-7.5">
-                                        Hypertension - causes, complications and cure
-                                    </Text>
-                                </div>
-                        </div>
+                        <Card className="h-full">
+                                <CardContent className="relative h-full p-0">
+                                    <CardBannerGadient className="min-h-97.5 rounded overflow-hidden  ">
+                                        <CardBanner src={firstBlog?.attributes?.coverImg?.data?.attributes?.url}  ></CardBanner>
+                                    </CardBannerGadient>
+                                    <CardCoverTitle>
+                                            {firstBlog?.attributes?.Title}
+                                    </CardCoverTitle>
+                                </CardContent>
+                        </Card>
                     </div>
                 <div className="xl:col-span-1">
                     <div className="flex flex-col gap-5 xl:gap-8">
