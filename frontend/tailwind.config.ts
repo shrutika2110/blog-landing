@@ -31,17 +31,16 @@ module.exports = {
         display: ['Overpass'],
         regular: ['Overpass'],
         heading: ['Roboto'],
+        manrope: ['var(--font-manrope)'],
+        rubik: ['var(--font-rubik)'],
       },
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            fontFamily: 'Overpass',
-          },
-        },
-      }),
       lineHeight: {
-        relaxed: '27px',
-        minimum: '0',
+        '0.5': '2px',
+        '7.5': '30px',
+        '9.5': '38px',
+      },
+      zIndex: {
+        100: 100
       },
       colors: {
         primary: '#00B2ED',
@@ -52,6 +51,7 @@ module.exports = {
           100: '#001515',
           150: '#0000001f',
           200: '#272727',
+          250: '#2B2B2B',
           300: '#707070',
           400: '#636468',
           500: '#1A202C',
@@ -71,7 +71,9 @@ module.exports = {
           50: '#374151',
           100: '#F1F2F6',
           200: '#B4BBC6',
+          250: '#EDEDED',
           300: '#E1E1E1',
+          350: '#919191',
           400: '#E6E6E6',
           500: '#878787',
           550: '#8B8B8B',
@@ -108,6 +110,7 @@ module.exports = {
           100: '#D4D4D4',
           150: '#D9D9D9',
           200: '#707070',
+          250: '#BEBDBD',
           300: '#A5A5A5',
           400: '#545454',
           500: '#757575',
@@ -124,6 +127,7 @@ module.exports = {
           DEFAULT: '#1A1F36',
           100: '#90CDF4',
           200: '#4299E1',
+          250: '#077296',
           300: '#E4E8EE',
           400: '#008DBC',
           500: '#015774',
@@ -137,6 +141,7 @@ module.exports = {
           DEFAULT: '#00B2ED',
           50: '#D9F3FC',
           100: '#EDFAFE',
+          150: '#5FA6BC',
           200: '#00B2ED',
           300: '#EDFAFE',
           400: '#004B74',
@@ -199,10 +204,35 @@ module.exports = {
         },
       },
       spacing: {
+        '3.5': '14px',
+        '4.5': '18px',
         '18.5': '74px',
+        '35': '140px',
+        '65': '260px',
+        '82': '328px',
+        '105': '420px',
+        '109': '436px',
         '120': '480px',
-        '145': '580px'
+        '124': '496px',
+        '129': '516px',
+        '140': '560px',
+        '145': '580px',
+        '174': '696px',
+        '240': '960px',
+        '200': '50rem' //800px
+
       },
+      minHeight: {
+        '97.5': '390px'
+      },
+      maxWidth: {
+        '8/12': '66%'
+      },
+      shadow: {
+        '2xl': 'box-shadow: 0px 8px 20px 0px #0000001A',
+
+      },
+
       animation: {
         'fadeIn-Slow': 'fadeIn 4s forwards',
         'fadeOut-Slow': 'fadeOut 4s forwards',
@@ -248,7 +278,7 @@ module.exports = {
   },
   plugins: [
 
-    function ({ addComponents }) {
+    function ({ addComponents }: any) {
       addComponents({
         '.container': {
           width: '100%',
@@ -268,13 +298,13 @@ module.exports = {
             width: '100%',
           },
           '@screen lg': {
-            maxWidth: '768px',
+            maxWidth: '700px',
             marginLeft: 'auto',
             marginRight: 'auto',
             width: '100%',
           },
           '@screen xl': {
-            maxWidth: '1280px',
+            maxWidth: '1200px',
             marginLeft: 'auto',
             marginRight: 'auto',
             width: '100%',

@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useRef, useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import Slider from 'react-slick';
@@ -57,26 +58,21 @@ function Carousel({
   children,
   slidesToShow,
   slidesToScroll,
-  initialSlide,
   smSlidesToShow,
   mdSlidesToShow,
-  arrow,
-  dots,
-  fade,
   autoplay,
-  infinite,
 }: any) {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const settings = {
-    dots: dots ? dots : false,
+    dots: true,
     fade: false,
-    infinite: infinite ? infinite : false,
+    infinite:false,
     speed: 500,
     slidesToShow: slidesToShow,
     slidesToScroll: slidesToScroll,
     autoplay: autoplay,
-    arrows: arrow ? arrow : true,
+    arrows: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     
@@ -90,8 +86,6 @@ function Carousel({
         settings: {
           slidesToShow: mdSlidesToShow,
           slidesToScroll: slidesToScroll,
-          infinite: infinite ? infinite : false,
-          arrows: arrow ? arrow : true,
         },
       },
       {
@@ -100,8 +94,6 @@ function Carousel({
           slidesToShow: smSlidesToShow,
           slidesToScroll: 1,
           initialSlide: 1,
-          infinite: infinite ? infinite : false,
-          arrows: arrow ? arrow : true,
           swipeToSlide: true,
         },
       },
@@ -110,9 +102,6 @@ function Carousel({
         settings: {
           slidesToShow: smSlidesToShow,
           slidesToScroll: 1,
-          infinite: infinite ? infinite : false,
-          arrows: arrow ? arrow : true,
-          fade: fade ? false : true,
         },
       },
     ],
