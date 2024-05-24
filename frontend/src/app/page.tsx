@@ -6,6 +6,12 @@ import BackToTop from "@/components/utility/backToTop";
 import { BlogService } from "@/service";
 import HeroSlider from "./sections/HeroSlider";
 import Newsletter from "./sections/newsletter";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Kofuku - landing',
+  description: 'content="Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more"',
+}
 
 async function fetchBlogData() {
   try {
@@ -31,7 +37,7 @@ export default async function Home() {
       <Trending blogsData={blogsData} />
       <Videos />
       <Newsletter />
-      <BackToTop /> 
+      <BackToTop />
     </div>
 
   );
