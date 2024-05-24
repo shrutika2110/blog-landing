@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slick-track {
+    @apply !flex;
+}
+div .slick-dots {
+    @apply lg:-bottom-12 -bottom-6;
+}
+div .slick-dots li {
+    @apply mx-0.5;
+}
+div .slick-dots li.slick-active   button:before {
+    @apply text-primary;
+}
+div .slick-dots li button:before {
+     @apply text-white-200 opacity-100 text-sm;
+}
+div .slick-prev, div .slick-next {
+    @apply h-7 w-7 bg-primary  rounded-full z-20 hover:bg-primary focus:bg-primary;
+}
+div .slick-prev:before, div .slick-next:before {
+    @apply text-white text-base leading-0.5 opacity-100 font-bold  ;
+}
+div .slick-prev:before {
+    @apply  content-['<'] ;
+
+}
+div .slick-next:before {
+    @apply  content-['>'] ;
+
+}
+div .slick-prev {
+    @apply  -left-4;
+}
+div .slick-next {
+    @apply  -right-4;
+
+}
