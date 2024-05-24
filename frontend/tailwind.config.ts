@@ -32,13 +32,7 @@ module.exports = {
         regular: ['Overpass'],
         heading: ['Roboto'],
       },
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            fontFamily: 'Overpass',
-          },
-        },
-      }),
+
       lineHeight: {
         relaxed: '27px',
         minimum: '0',
@@ -570,7 +564,7 @@ module.exports = {
   },
   plugins: [
 
-    function ({ addComponents }) {
+    function ({ addComponents }: any) {
       addComponents({
         '.container': {
           width: '100%',
