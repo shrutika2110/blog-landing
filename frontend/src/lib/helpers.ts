@@ -9,3 +9,10 @@ export function getStrapiMedia(url: string | undefined) {
 }
 
 
+export function dateFormate(ctx: any) {
+  // const index = arr.findIndex((obj: any) => obj.id === id);
+  const options: any = { day: '2-digit', month: 'short', year: 'numeric' };
+  const formatDateVal = new Date(`${ctx}`).toLocaleDateString('en-GB', options);
+  return formatDateVal;
+}
+

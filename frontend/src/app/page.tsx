@@ -28,7 +28,7 @@ export default async function Home() {
         <HeroSlider blogsData={blogsData} />
       </div>
       <HeroTab />
-      <Trending />
+      <Trending blogsData={blogsData} />
       <Videos />
       <Newsletter />
       <BackToTop /> 

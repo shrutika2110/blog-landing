@@ -1,8 +1,11 @@
 import Carousel from '@/components/utility/Carousel';
 import SliderDetails from './sliderDetails';
 
+interface Props {
+  blogsData?: any;
+}
 
-export default function HeroSlider(blogsData:any) {
+export default function HeroSlider({blogsData}: Props) {
   if (blogsData) {
     return (
       <div className="mb-14 ">

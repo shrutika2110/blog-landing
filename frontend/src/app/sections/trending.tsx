@@ -1,48 +1,15 @@
 'use client'
 import Heading from "@/components/composite/Heading";
 import { Card, CardBanner, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
+import extractAndCalculateReadTime from "@/components/utility/calculateReadTime";
+import { dateFormate } from "@/lib/helpers";
 import Slider from "react-slick";
 
-const cardData = [
-    {
-        src: "/images/blogs/blog2.svg",
-        title: "Hypertension- causes, complications and cure space for longer text",
-        date: "2 days ago",
-        time: "3 min"
-    },
-    {
-        src: "/images/blogs/blog2.svg",
-        title: "Hypertension- causes, complications and cure space for longer text",
-        date: "2 days ago",
-        time: "3 min"
-    },
-    {
-        src: "/images/blogs/blog2.svg",
-        title: "Hypertension- causes, complications and cure space for longer text",
-        date: "2 days ago",
-        time: "3 min"
-    },
-    {
-        src: "/images/blogs/blog2.svg",
-        title: "Hypertension- causes, complications and cure space for longer text",
-        date: "2 days ago",
-        time: "3 min"
-    },
-    {
-        src: "/images/blogs/blog2.svg",
-        title: "Hypertension- causes, complications and cure space for longer text",
-        date: "2 days ago",
-        time: "3 min"
-    },
-    {
-        src: "/images/blogs/blog2.svg",
-        title: "Hypertension- causes, complications and cure space for longer text",
-        date: "2 days ago",
-        time: "3 min"
-    }
-];
+interface Props {
+    blogsData?: any;
+}
 
-export default function Trending() {
+export default function Trending({blogsData}: Props) {
 
     const settings = {
         dots: false,
@@ -71,6 +38,16 @@ export default function Trending() {
         ]
     };
 
+    const trendingBlogs = blogsData
+          .filter((data: any) => data?.attributes?.trending)
+          .sort(
+            (a: any, b: any) =>
+              new Date(b.attributes?.publish_date).getTime() -
+              new Date(a.attributes?.publish_date).getTime(),
+          )
+
+          console.log('trendingBlogs', trendingBlogs);
+
     return (
             <div className="my-5">
                 <Heading level={3} className="text-skyBlue-150 md:text-base xl:text-2xl font-extrabold">
@@ -78,19 +55,19 @@ export default function Trending() {
                 </Heading>
                 <div className="my-5">
                 <Slider {...settings}>
-                    {cardData.map((card, index) => (
+                    {trendingBlogs.map((card:any, index:any) => (
                         <Card key={index} >
                             <CardContent className="p-0">
                                 <div className="h-48">
-                                    <CardBanner src={card.src}></CardBanner>
+                                    <CardBanner src={card?.attributes?.coverImg?.data?.attributes?.url}></CardBanner>
                                 </div>
                                 <div>
                                     <div className="p-3 xl:p-5">
-                                        <CardTitle>{card.title}</CardTitle>
+                                        <CardTitle className="h-10 max-h-10 line-clamp-2">{card?.attributes?.Title}</CardTitle>
                                         <div className="flex gap-3 items-center">
-                                            <CardDate>{card.date}</CardDate>
+                                            <CardDate>{dateFormate(card?.attributes?.publish_date)}</CardDate>
                                             <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                            <CardTime>{card.time}</CardTime>
+                                            <CardTime>{extractAndCalculateReadTime(card)}</CardTime>
                                         </div>
                                     </div>
                                 </div>
