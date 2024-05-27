@@ -31,27 +31,27 @@ export default function Footer() {
                         <Link href="/" className="text-sm lg:text-lg font-semibold">Privacy Policies</Link>
                     </div>
                     <div className="flex gap-10 my-10 justify-center">
-                        <Link href="/">
-                            <FaGoogle size={48} />
+                        <Link href="/" className="text-2xl lg:text-5xl">
+                            <FaGoogle  />
                         </Link>
-                        <Link href="/">
-                             <FaFacebook size={48} />
-                        </Link>
-
-                        <Link href="/">
-                            <FaInstagram size={48} />
+                        <Link href="/" className="text-2xl lg:text-5xl">
+                             <FaFacebook  />
                         </Link>
 
-                        <Link href="/">
-                            <FaYoutube size={48} />
+                        <Link href="/" className="text-2xl lg:text-5xl">
+                            <FaInstagram  />
                         </Link>
 
-                        <Link href="/">
-                            <FaLinkedin size={48} />
+                        <Link href="/" className="text-2xl lg:text-5xl">
+                            <FaYoutube  />
                         </Link>
 
-                        <Link href="/">
-                            <FaXTwitter size={48} />
+                        <Link href="/" className="text-2xl lg:text-5xl">
+                            <FaLinkedin  />
+                        </Link>
+
+                        <Link href="/" className="text-2xl lg:text-5xl">
+                            <FaXTwitter  />
                         </Link>
 
                     </div>
