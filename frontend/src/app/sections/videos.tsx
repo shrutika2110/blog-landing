@@ -24,7 +24,7 @@ export default function Videos() {
                     <div className="xl:col-span-1">
                             <Card className="h-full">
                                 <CardContent className="relative h-full p-0">
-                                    <VideoIframe videoId="ZjAqacIC_3c" />
+                                    <VideoIframe videoId="ZjAqacIC_3c" isLarge />
                                     <CardCoverTitle>
                                         Hypertension - causes, complications and cure
                                     </CardCoverTitle>
