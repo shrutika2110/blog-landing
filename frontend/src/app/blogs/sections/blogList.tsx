@@ -5,6 +5,7 @@ import { dateFormate, paginate } from "@/lib/helpers";
 import extractAndCalculateReadTime from "@/components/utility/calculateReadTime";
 import { useState } from "react";
 import Pagination from "@/components/utility/pagination";
+import Breadcrumb from "@/components/utility/breadcrumb";
 
 interface Props {
     blogsData?: any;
@@ -13,7 +14,6 @@ interface Props {
 export default function BlogList({blogsData}: any) {
 
     const allBlogs = blogsData && blogsData
-    .filter((data: any) => data?.attributes?.trending)
     .sort(
       (a: any, b: any) =>
         new Date(b.attributes?.publish_date).getTime() -
@@ -21,7 +21,7 @@ export default function BlogList({blogsData}: any) {
     );
 
     const [currentPage, setCurrentPage] = useState(1);
-    const pageSize = 4;
+    const pageSize = 9;
 
     const onPageChange = (page:any) => {
         setCurrentPage(page);
@@ -29,13 +29,12 @@ export default function BlogList({blogsData}: any) {
  
     const paginatedBlogs = paginate(allBlogs, currentPage, pageSize);
 
+    const crumbs = [{ title: 'Home', path: '/' }, { title: 'Blogs' }];
 
     return (
         <div id="blogs">
             <div className="pt-5 mt-3" >
-                <Heading level={3} className="text-primary md:text-base xl:text-2xl font-extrabold">
-                    Blogs
-                </Heading>
+                <Breadcrumb crumbs={crumbs} />
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 xl:gap-8 mt-5 mb-7">
                             {paginatedBlogs && paginatedBlogs.map((blog:any, index:any) => (
                                 <Card key={index} >
