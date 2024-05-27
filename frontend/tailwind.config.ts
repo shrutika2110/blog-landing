@@ -239,7 +239,8 @@ module.exports = {
         '1.75': '7px'
       },
       shadow : {
-       '2xl': 'box-shadow: 0px 8px 20px 0px #0000001A',
+        'xl' : '1px 1px 4px #ccc',
+       '2xl': '0px 8px 20px 0px #0000001A',
 
       },
 
