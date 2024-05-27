@@ -1,7 +1,10 @@
+'use client'
 import Heading from "@/components/composite/Heading";
 import { Card, CardBanner, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
-import { dateFormate } from "@/lib/helpers";
+import { dateFormate, paginate } from "@/lib/helpers";
 import extractAndCalculateReadTime from "@/components/utility/calculateReadTime";
+import { useState } from "react";
+import Pagination from "@/components/utility/pagination";
 
 interface Props {
     blogsData?: any;
@@ -15,7 +18,16 @@ export default function BlogList({blogsData}: any) {
       (a: any, b: any) =>
         new Date(b.attributes?.publish_date).getTime() -
         new Date(a.attributes?.publish_date).getTime(),
-    ).slice(0, 9)
+    );
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const pageSize = 4;
+
+    const onPageChange = (page:any) => {
+        setCurrentPage(page);
+    };
+ 
+    const paginatedBlogs = paginate(allBlogs, currentPage, pageSize);
 
 
     return (
@@ -25,7 +37,7 @@ export default function BlogList({blogsData}: any) {
                     Blogs
                 </Heading>
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 xl:gap-8 mt-5 mb-7">
-                            {allBlogs && allBlogs.map((blog:any, index:any) => (
+                            {paginatedBlogs && paginatedBlogs.map((blog:any, index:any) => (
                                 <Card key={index} >
                                 <CardContent className="p-0">
                                     <div className="h-48">
@@ -47,6 +59,13 @@ export default function BlogList({blogsData}: any) {
                         
 
                 </div>
+                <Pagination
+                    items={allBlogs.length} 
+                    currentPage={currentPage} 
+                    pageSize={pageSize} 
+                    onPageChange={onPageChange}
+                        />
+
             </div>
         </div>
     );
