@@ -19,7 +19,7 @@ async function fetchBlogData() {
   }
 }
 
-export default async function Home() {
+export default async function Page() {
 
   const blogsData = await fetchBlogData();
 

@@ -12,7 +12,7 @@ interface Props {
 
 export default function Trending({blogsData}: Props) {
 
-    const trendingBlogs = blogsData
+    const trendingBlogs = blogsData && blogsData
           .filter((data: any) => data?.attributes?.trending)
           .sort(
             (a: any, b: any) =>
