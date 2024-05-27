@@ -30,11 +30,8 @@ export default async function Home() {
           <HeroSlider blogsData={blogsData} />
         </div>
       </div>
-      <HeroTab />
+      <HeroTab blogsData={blogsData} />
       <div className="container relative">
-        <Blogs blogsData={blogsData} />
-        <Trending blogsData={blogsData} />
-        <Videos />
         <Newsletter />
         <BackToTop /> 
       </div>
