@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { dateFormate } from "@/lib/helpers";
 import extractAndCalculateReadTime from "@/components/utility/calculateReadTime";
 import Trending from "./trending";
+import Link from "next/link";
 
 interface Props {
     blogsData?: any;
@@ -66,9 +67,11 @@ export default function Blogs({blogsData}: any) {
 
                 </div>
                 <div className="flex items-end justify-end">
-                    <Button variant="outline">
-                        See all
-                    </Button>
+                        <Button variant="outline" asChild >
+                            <Link href="/blogs">
+                                    See all
+                            </Link>
+                        </Button>
                 </div>
             </div>
             <Trending blogsData={blogsData} />
