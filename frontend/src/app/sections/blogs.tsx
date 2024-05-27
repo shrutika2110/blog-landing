@@ -1,5 +1,5 @@
 import Heading from "@/components/composite/Heading";
-import { Card, CardBanner, CardBannerGadient, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle } from "@/components/ui/card";
+import { Card, CardBanner, CardBannerGradient, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { dateFormate } from "@/lib/helpers";
 import extractAndCalculateReadTime from "@/components/utility/calculateReadTime";
@@ -26,9 +26,9 @@ export default function Blogs({blogsData}: any) {
                 <div className="xl:col-span-1">
                         <Card className="h-full">
                                 <CardContent className="relative h-full p-0">
-                                    <CardBannerGadient className="min-h-97.5 rounded overflow-hidden  ">
+                                    <CardBannerGradient className="min-h-97.5 rounded overflow-hidden  ">
                                         <CardBanner src={firstBlog?.attributes?.coverImg?.data?.attributes?.url}  ></CardBanner>
-                                    </CardBannerGadient>
+                                    </CardBannerGradient>
                                     <CardCoverTitle>
                                             {firstBlog?.attributes?.Title}
                                     </CardCoverTitle>

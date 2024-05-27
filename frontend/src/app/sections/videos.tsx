@@ -1,9 +1,8 @@
 
-import Text from "@/components/composite/Text";
 import Heading from "@/components/composite/Heading";
-import { Card, CardBannerGadient, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle, CardVideo } from "@/components/ui/card";
+import { Card, CardVideoGradient, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle, CardVideo } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
+import VideoIframe from "@/components/utility/videoIframe";
 
 export default function Videos() {
     const videos = [
@@ -24,10 +23,12 @@ export default function Videos() {
                 <div className="grid xl:grid-cols-2 gap-5 xl:gap-8 mt-5 mb-7">
                     <div className="xl:col-span-1">
                             <Card className="h-full">
-                                <CardContent className="relative h-full p-0">
-                                    <CardBannerGadient className="min-h-97.5 rounded overflow-hidden  ">
-                                        <CardVideo src="/images/blogs/smallVideo.mp4" isLarge autoplay loop />
-                                    </CardBannerGadient>
+                                <CardContent className="relative h-full p-0 videoHolder">
+                                    <CardVideoGradient className="min-h-97.5 rounded overflow-hidden  ">
+                                        {/* <CardVideo src="/images/blogs/smallVideo.mp4" isLarge autoplay loop /> */}
+                                        <VideoIframe />
+
+                                    </CardVideoGradient>
                                     <CardCoverTitle>
                                         Hypertension - causes, complications and cure
                                     </CardCoverTitle>

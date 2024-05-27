@@ -12,7 +12,7 @@ const Card = React.forwardRef<
     <div
         ref={ref}
         className={cn(
-            " text-card-foreground bg-gray-250 rounded",
+            "bg-gray-250 rounded overflow-hidden",
             className
         )}
         {...props}
@@ -145,7 +145,7 @@ const CardCoverTitle = React.forwardRef<
 ))
 CardCoverTitle.displayName = "CardCoverTitle"
 
-const CardBannerGadient = React.forwardRef<
+const CardBannerGradient = React.forwardRef<
     HTMLParagraphElement,
     React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
@@ -155,7 +155,19 @@ const CardBannerGadient = React.forwardRef<
         {...props}
     ></div>
 ))
-CardBannerGadient.displayName = "CardBannerGadient"
+CardBannerGradient.displayName = "CardBannerGradient"
+
+const CardVideoGradient = React.forwardRef<
+    HTMLParagraphElement,
+    React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+    <div
+        ref={ref}
+        className={cn("relative w-full h-full after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad ", className)}
+        {...props}
+    ></div>
+))
+CardVideoGradient.displayName = "CardVideoGradient"
 
 const CardDate = React.forwardRef<
     HTMLParagraphElement,
@@ -220,4 +232,4 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
-export { Card, CardBanner, CardVideo, CardHeader, CardFooter, CardTitle, CardBannerGadient, CardCoverTitle, CardDescription, CardContent, CardDate, CardTime }
+export { Card, CardBanner, CardVideo, CardHeader, CardFooter, CardTitle, CardVideoGradient, CardBannerGradient, CardCoverTitle, CardDescription, CardContent, CardDate, CardTime }

@@ -43,5 +43,10 @@ div .slick-next {
 }
 .hero-slider .slick-next {
     @apply  right-6;
+}
 
+.videoHolder {
+    div  {
+        @apply !h-full;
+    }
 }

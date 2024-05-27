@@ -24,16 +24,20 @@ export default async function Home() {
   const blogsData = await fetchBlogData();
 
   return (
-    <div className="container relative ">
-      <div className="min-h-140">
-        <HeroSlider blogsData={blogsData} />
+    <div className="relative ">
+      <div className="container">
+        <div className="min-h-140">
+          <HeroSlider blogsData={blogsData} />
+        </div>
       </div>
       <HeroTab />
-      <Blogs blogsData={blogsData} />
-      <Trending blogsData={blogsData} />
-      <Videos />
-      <Newsletter />
-      <BackToTop /> 
+      <div className="container relative">
+        <Blogs blogsData={blogsData} />
+        <Trending blogsData={blogsData} />
+        <Videos />
+        <Newsletter />
+        <BackToTop /> 
+      </div>
     </div>
 
   );
