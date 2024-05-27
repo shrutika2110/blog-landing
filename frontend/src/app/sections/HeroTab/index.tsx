@@ -37,7 +37,7 @@ export default function HeroTab({blogsData}: any) {
 
     return (
         <>
-            <div className='sticky top-20 z-100 bg-white'>
+            <div className='sticky top-20 z-90 bg-white'>
                 <div className='container'>
                     <Tabs defaultValue="blogs">
                         <TabsList className="w-full border-b border-offwhite-150">

@@ -40,6 +40,7 @@ module.exports = {
         '9.5': '38px',
       },
       zIndex: {
+        90: 90,
         100: 100
       },
       colors: {
