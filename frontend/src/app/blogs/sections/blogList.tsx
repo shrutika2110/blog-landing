@@ -7,7 +7,7 @@ interface Props {
     blogsData?: any;
 }
 
-export default function Blogs({blogsData}: any) {
+export default function BlogList({blogsData}: any) {
 
     const allBlogs = blogsData && blogsData
     .filter((data: any) => data?.attributes?.trending)
@@ -24,7 +24,7 @@ export default function Blogs({blogsData}: any) {
                 <Heading level={3} className="text-primary md:text-base xl:text-2xl font-extrabold">
                     Blogs
                 </Heading>
-                <div className="grid xl:grid-cols-3 gap-5 xl:gap-8 mt-5 mb-7">
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 xl:gap-8 mt-5 mb-7">
                             {allBlogs && allBlogs.map((blog:any, index:any) => (
                                 <Card key={index} >
                                 <CardContent className="p-0">

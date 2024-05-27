@@ -1,6 +1,6 @@
 
 import { BlogService } from "@/service";
-import Blogs from "./sections/blogs";
+import BlogList from "./sections/blogList";
 
 async function fetchBlogData() {
   try {
@@ -20,7 +20,7 @@ export default async function Page() {
   return (
     <div className="relative ">
       <div className="container">
-        <Blogs blogsData={blogsData} />
+        <BlogList blogsData={blogsData} />
       </div>
     </div>
 
