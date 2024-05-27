@@ -127,11 +127,35 @@ const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <h3
         ref={ref}
-        className={cn("text-base font-bold mb-3 text-black leading-5 ", className)}
+        className={cn("text-base font-bold mb-3 text-black leading-5 h-10 max-h-10 line-clamp-2 ", className)}
         {...props}
     />
 ))
 CardTitle.displayName = "CardTitle"
+
+const CardCoverTitle = React.forwardRef<
+    HTMLParagraphElement,
+    React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+    <div
+        ref={ref}
+        className={cn("absolute bottom-4.5 left-4.5 w-full text-white font-extrabold md:text-2xl xl:text-4xl xl:max-w-8/12 leading-9 h-19.5 max-h-19.5 line-clamp-2", className)}
+        {...props}
+    ></div>
+))
+CardCoverTitle.displayName = "CardCoverTitle"
+
+const CardBannerGadient = React.forwardRef<
+    HTMLParagraphElement,
+    React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+    <div
+        ref={ref}
+        className={cn("relative w-full h-full after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad ", className)}
+        {...props}
+    ></div>
+))
+CardBannerGadient.displayName = "CardBannerGadient"
 
 const CardDate = React.forwardRef<
     HTMLParagraphElement,
@@ -196,4 +220,4 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
-export { Card, CardBanner, CardVideo, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardDate, CardTime }
+export { Card, CardBanner, CardVideo, CardHeader, CardFooter, CardTitle, CardBannerGadient, CardCoverTitle, CardDescription, CardContent, CardDate, CardTime }

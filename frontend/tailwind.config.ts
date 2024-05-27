@@ -70,11 +70,13 @@ module.exports = {
           DEFAULT: '#FCFBF9',
           50: '#374151',
           100: '#F1F2F6',
+          150: '#ABABAB',
           200: '#B4BBC6',
           250: '#EDEDED',
           300: '#E1E1E1',
           350: '#919191',
           400: '#E6E6E6',
+          450: '#505050',
           500: '#878787',
           550: '#8B8B8B',
           600: '#E0E0E0',
@@ -207,8 +209,10 @@ module.exports = {
         '3.5': '14px',
         '4.5': '18px',
         '18.5': '74px',
+        '19.5': '78px',
         '35': '140px',
         '65': '260px',
+        '67.5': '270px',
         '82': '328px',
         '105': '420px',
         '109': '436px',
@@ -228,8 +232,11 @@ module.exports = {
       maxWidth: {
         '8/12': '66%'
       },
-      shadow: {
-        '2xl': 'box-shadow: 0px 8px 20px 0px #0000001A',
+      borderRadius: {
+        '1.75': '7px'
+      },
+      shadow : {
+       '2xl': 'box-shadow: 0px 8px 20px 0px #0000001A',
 
       },
 
@@ -253,7 +260,8 @@ module.exports = {
         flickerHide: 'hideContent .1s forwards 1s',
       },
       backgroundImage: {
-        'black-grad': 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 64.36%, rgba(0, 0, 0, 0.60) 100%, lightgray 50%)'
+        'black-grad': 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 64.36%, rgba(0, 0, 0, 0.60) 100%, lightgray 50%)',
+        'search-grad' :'linear-gradient(90deg, #00B2ED 0%, rgba(0, 178, 237, 0) 100%)'
       },
       screens: {
         sm: '360px',
