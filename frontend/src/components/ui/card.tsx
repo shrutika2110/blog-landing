@@ -51,64 +51,6 @@ const CardBanner = React.forwardRef<HTMLDivElement, CardBannerProps>(
   CardBanner.displayName = "CardBanner";
 
 
-
-interface CardVideoProps extends React.HTMLAttributes<HTMLDivElement> {
-    roundedLeft?: boolean;
-    border?: boolean;
-    isLarge?:boolean;
-    variant?: "light" | "dark";
-    bgColor?: string;
-    src?: string;
-    title?: string;
-    autoplay?: boolean;
-    loop?: boolean;
-}
-const CardVideo = React.forwardRef<HTMLDivElement, CardVideoProps>(
-    ({ className, src, isLarge, autoplay, loop, bgColor = "#fff", roundedLeft = false }, ref) => {
-      const videoRef = useRef<HTMLVideoElement>(null);
-      const [isPlaying, setIsPlaying] = useState(false);
-  
-      const togglePlayPause = () => {
-        if (videoRef.current) {
-          if (isPlaying) {
-            videoRef.current.pause();
-          } else {
-            videoRef.current.play();
-          }
-          setIsPlaying(!isPlaying);
-        }
-      };
-  
-      return (
-        <div ref={ref} style={{ backgroundColor: bgColor }} className={`relative h-full ${className}`}>
-          {src ? (
-            <div className="relative h-full">
-              <video
-                ref={videoRef}
-                muted
-                autoPlay={autoplay}
-                loop={loop}
-                preload="auto"
-                className={`relative object-cover h-full w-full overflow-hidden ${roundedLeft ? "rounded-l" : "rounded-t"}`}
-              >
-                <source src={src} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div
-                className={`absolute bottom-4 right-4 z-30 cursor-pointer playVideo ${isLarge ? "h-20 w-20" : "h-8 w-8"}`}
-                onClick={togglePlayPause}
-              >
-                <Image src="/images/play.svg" alt="Play" fill={true} />
-              </div>
-            </div>
-          ) : null}
-        </div>
-      );
-    }
-  );
-  
-CardVideo.displayName = "CardVideo";
-
 const CardHeader = React.forwardRef<
     HTMLDivElement,
     React.HTMLAttributes<HTMLDivElement>
@@ -156,18 +98,6 @@ const CardBannerGradient = React.forwardRef<
     ></div>
 ))
 CardBannerGradient.displayName = "CardBannerGradient"
-
-const CardVideoGradient = React.forwardRef<
-    HTMLParagraphElement,
-    React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-    <div
-        ref={ref}
-        className={cn("relative w-full h-full after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad ", className)}
-        {...props}
-    ></div>
-))
-CardVideoGradient.displayName = "CardVideoGradient"
 
 const CardDate = React.forwardRef<
     HTMLParagraphElement,
@@ -232,4 +162,4 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
-export { Card, CardBanner, CardVideo, CardHeader, CardFooter, CardTitle, CardVideoGradient, CardBannerGradient, CardCoverTitle, CardDescription, CardContent, CardDate, CardTime }
+export { Card, CardBanner, CardHeader, CardFooter, CardTitle, CardBannerGradient, CardCoverTitle, CardDescription, CardContent, CardDate, CardTime }

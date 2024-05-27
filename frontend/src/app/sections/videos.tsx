@@ -1,6 +1,6 @@
 
 import Heading from "@/components/composite/Heading";
-import { Card, CardVideoGradient, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle, CardVideo } from "@/components/ui/card";
+import { Card, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import VideoIframe from "@/components/utility/videoIframe";
 
@@ -23,12 +23,8 @@ export default function Videos() {
                 <div className="grid xl:grid-cols-2 gap-5 xl:gap-8 mt-5 mb-7">
                     <div className="xl:col-span-1">
                             <Card className="h-full">
-                                <CardContent className="relative h-full p-0 videoHolder">
-                                    <CardVideoGradient className="min-h-97.5 rounded overflow-hidden  ">
-                                        {/* <CardVideo src="/images/blogs/smallVideo.mp4" isLarge autoplay loop /> */}
-                                        <VideoIframe />
-
-                                    </CardVideoGradient>
+                                <CardContent className="relative h-full p-0">
+                                    <VideoIframe videoId="ZjAqacIC_3c" />
                                     <CardCoverTitle>
                                         Hypertension - causes, complications and cure
                                     </CardCoverTitle>
@@ -44,7 +40,7 @@ export default function Videos() {
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
                                             <div className="h-full">
-                                                <CardVideo src={video.src} roundedLeft />
+                                                <VideoIframe videoId="ZjAqacIC_3c" />
                                             </div>
                                         </div>
                                         <div className="col-span-8">
@@ -70,7 +66,7 @@ export default function Videos() {
                             <Card className="border-none bg-gray-250 rounded " key={index}>
                                     <CardContent className="p-0">
                                             <div className="h-48">
-                                                <CardVideo src="/images/blogs/smallVideo.mp4"  />
+                                                <VideoIframe videoId="ZjAqacIC_3c" />
                                             </div>
                                             <div >
                                                 <div className="p-3 xl:p-5">
