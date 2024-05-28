@@ -1,10 +1,8 @@
-'use client'
 import Heading from "@/components/composite/Heading";
 import { Card, CardBanner, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import Carousel from "@/components/utility/Carousel";
 import extractAndCalculateReadTime from "@/components/utility/calculateReadTime";
 import { dateFormate } from "@/lib/helpers";
-import Slider from "react-slick";
 
 interface Props {
     blogsData?: any;
@@ -12,7 +10,7 @@ interface Props {
 
 export default function Trending({blogsData}: Props) {
 
-    const trendingBlogs = blogsData
+    const trendingBlogs = blogsData && blogsData
           .filter((data: any) => data?.attributes?.trending)
           .sort(
             (a: any, b: any) =>

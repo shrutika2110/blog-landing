@@ -1,21 +1,21 @@
 
-import Text from "@/components/composite/Text";
 import Heading from "@/components/composite/Heading";
-import { Card, CardBannerGadient, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle, CardVideo } from "@/components/ui/card";
+import { Card, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import VideoIframe from "@/components/utility/videoIframe";
+import { dateFormate } from "@/lib/helpers";
+import CalculateVideoDuration from "@/components/utility/calculateVideoDuration";
+
+interface Props {
+    videosData?: any;
+}
 
 
-export default function Videos() {
-    const videos = [
-        { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
-        { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
-        { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
-    ];
-    const otherVideos = [
-        { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
-        { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
-        { src: "/images/blogs/smallVideo.mp4", title: "Hypertension- causes, complications and cure space for longer text", date: "2 days ago", time: "3 min" },
-    ];
+export default function Videos({videosData}: any) {
+
+    const firstVideo = videosData && videosData[0];
+    const otherVideos = videosData && videosData.slice(1, 4);
+
     return (
             <div className="mt-7 pt-5 border-t border-offwhite-700 border-b  pb-4 mb-10" id="videos">
                 <Heading level={3} className="text-primary md:text-base xl:text-2xl font-extrabold">
@@ -25,11 +25,9 @@ export default function Videos() {
                     <div className="xl:col-span-1">
                             <Card className="h-full">
                                 <CardContent className="relative h-full p-0">
-                                    <CardBannerGadient className="min-h-97.5 rounded overflow-hidden  ">
-                                        <CardVideo src="/images/blogs/smallVideo.mp4" isLarge autoplay loop />
-                                    </CardBannerGadient>
+                                    <VideoIframe videoId={firstVideo?.attributes?.Link} isLarge />
                                     <CardCoverTitle>
-                                        Hypertension - causes, complications and cure
+                                        {firstVideo?.attributes?.Title}
                                     </CardCoverTitle>
                                 </CardContent>
                             </Card>
@@ -37,22 +35,24 @@ export default function Videos() {
                         </div>
                     <div className="xl:col-span-1">
                         <div className="flex flex-col gap-5 xl:gap-8">
-                        {videos.map((video, index) => (
+                        {otherVideos.map((video:any, index:any) => (
                             <Card key={index}  >
                                 <CardContent className="p-0">
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
                                             <div className="h-full">
-                                                <CardVideo src={video.src} roundedLeft />
+                                                <VideoIframe videoId={video?.attributes?.Link} />
                                             </div>
                                         </div>
                                         <div className="col-span-8">
                                             <div className="p-5">
-                                                <CardTitle>{video.title}</CardTitle>
+                                                <CardTitle>{video?.attributes?.Title}</CardTitle>
                                                 <div className="flex gap-3 items-center">
-                                                    <CardDate>{video.date}</CardDate>
+                                                     <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
                                                     <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                    <CardTime>{video.time}</CardTime>
+                                                    <CardTime>
+                                                        <CalculateVideoDuration videoUrl={video?.attributes?.Link} />
+                                                    </CardTime>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,19 +65,21 @@ export default function Videos() {
 
                 </div>
                 <div className="grid lg:grid-cols-3 gap-5 my-5">
-                        {otherVideos.map((video, index) => (
+                        {otherVideos.map((video:any, index:any) => (
                             <Card className="border-none bg-gray-250 rounded " key={index}>
                                     <CardContent className="p-0">
                                             <div className="h-48">
-                                                <CardVideo src="/images/blogs/smallVideo.mp4"  />
+                                                <VideoIframe videoId={video?.attributes?.Link} />
                                             </div>
                                             <div >
                                                 <div className="p-3 xl:p-5">
-                                                    <CardTitle>{video.title}</CardTitle>
+                                                    <CardTitle>{video?.attributes?.Title}</CardTitle>
                                                     <div className="flex gap-3 items-center">
-                                                        <CardDate>{video.date}</CardDate>
+                                                        <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
                                                         <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                        <CardTime>{video.time}</CardTime>
+                                                        <CardTime>
+                                                            <CalculateVideoDuration videoUrl={video?.attributes?.Link} />
+                                                        </CardTime>
                                                     </div>
                                                 </div>
                                             </div>

@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Header() {
 
     return (
-        <header className="py-5 bg-white">
+        <header className="py-5 bg-white sticky top-0 left-0 z-100">
             <div className="container ">
                     <div className="flex justify-between items-center">
                         <Link href="/">

@@ -1,12 +1,9 @@
 
 import HeroTab from "./sections/HeroTab";
-import Trending from "./sections/trending";
-import Videos from "./sections/videos";
 import BackToTop from "@/components/utility/backToTop";
-import { BlogService } from "@/service";
+import { BlogService, VideoService } from "@/service";
 import HeroSlider from "./sections/HeroSlider";
 import Newsletter from "./sections/newsletter";
-import Blogs from "./sections/blogs";
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -25,23 +22,35 @@ async function fetchBlogData() {
   }
 }
 
-export default async function Home() {
+async function fetchVideoData() {
+  try {
+    const { data } = await VideoService();
+    const content = data.youtubes.data;
+    return content
+  }
+  catch (e: any) {
+    console.log("error:\n", e.message);
+  }
+}
+
+export default async function Page() {
 
   const blogsData = await fetchBlogData();
+  const videosData = await fetchVideoData();
 
   return (
-    <div className="container relative ">
-      <div className="min-h-140">
-        <HeroSlider blogsData={blogsData} />
+    <div className="relative ">
+      <div className="container">
+        <div className="min-h-140">
+          <HeroSlider blogsData={blogsData} />
+        </div>
       </div>
-      <HeroTab />
-      <Blogs blogsData={blogsData} />
-      <Trending blogsData={blogsData} />
-      <Videos />
-      <Newsletter />
-      <BackToTop />
+      <HeroTab blogsData={blogsData} videosData={videosData} />
+      <div className="container relative">
+        <Newsletter />
+        <BackToTop /> 
+      </div>
     </div>
-
   );
 }
 
