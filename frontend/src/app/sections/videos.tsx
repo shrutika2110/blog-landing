@@ -18,7 +18,7 @@ export default function Videos({videosData}: Props) {
 
     return (
             <div className="mt-7 pt-5 border-t border-offwhite-700 border-b pb-4 mb-10" id="videos">
-                <Heading level={3} className="text-primary md:text-base xl:text-2xl font-extrabold">
+                <Heading level={3} variant="primary" className="font-extrabold">
                     Videos
                 </Heading>
                 <div className="grid xl:grid-cols-2 gap-5 xl:gap-8 mt-5 mb-7">

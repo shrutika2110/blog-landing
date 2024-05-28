@@ -21,7 +21,7 @@ export default function Trending({blogsData}: Props) {
 
     return (
             <div className="my-5">
-                <Heading level={3} className="text-skyBlue-150 md:text-base xl:text-2xl font-extrabold">
+                <Heading level={3} className="text-skyBlue-150  font-extrabold">
                     Trending
                 </Heading>
                 <div className="my-5 w-full">

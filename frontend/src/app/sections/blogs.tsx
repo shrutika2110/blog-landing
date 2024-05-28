@@ -22,7 +22,7 @@ export default function Blogs({blogsData}: Props) {
     return (
         <div id="blogs">
             <div className="pt-5 mt-3" >
-                <Heading level={3} className="text-primary md:text-base xl:text-2xl font-extrabold">
+                <Heading level={3} variant="primary" className="font-extrabold">
                     Blogs
                 </Heading>
                 <div className="grid xl:grid-cols-2 gap-5 xl:gap-8 mt-5 mb-7">

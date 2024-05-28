@@ -17,7 +17,7 @@ export default function Success({title}:SuccessProps) {
                     </Image>
                 </div>
             </Link>
-            <Heading level={3}>
+            <Heading level={3} variant='light' >
                 {title}
             </Heading>
         </div>
