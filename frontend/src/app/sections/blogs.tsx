@@ -32,7 +32,7 @@ export default function Blogs({blogsData}: Props) {
                                         <div className="min-h-97.5 rounded overflow-hidden relative w-full h-full after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad ">
                                             <CardBanner src={firstBlog?.attributes?.coverImg?.data?.attributes?.url}  ></CardBanner>
                                         </div>
-                                        <CardTitle className="absolute bottom-4.5 left-4.5 w-full text-white font-extrabold md:text-2xl xl:text-4xl xl:max-w-8/12 leading-9 h-19.5 max-h-19.5 line-clamp-2">
+                                        <CardTitle variant="dark"  size="lg" className="absolute bottom-4.5 left-4.5 w-full xl:max-w-8/12">
                                                 {firstBlog?.attributes?.Title}
                                         </CardTitle>
                                     </CardContent>
@@ -49,7 +49,7 @@ export default function Blogs({blogsData}: Props) {
                                             </div>
                                             <div className="col-span-8">
                                                 <div className="p-3 xl:p-5">
-                                                    <CardTitle>{blog?.attributes?.Title}</CardTitle>
+                                                    <CardTitle className="mb-3">{blog?.attributes?.Title}</CardTitle>
                                                     <div className="flex gap-3 items-center">
                                                         <CardDate>{dateFormate(blog?.attributes?.publish_date)}</CardDate>
                                                         <div className="h-1 w-1 bg-gray-350 rounded-full"></div>

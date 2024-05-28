@@ -45,7 +45,7 @@ export default function Trending({blogsData}: Props) {
                                     </div>
                                     <div>
                                         <div className="p-3 xl:p-5">
-                                            <CardTitle>{card?.attributes?.Title}</CardTitle>
+                                            <CardTitle className="mb-3">{card?.attributes?.Title}</CardTitle>
                                             <div className="flex gap-3 items-center">
                                                 <CardDate>{dateFormate(card?.attributes?.publish_date)}</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>

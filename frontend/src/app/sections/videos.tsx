@@ -26,7 +26,7 @@ export default function Videos({videosData}: Props) {
                             <Card className="h-full">
                                 <CardContent className="relative h-full p-0">
                                     <VideoIframe videoId={firstVideo?.attributes?.Link} isLarge />
-                                    <CardTitle className="absolute bottom-4.5 left-4.5 w-full text-white font-extrabold md:text-2xl xl:text-4xl xl:max-w-8/12 leading-9 h-19.5 max-h-19.5 line-clamp-2">
+                                    <CardTitle variant="dark" size="lg" className="absolute bottom-4.5 left-4.5 w-full xl:max-w-8/12">
                                         {firstVideo?.attributes?.Title}
                                     </CardTitle>
                                 </CardContent>
@@ -45,7 +45,7 @@ export default function Videos({videosData}: Props) {
                                         </div>
                                         <div className="col-span-8">
                                             <div className="p-5">
-                                                <CardTitle>{video?.attributes?.Title}</CardTitle>
+                                                <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                 <div className="flex gap-3 items-center">
                                                      <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
                                                     <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
@@ -72,7 +72,7 @@ export default function Videos({videosData}: Props) {
                                             </div>
                                             <div >
                                                 <div className="p-3 xl:p-5">
-                                                    <CardTitle>{video?.attributes?.Title}</CardTitle>
+                                                    <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                     <div className="flex gap-3 items-center">
                                                         <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
                                                         <div className="h-1 w-1 bg-gray-350 rounded-full"></div>

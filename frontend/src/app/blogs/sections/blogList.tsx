@@ -44,7 +44,7 @@ export default function BlogList({blogsData}: any) {
                                     </div>
                                     <div>
                                         <div className="p-3 xl:p-5">
-                                            <CardTitle>{blog?.attributes?.Title}</CardTitle>
+                                            <CardTitle className="mb-3">{blog?.attributes?.Title}</CardTitle>
                                             <div className="flex gap-3 items-center">
                                                 <CardDate>{dateFormate(blog?.attributes?.publish_date)}</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
