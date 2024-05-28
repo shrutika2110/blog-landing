@@ -25,6 +25,20 @@ const extractAndCalculateReadTime = (data: any) => {
     const textRead: string[] = [
       data?.attributes?.Title,
       data?.attributes?.shortDes,
+      data?.attributes?.firstFold?.Title,
+      data?.attributes?.firstFold?.description,
+      data?.attributes?.secondFold?.Title,
+      data?.attributes?.secondFold?.description,
+      data?.attributes?.thirdFold?.Title,
+      data?.attributes?.thirdFold?.description,
+      data?.attributes?.fourthFold?.Title,
+      data?.attributes?.fourthFold?.description,
+      data?.attributes?.fifthFold?.Title,
+      data?.attributes?.fifthFold?.description,
+      data?.attributes?.sixthFold?.Title,
+      data?.attributes?.sixthFold?.description,
+      data?.attributes?.seventhFold?.Title,
+      data?.attributes?.seventhFold?.description,
     ];
 
     const calculatedReadTime: any = CalculateReadTime({

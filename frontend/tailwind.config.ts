@@ -33,11 +33,14 @@ module.exports = {
         heading: ['Roboto'],
         manrope: ['var(--font-manrope)'],
         rubik: ['var(--font-rubik)'],
+        inter: ['Inter', 'sans-serif'],
       },
       lineHeight: {
         '0.5': '2px',
         '7.5': '30px',
+        '8.75': '35px',
         '9.5': '38px',
+        '14.5': '58px',
       },
       zIndex: {
         90: 90,
@@ -234,7 +237,11 @@ module.exports = {
         '97.5': '390px'
       },
       maxWidth: {
-        '8/12': '66%'
+        '8/12' : '66%',
+        '10/12' :'83%'
+      },
+      borderWidth: {
+        '10': '10px'
       },
       borderRadius: {
         '1.75': '7px'

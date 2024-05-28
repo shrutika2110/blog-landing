@@ -11,7 +11,7 @@ type HeadingProps = {
     style?: any
 }
 
-const Heading = ({ level, children, variant = "dark", size = "base", className, style }: HeadingProps) => {
+const Heading = ({ level, children, variant = "light", size = "base", className, style }: HeadingProps) => {
     const DynamicTag: any = `h${level}`;
 
     const headingVariant = {
