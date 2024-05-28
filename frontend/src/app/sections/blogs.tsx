@@ -1,5 +1,5 @@
 import Heading from "@/components/composite/Heading";
-import { Card, CardBanner, CardBannerGradient, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle } from "@/components/ui/card";
+import { Card, CardBanner, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { dateFormate } from "@/lib/helpers";
 import extractAndCalculateReadTime from "@/components/utility/calculateReadTime";
@@ -10,7 +10,7 @@ interface Props {
     blogsData?: any;
 }
 
-export default function Blogs({blogsData}: any) {
+export default function Blogs({blogsData}: Props) {
 
     // For now added good read as filter , after confirmation from client will change it
     
@@ -29,12 +29,12 @@ export default function Blogs({blogsData}: any) {
                     <div className="xl:col-span-1">
                             <Card className="h-full">
                                     <CardContent className="relative h-full p-0">
-                                        <CardBannerGradient className="min-h-97.5 rounded overflow-hidden  ">
+                                        <div className="min-h-97.5 rounded overflow-hidden relative w-full h-full after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad ">
                                             <CardBanner src={firstBlog?.attributes?.coverImg?.data?.attributes?.url}  ></CardBanner>
-                                        </CardBannerGradient>
-                                        <CardCoverTitle>
+                                        </div>
+                                        <CardTitle className="absolute bottom-4.5 left-4.5 w-full text-white font-extrabold md:text-2xl xl:text-4xl xl:max-w-8/12 leading-9 h-19.5 max-h-19.5 line-clamp-2">
                                                 {firstBlog?.attributes?.Title}
-                                        </CardCoverTitle>
+                                        </CardTitle>
                                     </CardContent>
                             </Card>
                         </div>

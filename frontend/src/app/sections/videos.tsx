@@ -1,6 +1,6 @@
 
 import Heading from "@/components/composite/Heading";
-import { Card, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import VideoIframe from "@/components/utility/videoIframe";
 import { dateFormate } from "@/lib/helpers";
@@ -11,13 +11,13 @@ interface Props {
 }
 
 
-export default function Videos({videosData}: any) {
+export default function Videos({videosData}: Props) {
 
     const firstVideo = videosData && videosData[0];
     const otherVideos = videosData && videosData.slice(1, 4);
 
     return (
-            <div className="mt-7 pt-5 border-t border-offwhite-700 border-b  pb-4 mb-10" id="videos">
+            <div className="mt-7 pt-5 border-t border-offwhite-700 border-b pb-4 mb-10" id="videos">
                 <Heading level={3} className="text-primary md:text-base xl:text-2xl font-extrabold">
                     Videos
                 </Heading>
@@ -26,12 +26,11 @@ export default function Videos({videosData}: any) {
                             <Card className="h-full">
                                 <CardContent className="relative h-full p-0">
                                     <VideoIframe videoId={firstVideo?.attributes?.Link} isLarge />
-                                    <CardCoverTitle>
+                                    <CardTitle className="absolute bottom-4.5 left-4.5 w-full text-white font-extrabold md:text-2xl xl:text-4xl xl:max-w-8/12 leading-9 h-19.5 max-h-19.5 line-clamp-2">
                                         {firstVideo?.attributes?.Title}
-                                    </CardCoverTitle>
+                                    </CardTitle>
                                 </CardContent>
                             </Card>
-
                         </div>
                     <div className="xl:col-span-1">
                         <div className="flex flex-col gap-5 xl:gap-8">

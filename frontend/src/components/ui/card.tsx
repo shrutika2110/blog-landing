@@ -1,6 +1,4 @@
-'use client'
 import * as React from "react"
-import { useState, useRef } from "react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { MdOutlineAccessTime } from "react-icons/md";
@@ -75,30 +73,6 @@ const CardTitle = React.forwardRef<
 ))
 CardTitle.displayName = "CardTitle"
 
-const CardCoverTitle = React.forwardRef<
-    HTMLParagraphElement,
-    React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-    <div
-        ref={ref}
-        className={cn("absolute bottom-4.5 left-4.5 w-full text-white font-extrabold md:text-2xl xl:text-4xl xl:max-w-8/12 leading-9 h-19.5 max-h-19.5 line-clamp-2", className)}
-        {...props}
-    ></div>
-))
-CardCoverTitle.displayName = "CardCoverTitle"
-
-const CardBannerGradient = React.forwardRef<
-    HTMLParagraphElement,
-    React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-    <div
-        ref={ref}
-        className={cn("relative w-full h-full after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad ", className)}
-        {...props}
-    ></div>
-))
-CardBannerGradient.displayName = "CardBannerGradient"
-
 const CardDate = React.forwardRef<
     HTMLParagraphElement,
     React.HTMLAttributes<HTMLHeadingElement>
@@ -127,8 +101,6 @@ const CardTime = React.forwardRef<
         
 ))
 CardTime.displayName = "CardTime"
-
-
 
 const CardDescription = React.forwardRef<
     HTMLParagraphElement,
@@ -162,4 +134,4 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
-export { Card, CardBanner, CardHeader, CardFooter, CardTitle, CardBannerGradient, CardCoverTitle, CardDescription, CardContent, CardDate, CardTime }
+export { Card, CardBanner, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardDate, CardTime }
