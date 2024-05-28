@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from "next/image";
 
 interface SliderProps {
-    BlogSliders ?: any;
+    BlogSliders?: any;
 }
 
 export default function SliderDetails({ BlogSliders }: SliderProps) {
@@ -19,8 +19,7 @@ export default function SliderDetails({ BlogSliders }: SliderProps) {
                             <Image
                                 src={data?.attributes?.coverImg?.data?.attributes?.url || '/fallback-image.jpg'}
                                 alt={data.attributes?.Title || 'Blog Image'}
-                                layout="fill"
-                                className='object-cover'
+                                fill={true} className='object-cover'
                             />
                         </div>
 

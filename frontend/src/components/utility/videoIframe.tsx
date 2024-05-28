@@ -1,30 +1,103 @@
-import React from 'react';
-import { YouTubeEmbed } from '@next/third-parties/google'
+"use client"
+import React, { useState, useRef } from 'react';
+// import { YouTubeEmbed } from '@next/third-parties/google'
 import Image from "next/image"
+import YouTube from 'react-youtube';
+
+// interface Props {
+//     videoId ?: any;
+//     isLarge ?: any;
+// }
+// function extractVideoId(url: string): string | null {
+//     const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+//     const match = url.match(regex);
+//     return match ? match[1] : null;
+// }
+
+// export default function VideoIframe({videoId, isLarge}:Props) {
+//     const extractedVideoId = videoId && extractVideoId(videoId);
+
+//     return (
+//         <div className='relative h-full' >
+//             <div className='videoHolder h-full'>
+//                 <YouTubeEmbed videoid={extractedVideoId} params="autoplay=1&controls=0&rel=0&loop=1&start=0" style="height:100%;object-fit:cover"  playlabel="Play" />
+//             </div>
+//             <div
+//                 className={`absolute bottom-4 right-4 z-30 cursor-pointer playVideo ${isLarge ? "h-20 w-20" : "h-8 w-8"}`}
+//             >
+//             <Image src="/images/play.svg" alt="Play" fill={true} />
+//             </div>
+//         </div>
+//     );
+// };
 
 interface Props {
-    videoId ?: any;
-    isLarge ?: any;
+    videoId?: string;
+    isLarge?: boolean;
 }
+
 function extractVideoId(url: string): string | null {
     const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
     const match = url.match(regex);
     return match ? match[1] : null;
 }
 
-export default function VideoIframe({videoId, isLarge}:Props) {
+export default function VideoIframe({ videoId, isLarge }: Props) {
+    const [isPlaying, setIsPlaying] = useState(true);
+    const playerRef = useRef<any>(null);
+
     const extractedVideoId = videoId && extractVideoId(videoId);
 
+    const opts = {
+        height: '100%',
+        width: '100%',
+        playerVars: {
+            autoplay: 1,
+            controls: 0,
+            rel: 0,
+            loop: 1,
+            start: 0,
+            modestbranding: 1,
+            showinfo: 0,
+            fs: 0,
+            iv_load_policy: 3,
+            mute: 1
+        },
+    };
+
+    const onReady = (event: any) => {
+        playerRef.current = event.target;
+        playerRef.current.mute();
+        playerRef.current.playVideo();
+    };
+
+    const handlePlayPause = () => {
+        if (isPlaying) {
+            playerRef.current.pauseVideo();
+        } else {
+            playerRef.current.playVideo();
+        }
+        setIsPlaying(!isPlaying);
+    };
+
     return (
-        <div className='relative h-full' >
-            <div className='videoHolder h-full'>
-                <YouTubeEmbed videoid={extractedVideoId} params="autoplay=1&controls=0&rel=0&loop=1&start=0" style="height:100%;object-fit:cover"  playlabel="Play" />
+        <div className="relative h-full">
+            <div className="videoHolder h-full">
+                {extractedVideoId && (
+                    <YouTube
+                        videoId={extractedVideoId}
+                        opts={opts}
+                        className="h-full w-full object-cover"
+                        onReady={onReady}
+                    />
+                )}
             </div>
             <div
                 className={`absolute bottom-4 right-4 z-30 cursor-pointer playVideo ${isLarge ? "h-20 w-20" : "h-8 w-8"}`}
+                onClick={handlePlayPause}
             >
-            <Image src="/images/play.svg" alt="Play" fill={true} />
+                <Image src="/images/play.svg" alt="Play" fill={true} />
             </div>
         </div>
     );
-};
+}
