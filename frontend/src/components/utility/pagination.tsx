@@ -44,7 +44,7 @@ export default function Pagination({ items, pageSize, currentPage, onPageChange 
         ))}
       </ul>
       <button
-        className={`h-7 w-7 rounded-full flex items-center justify-center border  mx-4 ${currentPage === pagesCount ? 'text-gray-800 bg-gray-800' : 'text-primary border-primary'}`}
+        className={`h-7 w-7 rounded-full flex items-center justify-center border  mx-4 ${currentPage === pagesCount ? 'text-gray-800 border-gray-800' : 'text-primary border-primary'}`}
         onClick={handleNextClick}
         disabled={currentPage === pagesCount}
       >
