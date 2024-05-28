@@ -14,13 +14,13 @@ export default function Footer() {
                         <Image src="/images/logoWhite.svg" alt="logo" fill={true} />
                     </div>
                     <div className="border border-white py-3 px-6 mt-14   flex flex-col gap-2.5 leading-7">
-                            <Text className="lg:text-lg font-extrabold">Disclaimer</Text>
-                            <Text className="lg:text-base ">
+                            <Text size="lg" className="font-extrabold">Disclaimer</Text>
+                            <Text>
                                 We are those little posters you stop and stare at, while mulling over the stock exchange
                                 – the ones that remind you of your dog’s wagging tail. We tell you the real things about
                                 health, while putting a smile on your face!
                             </Text>
-                            <Text className="lg:text-base ">
+                            <Text>
                                 Always seek proper professional help to diagnose and treat your medical conditions.
                                 Do not use the information we provide for self-diagnosis and self-cure.
                             </Text>
@@ -55,7 +55,7 @@ export default function Footer() {
                         </Link>
 
                     </div>
-                    <Text className="lg:text-lg font-bold">
+                    <Text size="lg" className="font-bold">
                         @ Kofuku Technologies
                     </Text>
                 </div>

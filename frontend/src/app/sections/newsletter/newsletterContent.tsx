@@ -50,7 +50,7 @@ const NewsletterContent: React.FC<NewsletterContentProps> = ({
 
                         <div className='xl:absolute z-10 top-35 left-105 right-65'>
                             <Heading level={3} className='text-black-250 font-rubik lg:text-4xl font-bold xl:w-82 leading-9.5 mb-3'>Join the Kofuku family!</Heading>
-                            <Text className='text-black lg:text-base'>
+                            <Text variant='light'>
                                 Hey fam! Want to read our informative blogs and watch our exciting videos?
                             </Text>
                             <div className='mt-4 flex flex-col gap-3'>
