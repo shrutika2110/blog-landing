@@ -1,11 +1,11 @@
 import React from 'react';
 import { GoChevronLeft, GoChevronRight } from 'react-icons/go';
 
-export default function Pagination({ items, pageSize, currentPage, onPageChange }:any) {
+export default function Pagination({ items, pageSize, currentPage, onPageChange }: any) {
   const pagesCount = Math.ceil(items / pageSize);
 
   if (pagesCount === 1) return null;
-  
+
   const pages = Array.from({ length: pagesCount }, (_, i) => i + 1);
 
   const handlePrevClick = () => {
@@ -22,14 +22,14 @@ export default function Pagination({ items, pageSize, currentPage, onPageChange 
 
   return (
     <div className="flex items-center justify-center my-5">
-      <button
-        className={`h-7 w-7 rounded-full flex items-center justify-center border  mx-4 ${currentPage === 1 ? 'text-gray-800 border-gray-800' : 'text-primary border-primary'}`}
-        onClick={handlePrevClick}
-        disabled={currentPage === 1}
+      <div
+        className={`h-7 w-7 rounded-full flex items-center justify-center border  mx-4 ${
+          currentPage === 1 ? 'text-gray-800 border-gray-800 cursor-not-allowed' : 'text-primary border-primary  hover:shadow-xl cursor-pointer'
+        }`}
+        onClick={currentPage === 1 ? undefined : handlePrevClick}
       >
         <GoChevronLeft />
-        
-      </button>
+      </div>
       <ul className="flex gap-2 items-center">
         {pages.map((page) => (
           <li key={page}>
@@ -43,13 +43,14 @@ export default function Pagination({ items, pageSize, currentPage, onPageChange 
           </li>
         ))}
       </ul>
-      <button
-        className={`h-7 w-7 rounded-full flex items-center justify-center border  mx-4 ${currentPage === pagesCount ? 'text-gray-800 border-gray-800' : 'text-primary border-primary'}`}
-        onClick={handleNextClick}
-        disabled={currentPage === pagesCount}
+      <div
+        className={`h-7 w-7 rounded-full flex items-center justify-center border  mx-4 ${
+          currentPage === pagesCount ? 'text-gray-800 border-gray-800 cursor-not-allowed' : 'text-primary border-primary  hover:shadow-xl cursor-pointer'
+        }`}
+        onClick={currentPage === pagesCount ? undefined : handleNextClick}
       >
         <GoChevronRight />
-      </button>
+      </div>
     </div>
   );
 }
