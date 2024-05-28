@@ -113,6 +113,39 @@ export function BlogService() {
   });
 }
 
+export function VideoService() {
+  return cmsClient.query({
+    query: gql`
+    query getVideos {
+      youtubes {
+        data {
+          id
+          attributes {
+            Title
+            Link
+            Description
+            Date
+            publishedAt
+            Duration
+            CoverImg {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `,
+  });
+}
+
+
+
+
+
 //Get blogs by title for search
 export function getBlogsByTitle(titleString: string) {
   return cmsClient.query({

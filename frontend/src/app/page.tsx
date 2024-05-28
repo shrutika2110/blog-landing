@@ -1,12 +1,9 @@
 
 import HeroTab from "./sections/HeroTab";
-import Trending from "./sections/trending";
-import Videos from "./sections/videos";
 import BackToTop from "@/components/utility/backToTop";
-import { BlogService } from "@/service";
+import { BlogService, VideoService } from "@/service";
 import HeroSlider from "./sections/HeroSlider";
 import Newsletter from "./sections/newsletter";
-import Blogs from "./sections/blogs";
 
 async function fetchBlogData() {
   try {
@@ -19,9 +16,21 @@ async function fetchBlogData() {
   }
 }
 
+async function fetchVideoData() {
+  try {
+    const { data } = await VideoService();
+    const content = data.youtubes.data;
+    return content
+  }
+  catch (e: any) {
+    console.log("error:\n", e.message);
+  }
+}
+
 export default async function Page() {
 
   const blogsData = await fetchBlogData();
+  const videosData = await fetchVideoData();
 
   return (
     <div className="relative ">
@@ -30,7 +39,7 @@ export default async function Page() {
           <HeroSlider blogsData={blogsData} />
         </div>
       </div>
-      <HeroTab blogsData={blogsData} />
+      <HeroTab blogsData={blogsData} videosData={videosData} />
       <div className="container relative">
         <Newsletter />
         <BackToTop /> 

@@ -7,9 +7,10 @@ import Videos from '../videos';
 
 interface Props {
     blogsData?: any;
+    videosData ?:any
 }
 
-export default function HeroTab({blogsData}: any) {
+export default function HeroTab({blogsData, videosData}: any) {
    
     const blogsRef = useRef<HTMLDivElement>(null);
     const videosRef = useRef<HTMLDivElement>(null);
@@ -64,7 +65,7 @@ export default function HeroTab({blogsData}: any) {
                     <Blogs blogsData={blogsData} />
                 </div>
                 <div  ref={videosRef}>
-                    <Videos  />
+                    <Videos  videosData={videosData} />
                 </div>
             </div>
          </>
