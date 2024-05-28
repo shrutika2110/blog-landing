@@ -20,3 +20,9 @@ export const paginate = (items:any, pageNumber:any, pageSize:any) => {
   const startIndex = (pageNumber - 1) * pageSize;
   return items.slice(startIndex, startIndex + pageSize);
  };
+
+ export function emitErrorNotification(
+  msg = 'Something went wrong, Please try again!',
+) {
+  console.log(msg);
+}
