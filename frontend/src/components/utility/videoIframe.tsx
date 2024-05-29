@@ -20,7 +20,6 @@ function extractVideoId(url: string): string | null {
 
 export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Props) {
 
-    console.log('coverImg', coverImg);
     const [isPlaying, setIsPlaying] = useState(false);
     const playerRef = useRef<any>(null);
 
