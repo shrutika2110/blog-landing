@@ -1,10 +1,9 @@
 "use client"
 import React, { useState, useRef } from 'react';
-// import { YouTubeEmbed } from '@next/third-parties/google'
 import Image from "next/image"
-import YouTube from 'react-youtube';
 import { LiaPauseSolid, LiaPlaySolid } from 'react-icons/lia';
 import { extractVideoId } from '@/lib/helpers';
+import YoutubePlayer from './youtubePlayer';
 
 interface Props {
     videoId?: string;
@@ -13,12 +12,10 @@ interface Props {
     coverImg ?: any
 }
 
-
 export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Props) {
 
     const [isPlaying, setIsPlaying] = useState(false);
     const playerRef = useRef<any>(null);
-    const [duration, setDuration] = useState(null);
     const extractedVideoId = videoId && extractVideoId(videoId);
 
     const opts = {
@@ -38,21 +35,9 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Pro
         },
     };
 
-    const formatDuration = (seconds:any) => {
-        const mins = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${mins} mins ${secs < 10 ? '0' : ''}${secs} secs`;
-      };
-
-  
-
     const onReady = (event: any) => {
-        
         playerRef.current = event.target;
         playerRef.current.mute();
-        const videoDuration = playerRef.current.getDuration();
-        setDuration(videoDuration);
-        console.log('videoDuration', formatDuration(videoDuration))
     };
 
     const handlePlayPause = () => {
@@ -72,12 +57,11 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Pro
         <div className="relative h-full">
             <div className="videoHolder h-full">
                 {extractedVideoId && (
-                    <YouTube
-                        videoId={extractedVideoId}
-                        opts={opts}
-                        className="h-full w-full object-cover"
-                        onReady={onReady}
-                        onError={handleError}
+                    <YoutubePlayer
+                    videoId={extractedVideoId}
+                    opts={opts}
+                    onReady={onReady}
+                    onError={handleError}
                     />
                 )}
             </div>

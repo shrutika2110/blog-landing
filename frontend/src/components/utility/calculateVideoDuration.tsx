@@ -1,9 +1,8 @@
 import { extractVideoId, timeFormatDuration } from '@/lib/helpers';
 import React, { useRef, useState } from 'react';
-import YouTube from 'react-youtube';
+import YoutubePlayer from './youtubePlayer';
 
 function CalculateVideoDuration({ videoUrl }: any) {
-
   const playerRef = useRef<any>(null);
   const [duration, setDuration] = useState(null);
   const extractedVideoId = videoUrl && extractVideoId(videoUrl);
@@ -24,7 +23,6 @@ function CalculateVideoDuration({ videoUrl }: any) {
       },
   };
 
-
   const onReady = (event: any) => {
       playerRef.current = event.target;
       playerRef.current.mute();
@@ -40,10 +38,9 @@ function CalculateVideoDuration({ videoUrl }: any) {
     <>
           <div className="hidden">
                 {extractedVideoId && (
-                    <YouTube
+                    <YoutubePlayer
                         videoId={extractedVideoId}
                         opts={opts}
-                        className="h-full w-full object-cover"
                         onReady={onReady}
                         onError={handleError}
                     />
