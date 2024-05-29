@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import VideoIframe from "@/components/utility/videoIframe";
 import { dateFormate } from "@/lib/helpers";
 import CalculateVideoDuration from "@/components/utility/calculateVideoDuration";
+import Link from "next/link";
 
 interface Props {
     videosData?: any;
@@ -88,9 +89,11 @@ export default function Videos({videosData}: Props) {
                       
                 </div>
                 <div className="flex items-end justify-end">
-                    <Button variant="outline">
-                        See all
-                    </Button>
+                        <Button variant="outline" asChild >
+                            <Link href="/videos">
+                                    See all
+                            </Link>
+                        </Button>
                 </div>
             </div>
     );
