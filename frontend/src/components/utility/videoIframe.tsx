@@ -22,7 +22,7 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Pro
 
     const [isPlaying, setIsPlaying] = useState(false);
     const playerRef = useRef<any>(null);
-
+    const [duration, setDuration] = useState(null);
     const extractedVideoId = videoId && extractVideoId(videoId);
 
     const opts = {
@@ -42,11 +42,21 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Pro
         },
     };
 
+    const formatDuration = (seconds:any) => {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins} mins ${secs < 10 ? '0' : ''}${secs} secs`;
+      };
+
   
 
     const onReady = (event: any) => {
+        
         playerRef.current = event.target;
         playerRef.current.mute();
+        const videoDuration = playerRef.current.getDuration();
+        setDuration(videoDuration);
+        console.log('videoDuration', formatDuration(videoDuration))
     };
 
     const handlePlayPause = () => {
