@@ -1,6 +1,6 @@
 
 import Heading from "@/components/composite/Heading";
-import { Card, CardContent, CardCoverTitle, CardDate, CardTime, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import VideoIframe from "@/components/utility/videoIframe";
 import { dateFormate } from "@/lib/helpers";
@@ -11,14 +11,14 @@ interface Props {
 }
 
 
-export default function Videos({videosData}: any) {
+export default function Videos({videosData}: Props) {
 
     const firstVideo = videosData && videosData[0];
     const otherVideos = videosData && videosData.slice(1, 4);
 
     return (
-            <div className="mt-7 pt-5 border-t border-offwhite-700 border-b  pb-4 mb-10" id="videos">
-                <Heading level={3} className="text-primary md:text-base xl:text-2xl font-extrabold">
+            <div className="mt-7 pt-5 border-t border-offwhite-700 border-b pb-4 mb-10" id="videos">
+                <Heading level={3} variant="primary" className="font-extrabold">
                     Videos
                 </Heading>
                 <div className="grid xl:grid-cols-2 gap-5 xl:gap-8 mt-5 mb-7">
@@ -26,12 +26,11 @@ export default function Videos({videosData}: any) {
                             <Card className="h-full">
                                 <CardContent className="relative h-full p-0">
                                     <VideoIframe videoId={firstVideo?.attributes?.Link} isLarge />
-                                    <CardCoverTitle>
+                                    <CardTitle variant="dark" size="lg" className="absolute bottom-4.5 left-4.5 w-full xl:max-w-8/12">
                                         {firstVideo?.attributes?.Title}
-                                    </CardCoverTitle>
+                                    </CardTitle>
                                 </CardContent>
                             </Card>
-
                         </div>
                     <div className="xl:col-span-1">
                         <div className="flex flex-col gap-5 xl:gap-8">
@@ -46,7 +45,7 @@ export default function Videos({videosData}: any) {
                                         </div>
                                         <div className="col-span-8">
                                             <div className="p-5">
-                                                <CardTitle>{video?.attributes?.Title}</CardTitle>
+                                                <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                 <div className="flex gap-3 items-center">
                                                      <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
                                                     <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
@@ -73,7 +72,7 @@ export default function Videos({videosData}: any) {
                                             </div>
                                             <div >
                                                 <div className="p-3 xl:p-5">
-                                                    <CardTitle>{video?.attributes?.Title}</CardTitle>
+                                                    <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                     <div className="flex gap-3 items-center">
                                                         <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
                                                         <div className="h-1 w-1 bg-gray-350 rounded-full"></div>

@@ -4,19 +4,20 @@ import React from "react";
 type HeadingProps = {
     level?: number,
     children?: React.ReactElement | any,
-    variant?: "dark" | "light",
-    size?: "sm" | "xs" | "xxs" | "xl",
+    variant?: "dark" | "light" | "primary",
+    size?: "sm" | "base" | "xs" | "xxs" | "lg" | "xl",
     className?: string,
     title?: string;
     style?: any
 }
 
-const Heading = ({ level, children, variant = "dark", size, className, style }: HeadingProps) => {
+const Heading = ({ level, children, variant = "light", size = "base", className, style }: HeadingProps) => {
     const DynamicTag: any = `h${level}`;
 
     const headingVariant = {
-        "dark": "text-black",
-        "light": "text-white",
+        "dark": "text-white",
+        "light": "text-black-250",
+        "primary": "text-primary",
     }[variant];
 
     return (
@@ -25,13 +26,13 @@ const Heading = ({ level, children, variant = "dark", size, className, style }: 
                 ${level == 1
                     ? 'lg:text-5xl text-2xl'
                     : level == 2
-                        ? size === 'sm' ? `lg:text-2xl text-lg `: size === 'xl' ? `lg:text-xl text-lg ` : size === 'xs' ? `lg:text-lg text-md ` : `lg:text-5xl text-2xl`
+                        ? size === 'sm' ? `lg:text-2xl text-lg ` : `lg:text-5xl text-2xl`
                         : level == 3
-                            ? size === 'sm' ? 'text-2xl ' : 'md:text-2xl text-lg'
+                            ? size === 'lg' ? 'text-lg lg:text-4xl ' : 'text-sm md:text-base xl:text-2xl'
                             : level == 4
-                                ? size === 'sm' ? ' text-2xl' : size === 'xs' ? ' text-md' : 'md:text-3xl text-2xl '
+                                ? size === 'sm' ? ' text-xl' : 'md:text-3xl text-2xl '
                                 : level == 5
-                                    ? size === 'sm' ? ' text-sm' :'text-sm lg:text-base xl:text-md '
+                                    ? size === 'sm' ? ' text-sm' :'text-base xl:text-md '
                                     : level == 6 && ''
                 }
                 ${headingVariant}

@@ -11,7 +11,7 @@ export default function NotFound() {
                 <Image src="/images/error.svg" alt="error" fill={true} />
             </div>
             <div className="mx-auto text-center">
-                <Heading level={1}>Caution!</Heading>
+                <Heading level={1} variant="light">Caution!</Heading>
             </div>
         </div>
 

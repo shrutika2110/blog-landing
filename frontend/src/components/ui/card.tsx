@@ -1,6 +1,4 @@
-'use client'
 import * as React from "react"
-import { useState, useRef } from "react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { MdOutlineAccessTime } from "react-icons/md";
@@ -63,41 +61,30 @@ const CardHeader = React.forwardRef<
 ))
 CardHeader.displayName = "CardHeader"
 
-const CardTitle = React.forwardRef<
-    HTMLParagraphElement,
-    React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-    <h3
-        ref={ref}
-        className={cn("text-base font-bold mb-3 text-black leading-5 h-10 max-h-10 line-clamp-2 ", className)}
-        {...props}
-    />
-))
-CardTitle.displayName = "CardTitle"
+interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
+    variant?: "light" | "dark";
+    size?: "base" | "lg" ;
+}
 
-const CardCoverTitle = React.forwardRef<
-    HTMLParagraphElement,
-    React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-    <div
-        ref={ref}
-        className={cn("absolute bottom-4.5 left-4.5 w-full text-white font-extrabold md:text-2xl xl:text-4xl xl:max-w-8/12 leading-9 h-19.5 max-h-19.5 line-clamp-2", className)}
-        {...props}
-    ></div>
-))
-CardCoverTitle.displayName = "CardCoverTitle"
-
-const CardBannerGradient = React.forwardRef<
-    HTMLParagraphElement,
-    React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-    <div
-        ref={ref}
-        className={cn("relative w-full h-full after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad ", className)}
-        {...props}
-    ></div>
-))
-CardBannerGradient.displayName = "CardBannerGradient"
+const CardTitle = React.forwardRef<HTMLParagraphElement, CardTitleProps>(
+    ({ className, variant = 'light', size = "base" , ...props }, ref) => (
+        <h3
+            ref={ref}
+            className={cn(
+                " mb-3 line-clamp-2",
+                {
+                    "text-black": variant === "light",
+                    "text-white": variant === "dark",
+                    "text-base font-bold leading-5 h-10 max-h-10": size === "base",
+                    "font-extrabold md:text-2xl xl:text-4xl leading-9 h-19.5 max-h-19.5": size === "lg",
+                },
+                className
+            )}
+            {...props}
+        />
+    )
+);
+CardTitle.displayName = "CardTitle";
 
 const CardDate = React.forwardRef<
     HTMLParagraphElement,
@@ -127,8 +114,6 @@ const CardTime = React.forwardRef<
         
 ))
 CardTime.displayName = "CardTime"
-
-
 
 const CardDescription = React.forwardRef<
     HTMLParagraphElement,
@@ -162,4 +147,4 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
-export { Card, CardBanner, CardHeader, CardFooter, CardTitle, CardBannerGradient, CardCoverTitle, CardDescription, CardContent, CardDate, CardTime }
+export { Card, CardBanner, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardDate, CardTime }

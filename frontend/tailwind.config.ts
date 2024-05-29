@@ -33,11 +33,14 @@ module.exports = {
         heading: ['Roboto'],
         manrope: ['var(--font-manrope)'],
         rubik: ['var(--font-rubik)'],
+        inter: ['Inter', 'sans-serif'],
       },
       lineHeight: {
         '0.5': '2px',
         '7.5': '30px',
+        '8.75': '35px',
         '9.5': '38px',
+        '14.5': '58px',
       },
       zIndex: {
         90: 90,
@@ -61,7 +64,7 @@ module.exports = {
           700: '#666666',
           800: '#707070',
           850: '#1A1A1A',
-          900: ' #161E2E',
+          900: ' #4a4a4a',
           950: '#252F3F',
           1000: '#4B5563',
           1050: '#383535',
@@ -218,6 +221,7 @@ module.exports = {
         '65': '260px',
         '67.5': '270px',
         '82': '328px',
+        '92': '368px',
         '105': '420px',
         '109': '436px',
         '120': '480px',
@@ -234,7 +238,11 @@ module.exports = {
         '97.5': '390px'
       },
       maxWidth: {
-        '8/12': '66%'
+        '8/12' : '66%',
+        '10/12' :'83%'
+      },
+      borderWidth: {
+        '10': '10px'
       },
       borderRadius: {
         '1.75': '7px'

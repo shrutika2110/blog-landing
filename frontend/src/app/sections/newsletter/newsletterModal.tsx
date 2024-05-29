@@ -2,28 +2,46 @@ import Modal from "@/components/utility/modal";
 import NewsletterContent from "./newsletterContent";
 
 interface NewsletterModalProps {
-    isModalVisible: boolean;
-    showSuccessMsg: boolean;
-    handleCloseModal: () => void;
+    isModalVisible?: boolean;
+    handleCloseModal?: () => void;
+    showSuccessMsg?: boolean;
+    email?: string;
+    setEmail?: any;
+    inputRef?: any;
+    isInputFocused?: boolean;
     handleInputFocus: () => void;
-    handleClick: () => void;
+    handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleClick?: () => void;
+    emailError?: any;
 }
 
 const NewsletterModal: React.FC<NewsletterModalProps> = ({ 
-    isModalVisible, 
-    showSuccessMsg, 
-    handleCloseModal, 
-    handleInputFocus, 
-    handleClick 
+    isModalVisible,
+    handleCloseModal,
+    showSuccessMsg,
+    email,
+    setEmail,
+    inputRef,
+    isInputFocused,
+    handleInputFocus,
+    handleChange,
+    handleClick,
+    emailError,
 }) => {
     return (
         <Modal>
             <NewsletterContent 
-                isModalVisible={isModalVisible} 
-                showSuccessMsg={showSuccessMsg} 
+                isModalVisible={isModalVisible}
                 handleCloseModal={handleCloseModal}
+                showSuccessMsg={showSuccessMsg}
+                email={email}
+                setEmail={setEmail}
+                emailError={emailError}
                 handleInputFocus={handleInputFocus}
+                handleChange={handleChange}
                 handleClick={handleClick}
+                inputRef={inputRef}
+                isInputFocused={isInputFocused}
             />
         </Modal>
     );

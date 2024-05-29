@@ -19,13 +19,13 @@ export default function SliderDetails({ BlogSliders }: SliderProps) {
                             <Image
                                 src={data?.attributes?.coverImg?.data?.attributes?.url || '/fallback-image.jpg'}
                                 alt={data.attributes?.Title || 'Blog Image'}
-                                layout="fill"
+                                fill={true}
                                 className='object-cover'
                             />
                         </div>
 
                         <div className="absolute bottom-12 left-0 text-center w-full">
-                            <Heading level={2} className="text-white font-bold text-4.5xl">
+                            <Heading level={2} variant='dark' className="text-4.5xl">
                                 {data.attributes?.Title}
                             </Heading>
                         </div>
