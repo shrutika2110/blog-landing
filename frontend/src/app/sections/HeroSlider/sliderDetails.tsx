@@ -19,7 +19,8 @@ export default function SliderDetails({ BlogSliders }: SliderProps) {
                             <Image
                                 src={data?.attributes?.coverImg?.data?.attributes?.url || '/fallback-image.jpg'}
                                 alt={data.attributes?.Title || 'Blog Image'}
-                                fill={true} className='object-cover'
+                                fill={true}
+                                className='object-cover'
                             />
                         </div>
 
