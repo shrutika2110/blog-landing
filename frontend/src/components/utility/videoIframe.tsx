@@ -4,6 +4,7 @@ import React, { useState, useRef } from 'react';
 import Image from "next/image"
 import YouTube from 'react-youtube';
 import { LiaPauseSolid, LiaPlaySolid } from 'react-icons/lia';
+import { extractVideoId } from '@/lib/helpers';
 
 interface Props {
     videoId?: string;
@@ -12,11 +13,6 @@ interface Props {
     coverImg ?: any
 }
 
-function extractVideoId(url: string): string | null {
-    const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-    const match = url.match(regex);
-    return match ? match[1] : null;
-}
 
 export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Props) {
 
