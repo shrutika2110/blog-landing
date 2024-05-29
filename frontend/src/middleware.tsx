@@ -6,6 +6,7 @@ export function middleware(request: NextRequest) {
   const { device } = userAgent(request);
   const viewport = (device.type === 'mobile' || device.type === 'tablet') ? 'mobile' : 'desktop';
   requestHeaders.set('viewport', viewport);
+  requestHeaders.set("x-current-path", request.nextUrl.pathname);
   const response = NextResponse.next({
     request: {
       headers: requestHeaders,
