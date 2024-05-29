@@ -113,6 +113,99 @@ export function BlogService() {
   });
 }
 
+export function SingleBlogService(slug:any) {
+  return cmsClient.query({
+    query: gql`
+    query getSingleBlog($slug: String) {
+      blogs(filters: { slug: { eq: $slug } }) {
+        data {
+          id
+          attributes{
+            Title
+            shortDes
+            publish_date
+            slug
+            good_read
+            recommended
+            pick
+            watch
+            trending
+            coverImg {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            firstFold {
+              Title
+              description
+            }
+            secondFold {
+              Title
+               description
+            }
+            blog_categories {
+              data {
+                id
+                attributes {
+                  title
+                  slug
+                }
+              }
+            }
+            views
+            video {
+              video {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              coverImg {
+                id
+                image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                altText
+              }
+            }
+            videoViews
+            blog_authors {
+              data {
+                id
+                attributes {
+                  name
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    
+    }
+    `,
+    
+    variables: {
+      slug: slug,
+    },
+  });
+}
+
+
+
 export function VideoService() {
   return cmsClient.query({
     query: gql`

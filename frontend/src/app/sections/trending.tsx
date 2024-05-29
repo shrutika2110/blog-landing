@@ -3,6 +3,7 @@ import { Card, CardBanner, CardContent, CardDate, CardTime, CardTitle } from "@/
 import Carousel from "@/components/utility/Carousel";
 import extractAndCalculateReadTime from "@/components/utility/calculateReadTime";
 import { dateFormate } from "@/lib/helpers";
+import Link from "next/link";
 
 interface Props {
     blogsData?: any;
@@ -37,24 +38,27 @@ export default function Trending({blogsData}: Props) {
                     autoplaySpeed={2000}
                 >
           
-                        {trendingBlogs.map((card:any, index:any) => (
-                            <Card key={index} >
+                    {trendingBlogs.map((blog:any, index:any) => (
+                        <Link href={'/blogs/' +blog?.attributes?.slug} key={index}>
+
+                            <Card  >
                                 <CardContent className="p-0">
                                     <div className="h-48">
-                                        <CardBanner src={card?.attributes?.coverImg?.data?.attributes?.url}></CardBanner>
+                                        <CardBanner src={blog?.attributes?.coverImg?.data?.attributes?.url}></CardBanner>
                                     </div>
                                     <div>
                                         <div className="p-3 xl:p-5">
-                                            <CardTitle className="mb-3">{card?.attributes?.Title}</CardTitle>
+                                            <CardTitle className="mb-3">{blog?.attributes?.Title}</CardTitle>
                                             <div className="flex gap-3 items-center">
-                                                <CardDate>{dateFormate(card?.attributes?.publish_date)}</CardDate>
+                                                <CardDate>{dateFormate(blog?.attributes?.publish_date)}</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                <CardTime>{extractAndCalculateReadTime(card)}</CardTime>
+                                                <CardTime>{extractAndCalculateReadTime(blog)}</CardTime>
                                             </div>
                                         </div>
                                     </div>
                                 </CardContent>
                             </Card>
+                            </Link>
                         ))}
                     </Carousel>
                 </div>

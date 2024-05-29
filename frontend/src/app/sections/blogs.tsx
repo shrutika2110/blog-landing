@@ -27,21 +27,24 @@ export default function Blogs({blogsData}: Props) {
                 </Heading>
                 <div className="grid xl:grid-cols-2 gap-5 xl:gap-8 mt-5 mb-7">
                     <div className="xl:col-span-1">
-                            <Card className="h-full">
-                                    <CardContent className="relative h-full p-0">
-                                        <div className="min-h-97.5 rounded overflow-hidden relative w-full h-full after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad ">
-                                            <CardBanner src={firstBlog?.attributes?.coverImg?.data?.attributes?.url}  ></CardBanner>
-                                        </div>
-                                        <CardTitle variant="dark"  size="lg" className="absolute bottom-4.5 left-4.5 w-full xl:max-w-8/12">
-                                                {firstBlog?.attributes?.Title}
-                                        </CardTitle>
-                                    </CardContent>
-                            </Card>
+                        <Link href={'/blogs/' +firstBlog?.attributes?.slug}>
+                                <Card className="h-full">
+                                        <CardContent className="relative h-full p-0">
+                                            <div className="min-h-97.5 rounded overflow-hidden relative w-full h-full after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad ">
+                                                <CardBanner src={firstBlog?.attributes?.coverImg?.data?.attributes?.url}  ></CardBanner>
+                                            </div>
+                                            <CardTitle variant="dark"  size="lg" className="absolute bottom-4.5 left-4.5 w-full xl:max-w-8/12">
+                                                    {firstBlog?.attributes?.Title}
+                                            </CardTitle>
+                                        </CardContent>
+                                </Card>
+                            </Link>
                         </div>
                     <div className="xl:col-span-1">
                         <div className="flex flex-col gap-5 xl:gap-8">
                             {otherBlogs && otherBlogs.map((blog:any, index:any) => (
-                                <Card key={index}  >
+                                <Link href={'/blogs/' +blog?.attributes?.slug} key={index}>
+                                <Card   >
                                     <CardContent className="p-0">
                                         <div className="grid grid-cols-12">
                                             <div className="col-span-4">
@@ -60,6 +63,7 @@ export default function Blogs({blogsData}: Props) {
                                         </div>
                                     </CardContent>
                                 </Card>
+                                </Link>
                             ))}
                         
                         </div>
