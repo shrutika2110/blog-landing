@@ -6,6 +6,7 @@ import extractAndCalculateReadTime from "@/components/utility/calculateReadTime"
 import { useState } from "react";
 import Pagination from "@/components/utility/pagination";
 import Breadcrumb from "@/components/utility/breadcrumb";
+import Link from "next/link";
 
 interface Props {
     blogsData?: any;
@@ -37,6 +38,7 @@ export default function BlogList({blogsData}: any) {
                 <Breadcrumb crumbs={crumbs} />
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 xl:gap-8 mt-5 mb-7">
                             {paginatedBlogs && paginatedBlogs.map((blog:any, index:any) => (
+                                <Link href={'/blogs/' +blog?.attributes?.slug}>
                                 <Card key={index} >
                                 <CardContent className="p-0">
                                     <div className="h-48">
@@ -54,6 +56,7 @@ export default function BlogList({blogsData}: any) {
                                     </div>
                                 </CardContent>
                             </Card>
+                            </Link>
                             ))}
                         
 
