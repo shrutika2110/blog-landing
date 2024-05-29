@@ -6,6 +6,7 @@ import HeroSection from "./sections/heroSection";
 import type { Metadata } from 'next'
 import FirstFoldBlogs from "./sections/firstFoldBlogs";
 import SecFoldBlogs from "./sections/secFoldBlogs";
+import NullPoint from "@/components/utility/nullPoint";
 
 export const metadata: Metadata = {
   title: 'Kofuku - Blog',
@@ -40,20 +41,29 @@ export default async function Page() {
     const blogPath = pathname?.split('/blogs/')[1];
     const blogsData = await fetchBlogData();
     const singleBlogData = await fetchSingleBlogData(blogPath || '');
+
     const firstFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.firstFold
     const secFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.secondFold
 
   return (
-    <div className='container'>
-          <div className="pt-5 mt-3 mb-14" >
-                <HeroSection singleBlogData={singleBlogData} />
-                <FoldDescription foldDetails={firstFoldDetails} />
-                <FirstFoldBlogs blogsData={blogsData} />
-                <FoldDescription foldDetails={secFoldDetails} />
-                <SecFoldBlogs blogsData={blogsData} />
-                <Newsletter />
+    <>
+        { singleBlogData.length ?
+            <div className='container'>
+
+                  <div className="pt-5 mt-3 mb-14" >
+                        <HeroSection singleBlogData={singleBlogData} />
+                        <FoldDescription foldDetails={firstFoldDetails} />
+                        <FirstFoldBlogs blogsData={blogsData} />
+                        <FoldDescription foldDetails={secFoldDetails} />
+                        <SecFoldBlogs blogsData={blogsData} />
+                        <Newsletter />
+                    </div>
             </div>
-    </div>
+
+            : 
+            <NullPoint />
+        }
+      </>
   );
 }
 

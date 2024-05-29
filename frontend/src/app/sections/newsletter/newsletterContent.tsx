@@ -36,7 +36,7 @@ const NewsletterContent: React.FC<NewsletterContentProps> = ({
 }) => {
     return (
         <div className='container'>
-            <div className='xl:m-10 relative'>
+            <div className='xl:m-10 xl:mb-16 relative'>
                 {isModalVisible &&
                     <div className='absolute top-5 right-5 cursor-pointer text-offwhite-900 h-5 w-5 z-20' onClick={handleCloseModal}>
                         <IoCloseOutline size={20} />
