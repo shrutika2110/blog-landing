@@ -43,8 +43,8 @@ export default function Blogs({blogsData}: Props) {
                     <div className="xl:col-span-1">
                         <div className="flex flex-col gap-5 xl:gap-8">
                             {otherBlogs && otherBlogs.map((blog:any, index:any) => (
-                                <Link href={'/blogs/' +blog?.attributes?.slug}>
-                                <Card key={index}  >
+                                <Link href={'/blogs/' +blog?.attributes?.slug} key={index}>
+                                <Card   >
                                     <CardContent className="p-0">
                                         <div className="grid grid-cols-12">
                                             <div className="col-span-4">
