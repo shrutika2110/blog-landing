@@ -25,7 +25,7 @@ export default function Videos({videosData}: Props) {
                     <div className="xl:col-span-1">
                             <Card className="h-full">
                                 <CardContent className="relative h-full p-0">
-                                    <VideoIframe videoId={firstVideo?.attributes?.Link} isLarge />
+                                    <VideoIframe videoId={firstVideo?.attributes?.Link} size="lg" inlinePlay />
                                     <CardTitle variant="dark" size="lg" className="absolute bottom-4.5 left-4.5 w-full xl:max-w-8/12">
                                         {firstVideo?.attributes?.Title}
                                     </CardTitle>
@@ -39,12 +39,12 @@ export default function Videos({videosData}: Props) {
                                 <CardContent className="p-0">
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
-                                            <div className="h-full">
-                                                <VideoIframe videoId={video?.attributes?.Link} />
+                                            <div className="h-full max-h-27.5">
+                                                <VideoIframe videoId={video?.attributes?.Link} coverImg={video?.attributes?.CoverImg?.data?.attributes?.url} />
                                             </div>
                                         </div>
                                         <div className="col-span-8">
-                                            <div className="p-5">
+                                            <div className="p-4.5">
                                                 <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                 <div className="flex gap-3 items-center">
                                                      <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
@@ -68,7 +68,7 @@ export default function Videos({videosData}: Props) {
                             <Card className="border-none bg-gray-250 rounded " key={index}>
                                     <CardContent className="p-0">
                                             <div className="h-48">
-                                                <VideoIframe videoId={video?.attributes?.Link} />
+                                                <VideoIframe videoId={video?.attributes?.Link} size="md" coverImg={video?.attributes?.CoverImg?.data?.attributes?.url} />
                                             </div>
                                             <div >
                                                 <div className="p-3 xl:p-5">
