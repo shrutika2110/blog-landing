@@ -21,7 +21,7 @@ export default function Pagination({ items, pageSize, currentPage, onPageChange 
   };
 
   return (
-    <div className="flex items-center justify-center my-5">
+    <div className="flex items-center justify-center mt-5 mb-20">
       <div
         className={`h-7 w-7 rounded-full flex items-center justify-center border  mx-4 ${
           currentPage === 1 ? 'text-gray-800 border-gray-800 cursor-not-allowed' : 'text-primary border-primary  hover:shadow-xl cursor-pointer'
