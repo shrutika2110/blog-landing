@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 type TextProps = {
-    children: React.ReactElement | string,
+    children: React.ReactElement | any,
     size?:  "base" | "lg" ,
     variant?: "dark" | "light",
     className?: string,

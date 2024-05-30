@@ -1,34 +1,54 @@
-import React, { useEffect, useState } from 'react';
+import { extractVideoId, timeFormatDuration } from '@/lib/helpers';
+import React, { useRef, useState } from 'react';
+import YoutubePlayer from './youtubePlayer';
 
 function CalculateVideoDuration({ videoUrl }: any) {
-  const [videoTimeDisplay, setVideoTimeDisplay] = useState<string | null>(null);
+  const playerRef = useRef<any>(null);
+  const [duration, setDuration] = useState(null);
+  const extractedVideoId = videoUrl && extractVideoId(videoUrl);
 
-  useEffect(() => {
-    const fetchVideoDuration = () => {
-      const tempVideo = document.createElement('video');
-      tempVideo.src = videoUrl;
+    const opts = {
+      height: '100%',
+      width: '100%',
+      playerVars: {
+          controls: 0,
+          rel: 0,
+          loop: 1,
+          start: 0,
+          modestbranding: 1,
+          fs: 0,
+          iv_load_policy: 3,
+          mute: 1,
+          showinfo: 0,
+      },
+  };
 
-      tempVideo.onloadedmetadata = () => {
-        const duration = Math.floor(tempVideo.duration);
-        if (!isNaN(duration)) {
-          if (duration < 60) {
-            setVideoTimeDisplay(`${duration} secs`);
-          } else {
-            const minutes = Math.floor(duration / 60);
-            const seconds = duration % 60;
-            setVideoTimeDisplay(`${minutes}.${seconds} mins`);
-          }
-        } else {
-          setVideoTimeDisplay(null);
-        }
-        tempVideo.remove();
-      };
-    };
+  const onReady = (event: any) => {
+      playerRef.current = event.target;
+      playerRef.current.mute();
+      const videoDuration = playerRef.current.getDuration();
+      setDuration(videoDuration);
+  };
 
-    fetchVideoDuration();
-  }, [videoUrl]);
+  const handleError = (event: any) => {
+      console.error('YouTube Player Error:', event.data);
+  };
 
-  return <span>{videoTimeDisplay !== null ? videoTimeDisplay : '0 secs'}</span>;
+  return (
+    <>
+          <div className="hidden">
+                {extractedVideoId && (
+                    <YoutubePlayer
+                        videoId={extractedVideoId}
+                        opts={opts}
+                        onReady={onReady}
+                        onError={handleError}
+                    />
+                )}
+            </div>
+          <span>{duration !== null ? timeFormatDuration(duration) : '0 secs'}</span>
+  </>
+  );
 }
 
 export default CalculateVideoDuration;

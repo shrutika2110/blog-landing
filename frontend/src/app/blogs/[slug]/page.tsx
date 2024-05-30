@@ -39,6 +39,7 @@ export default async function Page() {
     const headerList = headers();
     const pathname = headerList.get("x-current-path");
     const blogPath = pathname?.split('/blogs/')[1];
+
     const blogsData = await fetchBlogData();
     const singleBlogData = await fetchSingleBlogData(blogPath || '');
 
@@ -61,7 +62,7 @@ export default async function Page() {
             </div>
 
             : 
-            <NullPoint />
+            <NullPoint pageUrl={blogPath} />
         }
       </>
   );
