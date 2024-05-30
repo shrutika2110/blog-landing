@@ -27,7 +27,7 @@ export default function Videos({videosData}: Props) {
                             <Card className="h-full">
                                 <CardContent className="relative h-full p-0">
                                     <VideoIframe videoId={firstVideo?.attributes?.Link} size="lg" inlinePlay />
-                                    <CardTitle variant="dark" size="lg" className="absolute bottom-4.5 left-4.5 w-full xl:max-w-8/12">
+                                    <CardTitle variant="dark" size="lg" className="absolute bottom-4.5 left-4.5 w-full xl:max-w-8/12 z-35">
                                         {firstVideo?.attributes?.Title}
                                     </CardTitle>
                                 </CardContent>

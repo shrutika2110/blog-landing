@@ -61,7 +61,7 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Pro
 
     return (
         <div className="relative h-full">
-            <div className="videoHolder h-full after:content-[''] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-35 after:bg-transparent">
+            <div className={`videoHolder h-full after:content-[''] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-35 ${inlinePlay ? 'after:bg-black-grad' : 'after:bg-transparent'} `}>
                 {extractedVideoId && (
                     <YoutubePlayer
                         videoId={extractedVideoId}
