@@ -61,7 +61,7 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Pro
 
     return (
         <div className="relative h-full">
-            <div className="videoHolder h-full">
+            <div className="videoHolder h-full after:content-[''] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-35 after:bg-transparent">
                 {extractedVideoId && (
                     <YoutubePlayer
                         videoId={extractedVideoId}
@@ -73,14 +73,14 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Pro
             </div>
             {!isPlaying && (
                 <div
-                    className="absolute inset-0 z-20 cursor-pointer"
+                    className="absolute inset-0 z-30 cursor-pointer"
                     onClick={handlePlayPause}
                 >
                     <Image src={coverImg || '/images/poster.jpeg'} fill={true} alt="Video" className='object-cover' />
                 </div>
             )}
             <div
-                className={`absolute bottom-4 right-4 z-30 cursor-pointer flex items-center justify-center border-white bg-offwhite-450 rounded-full text-white ${size === "lg" ? "h-20 w-20 border-3 text-5xl" : size === "md" ? "h-12 w-12 border-2 text-2xl" : "h-8 w-8 border text-md"}`}
+                className={`absolute bottom-4 right-4 z-40 cursor-pointer flex items-center justify-center border-white bg-offwhite-450 rounded-full text-white ${size === "lg" ? "h-20 w-20 border-3 text-5xl" : size === "md" ? "h-12 w-12 border-2 text-2xl" : "h-8 w-8 border text-md"}`}
                 onClick={handlePlayPause}
             >
                 {isPlaying ? <LiaPauseSolid /> : <LiaPlaySolid />}
