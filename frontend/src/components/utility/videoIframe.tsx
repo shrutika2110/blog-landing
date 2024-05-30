@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useRef } from 'react';
-import Image from "next/image"
+import Image from "next/image";
 import { LiaPauseSolid, LiaPlaySolid } from 'react-icons/lia';
 import { extractVideoId } from '@/lib/helpers';
 import YoutubePlayer from './youtubePlayer';
@@ -9,12 +9,12 @@ interface Props {
     videoId?: string;
     size?: string;
     inlinePlay?: boolean;
-    coverImg ?: any
+    coverImg?: any;
 }
 
 export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Props) {
 
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(inlinePlay || false);
     const playerRef = useRef<any>(null);
     const extractedVideoId = videoId && extractVideoId(videoId);
 
@@ -38,15 +38,21 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Pro
     const onReady = (event: any) => {
         playerRef.current = event.target;
         playerRef.current.mute();
+        if (inlinePlay) {
+            playerRef.current.playVideo();
+        }
     };
 
     const handlePlayPause = () => {
-        if (isPlaying) {
-            playerRef.current.pauseVideo();
-        } else {
-            playerRef.current.playVideo();
+        if (playerRef.current) {
+            if (isPlaying) {
+                playerRef.current.pauseVideo();
+                setIsPlaying(false); // Update state after pausing
+            } else {
+                playerRef.current.playVideo();
+                setIsPlaying(true); // Update state after playing
+            }
         }
-        setIsPlaying(!isPlaying);
     };
 
     const handleError = (event: any) => {
@@ -58,43 +64,27 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Pro
             <div className="videoHolder h-full">
                 {extractedVideoId && (
                     <YoutubePlayer
-                    videoId={extractedVideoId}
-                    opts={opts}
-                    onReady={onReady}
-                    onError={handleError}
+                        videoId={extractedVideoId}
+                        opts={opts}
+                        onReady={onReady}
+                        onError={handleError}
                     />
                 )}
             </div>
             {!isPlaying && (
-                <>
-                    <div
-                        className={`absolute bottom-4 right-4 z-30 cursor-pointer flex items-center justify-center border-white bg-offwhite-450 rounded-full text-white ${size == "lg" ? "h-20 w-20  border-3 text-5xl" : size == "md" ? "h-12 w-12 border-2 text-2xl" : "h-8 w-8 border text-md"}`}
-                        onClick={handlePlayPause}
-                    >
-                        <LiaPlaySolid />
-                    </div>
-                    { !inlinePlay &&
-                    <>
-                        <div
-                            className="absolute inset-0 z-20  cursor-pointer"
-                            onClick={handlePlayPause}
-                        >
-                            <Image src={coverImg || '/images/poster.jpeg'} fill={true} alt="Video" className='object-cover' />
-                        </div>
-
-                        
-                    </>
-                    }
-                </>
-            )}
-             {isPlaying && (
                 <div
-                    className={`absolute bottom-4 right-4 bg-offwhite-450 z-30 cursor-pointer flex items-center justify-center border-white rounded-full text-white ${size == "lg" ? "h-20 w-20 border-3 text-5xl" : size == "md" ? "h-12 w-12 border-2 text-2xl" : "h-8 w-8 border text-md"}`}
+                    className="absolute inset-0 z-20 cursor-pointer"
                     onClick={handlePlayPause}
                 >
-                    <LiaPauseSolid />
+                    <Image src={coverImg || '/images/poster.jpeg'} fill={true} alt="Video" className='object-cover' />
                 </div>
             )}
+            <div
+                className={`absolute bottom-4 right-4 z-30 cursor-pointer flex items-center justify-center border-white bg-offwhite-450 rounded-full text-white ${size === "lg" ? "h-20 w-20 border-3 text-5xl" : size === "md" ? "h-12 w-12 border-2 text-2xl" : "h-8 w-8 border text-md"}`}
+                onClick={handlePlayPause}
+            >
+                {isPlaying ? <LiaPauseSolid /> : <LiaPlaySolid />}
+            </div>
         </div>
     );
 }
