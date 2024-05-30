@@ -5,6 +5,7 @@ import { useCallback, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FiSearch } from "react-icons/fi";
 import { debounce } from "lodash";
+import SearchDropdown from "./searchDropdown";
 
 export default function Search() {
   const [query, setQuery] = useState<string>("");
@@ -40,12 +41,11 @@ export default function Search() {
         <div className="h-9 w-9 bg-gray-150 rounded-full absolute right-0 top-px flex text-white justify-center items-center cursor-pointer transition-all duration-200 hover:bg-primary">
             <FaArrowRightLong size={16} />
         </div>
-        {isDropdownOpen && <SearchDropdown results={results} />}
+        {query && <SearchDropdown results={results} />}
     </div>
 
     
   );
 }
 
-import React from "react";import SearchDropdown from "./searchDropdown";
 
