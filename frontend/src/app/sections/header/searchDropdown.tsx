@@ -1,8 +1,5 @@
 import { Card, CardBanner, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { FiSearch } from "react-icons/fi";
 
 
 export default function SearchDropdown() {
