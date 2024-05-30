@@ -1,5 +1,5 @@
-import { gql } from '@apollo/client';
-import cmsClient from './smsClient';
+import { gql } from "@apollo/client";
+import cmsClient from "./smsClient";
 
 export function BlogCategoryService() {
   return cmsClient.query({
@@ -113,78 +113,79 @@ export function BlogService() {
   });
 }
 
-export function SingleBlogService(slug:any) {
+export function SingleBlogService(slug: any) {
   return cmsClient.query({
     query: gql`
-    query getSingleBlog($slug: String) {
-      blogs(filters: { slug: { eq: $slug } }) {
-        data {
-          id
-          attributes{
-            Title
-            shortDes
-            publish_date
-            slug
-            good_read
-            recommended
-            pick
-            watch
-            trending
-            coverImg {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-            firstFold {
+      query getSingleBlog($slug: String) {
+        blogs(filters: { slug: { eq: $slug } }) {
+          data {
+            id
+            attributes {
               Title
-              description
-            }
-            secondFold {
-              Title
-               description
-            }
-            blog_categories {
-              data {
-                id
-                attributes {
-                  title
-                  slug
-                }
-              }
-            }
-            views
-            video {
-              video {
+              shortDes
+              publish_date
+              slug
+              good_read
+              recommended
+              pick
+              watch
+              trending
+              coverImg {
                 data {
                   attributes {
                     url
                   }
                 }
               }
-              coverImg {
-                id
-                image {
+              firstFold {
+                Title
+                description
+              }
+              secondFold {
+                Title
+                description
+              }
+              blog_categories {
+                data {
+                  id
+                  attributes {
+                    title
+                    slug
+                  }
+                }
+              }
+              views
+              video {
+                video {
                   data {
                     attributes {
                       url
                     }
                   }
                 }
-                altText
-              }
-            }
-            videoViews
-            blog_authors {
-              data {
-                id
-                attributes {
-                  name
+                coverImg {
+                  id
                   image {
                     data {
                       attributes {
                         url
+                      }
+                    }
+                  }
+                  altText
+                }
+              }
+              videoViews
+              blog_authors {
+                data {
+                  id
+                  attributes {
+                    name
+                    image {
+                      data {
+                        attributes {
+                          url
+                        }
                       }
                     }
                   }
@@ -194,50 +195,42 @@ export function SingleBlogService(slug:any) {
           }
         }
       }
-    
-    }
     `,
-    
+
     variables: {
       slug: slug,
     },
   });
 }
 
-
-
 export function VideoService() {
   return cmsClient.query({
     query: gql`
-    query getVideos {
-      youtubes {
-        data {
-          id
-          attributes {
-            Title
-            Link
-            Description
-            Date
-            publishedAt
-            Duration
-            CoverImg {
-              data {
-                attributes {
-                  url
+      query getVideos {
+        youtubes {
+          data {
+            id
+            attributes {
+              Title
+              Link
+              Description
+              Date
+              publishedAt
+              Duration
+              CoverImg {
+                data {
+                  attributes {
+                    url
+                  }
                 }
               }
             }
           }
         }
       }
-    }
     `,
   });
 }
-
-
-
-
 
 //Get blogs by title for search
 export function getBlogsByTitle(titleString: string) {
@@ -283,8 +276,6 @@ export function getBlogsByTitle(titleString: string) {
     },
   });
 }
-
-
 
 //Get blogs by userId and watch flag
 export const getVideoBlogs = gql`
@@ -486,3 +477,72 @@ export const getBlogs = gql`
     }
   }
 `;
+
+export function getBlogsAndVideosByTitle(titleString: string) {
+  return cmsClient.query({
+    query: gql`
+      query GetBlogsAndVideosByTitle($titleString: String) {
+        blogs(
+          filters: { Title: { containsi: $titleString } }
+          sort: "createdAt:desc"
+          pagination: { page: 1, pageSize: 5 }
+        ) {
+          data {
+            id
+            attributes {
+              Title
+              publishedAt
+              shortDes
+              slug
+              blog_categories {
+                data {
+                  id
+                  attributes {
+                    title
+                    slug
+                  }
+                }
+              }
+              coverImg {
+                data {
+                  id
+                  attributes {
+                    alternativeText
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+        youtubes(
+          filters: { Title: { containsi: $titleString } }
+          sort: "createdAt:desc"
+          pagination: { page: 1, pageSize: 5 }
+        ) {
+          data {
+            id
+            attributes {
+              Title
+              Link
+              Description
+              Date
+              publishedAt
+              Duration
+              CoverImg {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+    variables: {
+      titleString: titleString,
+    },
+  });
+}
