@@ -38,7 +38,8 @@ export default function VideoList({videosData}: any) {
                 <Breadcrumb crumbs={crumbs} />
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 xl:gap-8 mt-5 mb-7">
                             {paginatedBlogs && paginatedBlogs.map((video:any, index:any) => (
-                                    <Card className="border-none bg-gray-250 rounded " key={index}>
+                                <Link href={'/videos/' + video?.attributes?.slug} key={index}>
+                                    <Card className="border-none bg-gray-250 rounded " >
                                         <CardContent className="p-0">
                                                 <div className="h-48">
                                                     <VideoIframe videoId={video?.attributes?.Link} size="md" coverImg={video?.attributes?.CoverImg?.data?.attributes?.url} />
@@ -57,6 +58,7 @@ export default function VideoList({videosData}: any) {
                                                 </div>
                                         </CardContent>
                                 </Card>
+                                </Link>
                             ))}
                         
 

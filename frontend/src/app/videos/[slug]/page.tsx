@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { BlogService, SingleBlogService, VideoService } from "@/service";
+import { SingleVideoService, VideoService } from "@/service";
 import Newsletter from "@/app/sections/newsletter";
 import HeroSection from "./sections/heroSection";
 import type { Metadata } from 'next'
@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   description: 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more',
 }
 
-async function fetchSingleBlogData(slug: string) {
+async function fetchSingleVideoData(slug: string) {
   try {
-    const { data } = await SingleBlogService(slug);
-    const content = data.blogs.data;
+    const { data } = await SingleVideoService(slug);
+    const content = data.youtubes.data;
     return content
   }
   catch (e: any) {
@@ -37,30 +37,25 @@ async function fetchVideoData() {
 export default async function Page() {
     const headerList = headers();
     const pathname = headerList.get("x-current-path");
-    const blogPath = pathname?.split('/blogs/')[1];
+    const videoPath = pathname?.split('/videos/')[1];
 
     const videosData = await fetchVideoData();
-
-
-    const singleBlogData = await fetchSingleBlogData(blogPath || '');
-
+    const singleVideoData = await fetchSingleVideoData(videoPath || '');
 
   return (
     <>
-        {/* { singleBlogData.length ? */}
-            
+         { singleVideoData && singleVideoData.length ?
                   <div className="pt-5 mt-3 mb-14" >
-                        <HeroSection singleBlogData={singleBlogData}  videosData={videosData}  />
+                        <HeroSection singleVideoData={singleVideoData} />
                         <div className='relative container'>
                           <RelatedVideos videosData={videosData} />
                           <Newsletter />
                           <BackToTop /> 
-
                       </div>
                   </div>
-            {/* : 
-            <NullPoint pageUrl={blogPath} />
-        } */}
+             : 
+             <NullPoint pageUrl={videoPath} />
+           } 
       </>
   );
 }

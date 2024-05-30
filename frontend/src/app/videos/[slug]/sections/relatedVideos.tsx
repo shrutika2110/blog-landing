@@ -20,7 +20,7 @@ export default function RelatedVideos({videosData}:Props) {
                     <div className="w-full">
                         <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-5 my-5">
                                 { videosData.slice(0,9).map((video:any, index:any) => (
-                                    // <Link href={'/blogs/' + video?.attributes?.slug} key={index}>
+                                    <Link href={'/videos/' + video?.attributes?.slug} key={index}>
                                         <Card className="border-none bg-gray-250 rounded " key={index}>
                                                 <CardContent className="p-0">
                                                         <div className="h-48">
@@ -40,7 +40,7 @@ export default function RelatedVideos({videosData}:Props) {
                                                         </div>
                                                 </CardContent>
                                         </Card>
-                                    // </Link>
+                                 </Link>
                                 ))}
                         </div>
                     </div>

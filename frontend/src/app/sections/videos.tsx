@@ -24,19 +24,22 @@ export default function Videos({videosData}: Props) {
                 </Heading>
                 <div className="grid xl:grid-cols-2 gap-5 xl:gap-8 mt-5 mb-7">
                     <div className="xl:col-span-1">
-                            <Card className="h-full">
-                                <CardContent className="relative h-full p-0">
-                                    <VideoIframe videoId={firstVideo?.attributes?.Link} size="lg" inlinePlay />
-                                    <CardTitle variant="dark" size="lg" className="absolute bottom-4.5 left-4.5 w-full xl:max-w-8/12 z-35">
-                                        {firstVideo?.attributes?.Title}
-                                    </CardTitle>
-                                </CardContent>
-                            </Card>
+                            <Link href={'/videos/' + firstVideo?.attributes?.slug}  >
+                                <Card className="h-full">
+                                    <CardContent className="relative h-full p-0">
+                                        <VideoIframe videoId={firstVideo?.attributes?.Link} size="lg" inlinePlay />
+                                        <CardTitle variant="dark" size="lg" className="absolute bottom-4.5 left-4.5 w-full xl:max-w-8/12 z-35">
+                                            {firstVideo?.attributes?.Title}
+                                        </CardTitle>
+                                    </CardContent>
+                                </Card>
+                            </Link>
                         </div>
                     <div className="xl:col-span-1">
                         <div className="flex flex-col gap-5 xl:gap-8">
                         {otherVideos.map((video:any, index:any) => (
-                            <Card key={index}  >
+                            <Link href={'/videos/' + video?.attributes?.slug} key={index} >
+                            <Card  >
                                 <CardContent className="p-0">
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
@@ -59,6 +62,7 @@ export default function Videos({videosData}: Props) {
                                     </div>
                                 </CardContent>
                             </Card>
+                            </Link>
                         ))}
                         </div>
                     </div>
@@ -66,7 +70,8 @@ export default function Videos({videosData}: Props) {
                 </div>
                 <div className="grid lg:grid-cols-3 gap-5 my-5">
                         {otherVideos.map((video:any, index:any) => (
-                            <Card className="border-none bg-gray-250 rounded " key={index}>
+                            <Link href={'/videos/' + video?.attributes?.slug} key={index} >
+                            <Card className="border-none bg-gray-250 rounded " >
                                     <CardContent className="p-0">
                                             <div className="h-48">
                                                 <VideoIframe videoId={video?.attributes?.Link} size="md" coverImg={video?.attributes?.CoverImg?.data?.attributes?.url} />
@@ -85,6 +90,7 @@ export default function Videos({videosData}: Props) {
                                             </div>
                                     </CardContent>
                             </Card>
+                            </Link>
                         ))}
                       
                 </div>
