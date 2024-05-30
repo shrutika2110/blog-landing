@@ -20,27 +20,28 @@ export default function RelatedVideos({videosData}:Props) {
                     <div className="w-full">
                         <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-5 my-5">
                                 { videosData.slice(0,9).map((video:any, index:any) => (
-                                    <Link href={'/videos/' + video?.attributes?.slug} key={index}>
-                                        <Card className="border-none bg-gray-250 rounded " key={index}>
+                                        <Card key={index}>
                                                 <CardContent className="p-0">
                                                         <div className="h-48">
                                                             <VideoIframe videoId={video?.attributes?.Link} size="md" coverImg={video?.attributes?.CoverImg?.data?.attributes?.url} />
                                                         </div>
                                                         <div >
-                                                            <div className="p-3 xl:p-5">
-                                                                <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
-                                                                <div className="flex gap-3 items-center">
-                                                                    <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
-                                                                    <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                                    <CardTime>
-                                                                        <CalculateVideoDuration videoUrl={video?.attributes?.Link} />
-                                                                    </CardTime>
+                                                            <Link href={'/videos/' + video?.attributes?.slug} >
+                                                                <div className="p-3 xl:p-5">
+                                                                    <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
+                                                                    <div className="flex gap-3 items-center">
+                                                                        <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
+                                                                        <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
+                                                                        <CardTime>
+                                                                            <CalculateVideoDuration videoUrl={video?.attributes?.Link} />
+                                                                        </CardTime>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                            </Link>
                                                         </div>
                                                 </CardContent>
                                         </Card>
-                                 </Link>
+                                 
                                 ))}
                         </div>
                     </div>

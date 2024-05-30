@@ -24,7 +24,6 @@ export default function Videos({videosData}: Props) {
                 </Heading>
                 <div className="grid xl:grid-cols-2 gap-5 xl:gap-8 mt-5 mb-7">
                     <div className="xl:col-span-1">
-                            <Link href={'/videos/' + firstVideo?.attributes?.slug}  >
                                 <Card className="h-full">
                                     <CardContent className="relative h-full p-0">
                                         <VideoIframe videoId={firstVideo?.attributes?.Link} size="lg" inlinePlay />
@@ -33,13 +32,11 @@ export default function Videos({videosData}: Props) {
                                         </CardTitle>
                                     </CardContent>
                                 </Card>
-                            </Link>
                         </div>
                     <div className="xl:col-span-1">
                         <div className="flex flex-col gap-5 xl:gap-8">
                         {otherVideos.map((video:any, index:any) => (
-                            <Link href={'/videos/' + video?.attributes?.slug} key={index} >
-                            <Card  >
+                            <Card  key={index} >
                                 <CardContent className="p-0">
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
@@ -48,36 +45,8 @@ export default function Videos({videosData}: Props) {
                                             </div>
                                         </div>
                                         <div className="col-span-8">
-                                            <div className="p-4.5">
-                                                <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
-                                                <div className="flex gap-3 items-center">
-                                                     <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
-                                                    <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                    <CardTime>
-                                                        <CalculateVideoDuration videoUrl={video?.attributes?.Link} />
-                                                    </CardTime>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                            </Link>
-                        ))}
-                        </div>
-                    </div>
-
-                </div>
-                <div className="grid lg:grid-cols-3 gap-5 my-5">
-                        {otherVideos.map((video:any, index:any) => (
-                            <Link href={'/videos/' + video?.attributes?.slug} key={index} >
-                            <Card className="border-none bg-gray-250 rounded " >
-                                    <CardContent className="p-0">
-                                            <div className="h-48">
-                                                <VideoIframe videoId={video?.attributes?.Link} size="md" coverImg={video?.attributes?.CoverImg?.data?.attributes?.url} />
-                                            </div>
-                                            <div >
-                                                <div className="p-3 xl:p-5">
+                                            <Link href={'/videos/' + video?.attributes?.slug} >
+                                                <div className="p-4.5">
                                                     <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                     <div className="flex gap-3 items-center">
                                                         <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
@@ -87,10 +56,41 @@ export default function Videos({videosData}: Props) {
                                                         </CardTime>
                                                     </div>
                                                 </div>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                            
+                        ))}
+                        </div>
+                    </div>
+
+                </div>
+                <div className="grid lg:grid-cols-3 gap-5 my-5">
+                        {otherVideos.map((video:any, index:any) => (
+                            <Card  key={index}>
+                                    <CardContent className="p-0">
+                                            <div className="h-48">
+                                                <VideoIframe videoId={video?.attributes?.Link} size="md" coverImg={video?.attributes?.CoverImg?.data?.attributes?.url} />
+                                            </div>
+                                            <div >
+                                                <Link href={'/videos/' + video?.attributes?.slug} >
+                                                    <div className="p-3 xl:p-5">
+                                                        <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
+                                                        <div className="flex gap-3 items-center">
+                                                            <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
+                                                            <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
+                                                            <CardTime>
+                                                                <CalculateVideoDuration videoUrl={video?.attributes?.Link} />
+                                                            </CardTime>
+                                                        </div>
+                                                    </div>
+                                                </Link>
                                             </div>
                                     </CardContent>
                             </Card>
-                            </Link>
+                            
                         ))}
                       
                 </div>

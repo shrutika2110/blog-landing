@@ -30,9 +30,9 @@ export default function HeroSection({singleVideoData}:Props) {
                <Heading level={1} className="lg:leading-12.5 font-extrabold text-black-200 xl:max-w-10/12 ">
                     {videoDetails?.Title}
                </Heading>
-               {videoDetails?.shortDes && <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-10 mt-4">
+               {videoDetails?.Description && <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-10 mt-4">
                     <Text variant="light" className="mt-3 text-black-200 line-clamp-2 max-w-181" size="md">
-                    {videoDetails?.shortDes}
+                    {videoDetails?.Description}
                     </Text>
                </div>
                 }
