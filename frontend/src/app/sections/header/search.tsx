@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FiSearch } from "react-icons/fi";
+import SearchDropdown from "./searchDropdown";
 
 
 export default function Search() {
@@ -16,6 +17,8 @@ export default function Search() {
             <div className="h-9 w-9 bg-gray-150 rounded-full absolute right-0 top-px flex text-white justify-center items-center cursor-pointer transition-all duration-200 hover:bg-primary">
                 <FaArrowRightLong size={16} />
             </div>
+
+           <SearchDropdown />
         </div>
     );
 };
