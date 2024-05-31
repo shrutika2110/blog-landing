@@ -46,31 +46,29 @@ export default function ShareIcons({blogDetails}: Props) {
     
   return (
         <>
-           <div className="text-3xl" title="Share on Facebook">
+           <div className="text-3xl h-7.5 w-7.5 flex items-center" title="Share on Facebook">
                         <FacebookShareButton
                             url={currentUrl}
                             title={blogDetails?.Title}
                         >
                             <FaFacebook />
                         </FacebookShareButton>
-                        </div>
-                        <div className="text-3xl" title="Share on Whatsapp">
+            </div>
+            <div className="text-3xl h-7.5 w-7.5 flex items-center" title="Share on Whatsapp">
                         <WhatsappShareButton
                             url={currentUrl}
                             title={blogDetails?.Title}
                         >
                             <FaWhatsapp />
                         </WhatsappShareButton>
-                        </div>
-                        <div
-                            className="text-3xl cursor-pointer"
+            </div>
+            <div className="text-3xl cursor-pointer h-7.5 w-7.5 flex items-center"
                             title="Share on Twitter"
                             onClick={() => shareOnTwitter(blogDetails?.Title)}
                             >
                         <FaXTwitter  />
-                        </div>
-                        <div
-                            className={`text-3xl cursor-pointer ${
+            </div>
+            <div className={`text-3xl h-7.5 w-7.5 flex items-center cursor-pointer ${
                                 isCopied ? 'text-primary' : 'text-primary'
                             }`}
                             onClick={handleClick}
