@@ -1,12 +1,12 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { getBlogsAndVideosByTitle } from "@/service";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FiSearch } from "react-icons/fi";
 import { debounce } from "lodash";
 import SearchDropdown from "./searchDropdown";
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function Search() {
   const [query, setQuery] = useState<string>("");
@@ -52,6 +52,11 @@ export default function Search() {
     router.push(`/search?q=${query}`);
     setIsDropdownOpen(false);
   };
+
+  const pathname = usePathname();
+  useEffect(() => {
+    setIsDropdownOpen(false);
+  }, [pathname]);
 
   return (
     <div className="relative w-7/12 lg:w-67.5">
