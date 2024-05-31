@@ -81,7 +81,7 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay, isSin
                 </div>
             )}
             <div
-                className={`absolute  z-40 cursor-pointer flex items-center justify-center border-white bg-offwhite-450 rounded-full text-white 
+                className={`absolute transition-all duration-200 z-40 cursor-pointer flex items-center justify-center border-white bg-offwhite-450 hover:bg-skyBlue-800 rounded-full text-white 
                 ${size === "lg" ? "h-20 w-20 border-3 text-5xl" : size === "md" ? "h-12 w-12 border-2 text-2xl" : "h-8 w-8 border text-md"} 
                 ${isSinglePage ? "top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2" : "bottom-4 right-4" }
                 `}
