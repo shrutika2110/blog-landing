@@ -6,6 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { FiSearch } from "react-icons/fi";
 import { debounce } from "lodash";
 import SearchDropdown from "./searchDropdown";
+import { useRouter } from 'next/navigation';
 
 export default function Search() {
   const [query, setQuery] = useState<string>("");
@@ -41,6 +42,13 @@ export default function Search() {
     setIsDropdownOpen(true);
   };
 
+  const router = useRouter()
+  const handleClick = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    router.push(`/search?q=${query}`);
+    setIsDropdownOpen(false);
+  };
+
   return (
     <div className="relative w-7/12 lg:w-67.5">
       <div className="absolute top-2 left-2.5">
@@ -54,10 +62,11 @@ export default function Search() {
           onChange={handleInputChange}
         />
       </div>
-      <div className="h-9 w-9 bg-gray-150 rounded-full absolute right-0 top-px flex text-white justify-center items-center cursor-pointer transition-all duration-200 hover:bg-primary">
+      <div className="h-9 w-9 bg-gray-150 rounded-full absolute right-0 top-px flex text-white justify-center items-center cursor-pointer transition-all duration-200 hover:bg-primary"
+      onClick={handleClick}>
         <FaArrowRightLong size={16} />
       </div>
-      {query && <SearchDropdown results={results} />}
+      {isDropdownOpen && <SearchDropdown results={results} />}
     </div>
   );
 }
