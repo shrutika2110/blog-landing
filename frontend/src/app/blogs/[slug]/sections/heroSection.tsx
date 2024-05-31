@@ -1,7 +1,6 @@
 import Heading from "@/components/composite/Heading";
 import Text from "@/components/composite/Text";
-import Link from "next/link";
-import { FaCopy, FaFacebook, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
+import ShareIcons from "@/components/utility/shareIcons";
 import Image from "next/image";
 
 interface Props {
@@ -22,23 +21,13 @@ export default function HeroSection({singleBlogData}:Props) {
                     {blogDetails?.shortDes}
                     </Text>
                     <div className="flex gap-10 text-primary ">
-                        <Link href="/" className="text-3xl">
-                             <FaFacebook  />
-                        </Link>
-                        <Link href="/" className="text-3xl">
-                            <FaWhatsapp  />
-                        </Link>
-                        <Link href="/" className="text-3xl">
-                            <FaXTwitter  />
-                        </Link>
-
-                        <Link href="/" className="text-3xl">
-                            <FaCopy  />
-                        </Link>
+                        <ShareIcons blogDetails={blogDetails} />
+                       
+                       
                     </div>
                </div>
             </div>
-            <div className="h-120 w-full relative">
+            <div className="h-120 w-full relative mb-10">
                 <Image src={blogDetails?.coverImg?.data?.attributes?.url} alt={blogDetails?.Title} className="object-cover" fill={true} />
             </div>
            

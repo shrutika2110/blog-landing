@@ -2,7 +2,8 @@
 import Image from "next/image";
 import Text from "@/components/composite/Text";
 import Link from "next/link";
-import { FaFacebook, FaGoogle, FaInstagram, FaLinkedin, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import SocialIconList from "@/components/utility/socialIcons";
+
 
 export default function Footer() {
 
@@ -31,29 +32,7 @@ export default function Footer() {
                         <Link href="/" className="text-sm lg:text-lg font-semibold">Privacy Policies</Link>
                     </div>
                     <div className="flex gap-10 my-10 justify-center">
-                        <Link href="/" className="text-2xl lg:text-5xl">
-                            <FaGoogle  />
-                        </Link>
-                        <Link href="/" className="text-2xl lg:text-5xl">
-                             <FaFacebook  />
-                        </Link>
-
-                        <Link href="/" className="text-2xl lg:text-5xl">
-                            <FaInstagram  />
-                        </Link>
-
-                        <Link href="/" className="text-2xl lg:text-5xl">
-                            <FaYoutube  />
-                        </Link>
-
-                        <Link href="/" className="text-2xl lg:text-5xl">
-                            <FaLinkedin  />
-                        </Link>
-
-                        <Link href="/" className="text-2xl lg:text-5xl">
-                            <FaXTwitter  />
-                        </Link>
-
+                        <SocialIconList />
                     </div>
                     <Text size="lg" className="font-bold">
                         @ Kofuku Technologies
