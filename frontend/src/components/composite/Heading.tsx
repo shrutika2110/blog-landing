@@ -24,7 +24,7 @@ const Heading = ({ level, children, variant = "light", size = "base", className,
         <DynamicTag
             className={cn(` font-bold 
                 ${level == 1
-                    ? 'lg:text-5xl text-2xl'
+                    ? 'xl:text-5xl lg:text-4xl text-2xl'
                     : level == 2
                         ? size === 'sm' ? `lg:text-2xl text-lg ` : `lg:text-5xl text-2xl`
                         : level == 3
