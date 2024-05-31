@@ -1,5 +1,4 @@
 'use client'
-import Heading from "@/components/composite/Heading";
 import { Card, CardBanner, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import { dateFormate, paginate } from "@/lib/helpers";
 import extractAndCalculateReadTime from "@/components/utility/calculateReadTime";
@@ -13,7 +12,6 @@ interface Props {
 }
 
 export default function BlogList({blogsData}: any) {
-
     const allBlogs = blogsData && blogsData
     .sort(
       (a: any, b: any) =>
