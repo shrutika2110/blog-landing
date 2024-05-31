@@ -39,7 +39,11 @@ export default function Search() {
     const newQuery = e.target.value;
     setQuery(newQuery);
     debouncedSearch(newQuery);
-    setIsDropdownOpen(true);
+    if(newQuery) {
+      setIsDropdownOpen(true);
+    } else {
+      setIsDropdownOpen(false);
+    }
   };
 
   const router = useRouter()
@@ -63,7 +67,7 @@ export default function Search() {
         />
       </div>
       <div className="h-9 w-9 bg-gray-150 rounded-full absolute right-0 top-px flex text-white justify-center items-center cursor-pointer transition-all duration-200 hover:bg-primary"
-      onClick={handleClick}>
+        onClick={handleClick}>
         <FaArrowRightLong size={16} />
       </div>
       {isDropdownOpen && <SearchDropdown results={results} />}
