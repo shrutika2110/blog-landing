@@ -204,6 +204,41 @@ export function SingleBlogService(slug:any) {
   });
 }
 
+export function SingleVideoService(slug:any) {
+  return cmsClient.query({
+    query: gql`
+    query getSingleVideo($slug: String) {
+      youtubes(filters: { slug: { eq: $slug } }) {
+        data {
+          id
+          attributes {
+            Title
+            Link
+            Description
+            Date
+            slug
+            publishedAt
+            Duration
+            CoverImg {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    
+    }
+    `,
+    
+    variables: {
+      slug: slug,
+    },
+  });
+}
+
 
 
 export function VideoService() {
@@ -218,6 +253,7 @@ export function VideoService() {
             Link
             Description
             Date
+            slug
             publishedAt
             Duration
             CoverImg {

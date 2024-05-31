@@ -8,16 +8,16 @@ export default function Breadcrumb(props: any) {
   }
 
   return (
-      <ul className="flex items-center">
+      <ul className="flex lg:items-center flex-col lg:flex-row">
         {props.crumbs.map((crumb: any, ci: any) => {
           const disabled = isLast(ci);
           return (
-            <li key={ci} className="inline-flex items-center whitespace-nowrap">
+            <li key={ci} className="inline-flex items-center lg:whitespace-nowrap">
               <Link href={`${disabled ? '#' : crumb.path}`}>
                   <p
                     className={`text-lg font-extrabold ${
-                      ci === 0
-                        ? `  text-black-350 hover:text-primary`
+                      !disabled
+                        ? `  text-black-350  hover:text-primary`
                         : `  text-gray-750 `
                     } ${disabled ? 'cursor-default' : 'cursor-pointer'}`}
                   >

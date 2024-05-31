@@ -18,7 +18,7 @@ div .slick-dots li button:before {
      @apply text-white-200 opacity-100 text-sm;
 }
 div .slick-prev, div .slick-next {
-    @apply flex items-center justify-center h-7 w-7 bg-primary  rounded-full z-20 hover:bg-primary focus:bg-primary;
+    @apply flex items-center transition-all duration-200 justify-center h-7 w-7 bg-primary  rounded-full z-20 hover:bg-skyBlue-400 focus:bg-skyBlue-400;
 }
 div .slick-prev:before, div .slick-next:before {
     @apply hidden  ;
@@ -27,7 +27,7 @@ div .slick-prev div, div .slick-next div {
     @apply text-lg;
 }
 .hero-slider .slick-prev, .hero-slider .slick-next {
-    @apply h-12 w-12 bg-gray-450 hover:bg-gray-450  focus:bg-gray-450 ;
+    @apply h-12 w-12  bg-gray-450 hover:bg-primary  focus:bg-primary ;
 }
 .hero-slider .slick-prev div, .hero-slider .slick-next div {
     @apply text-5xl;

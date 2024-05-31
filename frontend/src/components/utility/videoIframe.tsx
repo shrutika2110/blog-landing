@@ -10,9 +10,10 @@ interface Props {
     size?: string;
     inlinePlay?: boolean;
     coverImg?: any;
+    isSinglePage ?: boolean;
 }
 
-export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Props) {
+export default function VideoIframe({ videoId, coverImg, size, inlinePlay, isSinglePage }: Props) {
 
     const [isPlaying, setIsPlaying] = useState(inlinePlay || false);
     const playerRef = useRef<any>(null);
@@ -61,7 +62,7 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Pro
 
     return (
         <div className="relative h-full">
-            <div className="videoHolder h-full after:content-[''] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-35 after:bg-transparent">
+            <div className={`videoHolder h-full after:content-[''] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-35 ${inlinePlay ? 'after:bg-black-grad' : 'after:bg-transparent'} `}>
                 {extractedVideoId && (
                     <YoutubePlayer
                         videoId={extractedVideoId}
@@ -80,7 +81,10 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay }: Pro
                 </div>
             )}
             <div
-                className={`absolute bottom-4 right-4 z-40 cursor-pointer flex items-center justify-center border-white bg-offwhite-450 rounded-full text-white ${size === "lg" ? "h-20 w-20 border-3 text-5xl" : size === "md" ? "h-12 w-12 border-2 text-2xl" : "h-8 w-8 border text-md"}`}
+                className={`absolute transition-all duration-200 z-40 cursor-pointer flex items-center justify-center border-white bg-offwhite-450 hover:bg-skyBlue-800 rounded-full text-white 
+                ${size === "lg" ? "h-20 w-20 border-3 text-5xl" : size === "md" ? "h-12 w-12 border-2 text-2xl" : "h-8 w-8 border text-md"} 
+                ${isSinglePage ? "top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2" : "bottom-4 right-4" }
+                `}
                 onClick={handlePlayPause}
             >
                 {isPlaying ? <LiaPauseSolid /> : <LiaPlaySolid />}
