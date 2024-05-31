@@ -563,6 +563,7 @@ export function getBlogsAndVideosByTitle(titleString: string) {
               Link
               Description
               Date
+              slug
               publishedAt
               Duration
               CoverImg {

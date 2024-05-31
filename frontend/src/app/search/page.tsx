@@ -1,5 +1,5 @@
 
-import { BlogService } from "@/service";
+import { getBlogsAndVideosByTitle } from "@/service";
 
 import type { Metadata } from 'next';
 import SearchList from "./sections/searchList";
@@ -10,10 +10,24 @@ export const metadata: Metadata = {
 }
 
 
-async function fetchBlogData() {
+async function fetchSearchData(query:any) {
   try {
-    const { data } = await BlogService();
-    const content = data.blogs.data;
+      const { data } = await getBlogsAndVideosByTitle(query);
+      const blogs = data.blogs.data.map((blog: any) => ({
+        ...blog,
+        type: "blog",
+      }));
+      const youtubes = data.youtubes.data.map((video: any) => ({
+        ...video,
+        type: "youtube",
+      }));
+      const combinedSearch = [...blogs, ...youtubes].sort(
+        (a: any, b: any) =>
+          new Date(b.attributes.publishedAt).getTime() -
+          new Date(a.attributes.publishedAt).getTime()
+      );
+
+    const content = combinedSearch;
     return content
   }
   catch (e: any) {
@@ -21,14 +35,20 @@ async function fetchBlogData() {
   }
 }
 
-export default async function Page() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: { q: any };
+}) {
 
-  const searchData = await fetchBlogData();
+const query = searchParams.q;
+
+const searchData = await fetchSearchData(query);
 
   return (
     <div className="relative ">
       <div className="container">
-        <SearchList searchData={searchData} />
+        <SearchList searchData={searchData} query={query} />
       </div>
     </div>
 
