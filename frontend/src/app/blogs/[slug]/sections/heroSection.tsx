@@ -20,7 +20,7 @@ export default function HeroSection({singleBlogData}:Props) {
                     <Text variant="light" size="lg" className="mt-3 font-inter text-xl lg:text-3xl text-black-300 leading-8.75 line-clamp-1">
                     {blogDetails?.shortDes}
                     </Text>
-                    <div className="flex gap-10 text-primary ">
+                    <div className="flex gap-10 text-primary items-center">
                         <ShareIcons blogDetails={blogDetails} />
                        
                        
