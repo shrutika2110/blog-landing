@@ -113,7 +113,7 @@ export function BlogService() {
   });
 }
 
-export function SingleVideoService(slug:any) {
+export function SingleVideoService(slug: any) {
   return cmsClient.query({
     query: gql`
     query getSingleVideo($slug: String) {
@@ -141,7 +141,7 @@ export function SingleVideoService(slug:any) {
     
     }
     `,
-    
+
     variables: {
       slug: slug,
     },
@@ -581,5 +581,41 @@ export function getBlogsAndVideosByTitle(titleString: string) {
     variables: {
       titleString: titleString,
     },
+  });
+}
+
+
+export function TermsService() {
+  return cmsClient.query({
+    query: gql`
+      query getTerms {
+        term {
+          data {
+            attributes {
+              title
+              description
+              publishedAt
+            }
+          }
+        }
+      }
+    `,
+  });
+}
+export function PrivacyPolicyService() {
+  return cmsClient.query({
+    query: gql`
+      query getPrivacyPolicy {
+        privacyPolicie {
+          data {
+            attributes {
+              title
+              description
+              publishedAt
+            }
+          }
+        }
+      }
+    `,
   });
 }
