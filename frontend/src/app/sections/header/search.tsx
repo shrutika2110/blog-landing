@@ -39,7 +39,7 @@ export default function Search() {
     const newQuery = e.target.value;
     setQuery(newQuery);
     debouncedSearch(newQuery);
-    if(newQuery) {
+    if (newQuery) {
       setIsDropdownOpen(true);
     } else {
       setIsDropdownOpen(false);
@@ -49,8 +49,10 @@ export default function Search() {
   const router = useRouter();
   const handleClick = (e?: React.SyntheticEvent) => {
     if (e) e.preventDefault();
-    router.push(`/search?q=${query}`);
-    setIsDropdownOpen(false);
+    if (query.trim()) {
+      router.push(`/search?q=${query}`);
+      setIsDropdownOpen(false);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -78,8 +80,10 @@ export default function Search() {
           onKeyDown={handleKeyDown}
         />
       </div>
-      <div className="h-9 w-9 bg-gray-150 rounded-full absolute right-0 top-px flex text-white justify-center items-center cursor-pointer transition-all duration-200 hover:bg-primary"
-        onClick={handleClick}>
+      <div
+        className={`h-9 w-9 rounded-full absolute right-0 top-px flex text-white justify-center items-center  transition-all duration-200 ${query.trim() ? ' bg-primary cursor-pointer' : 'bg-gray-150 cursor-not-allowed'}`}
+        onClick={handleClick}
+      >
         <FaArrowRightLong size={16} />
       </div>
       {isDropdownOpen && <SearchDropdown results={results} query={query} />}

@@ -47,9 +47,7 @@ const searchData = await fetchSearchData(query);
 
   return (
     <div className="relative ">
-      <div className="container">
         <SearchList searchData={searchData} query={query} />
-      </div>
     </div>
 
   );

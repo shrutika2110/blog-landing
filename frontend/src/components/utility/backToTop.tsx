@@ -9,7 +9,7 @@ export default function BackToTop() {
     };
 
     return (
-       <div onClick={scrollToTop}  className="absolute -right-3 xl:-right-5 bottom-3 xl:bottom-124 cursor-pointer h-3.5 w-3.5 xl:h-12 xl:w-12 text-white rounded bg-blue-250 flex items-center justify-center">
+       <div onClick={scrollToTop}  className="absolute -right-3 lg:-right-9 xl:-right-5  bottom-3 xl:bottom-124 cursor-pointer h-3.5 w-3.5 lg:h-10 lg:w-10 xl:h-12 xl:w-12 text-white rounded bg-blue-250 flex items-center justify-center">
             <IoIosArrowRoundUp size={28} />
        </div>
     );
