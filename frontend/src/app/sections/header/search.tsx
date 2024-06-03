@@ -75,7 +75,7 @@ export default function Search() {
         onClick={handleClick}>
         <FaArrowRightLong size={16} />
       </div>
-      {isDropdownOpen && <SearchDropdown results={results} />}
+      {isDropdownOpen && <SearchDropdown results={results} query={query} />}
     </div>
   );
 }
