@@ -27,7 +27,7 @@ export default function Footer() {
                         </Text>
                     </div>
                     <div className="flex gap-4 justify-around items-center my-5">
-                        <Link href="https://www.kofuku.com/" target="_blank" className="text-sm lg:text-lg font-semibold">About us</Link>
+                        <Link href="https://www.kofuku.com/about-us" target="_blank" className="text-sm lg:text-lg font-semibold">About us</Link>
                         <Link href="/terms-conditions" className="text-sm lg:text-lg font-semibold">Terms & Conditions</Link>
                         <Link href="/privacy-policy" className="text-sm lg:text-lg font-semibold">Privacy Policies</Link>
                     </div>
