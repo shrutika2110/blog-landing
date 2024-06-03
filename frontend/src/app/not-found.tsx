@@ -11,7 +11,13 @@ export default function NotFound() {
     return (
         <div className="container relative py-18">
             <div className="relative h-80 w-80 lg:h-120 lg:w-120 xl:h-200 xl:w-200 mx-auto">
-                <Image src="/images/error.svg" alt="error" fill={true} />
+                {/* <Image src="/images/error.svg" alt="error" fill={true} /> */}
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    src="/images/404.mp4"
+                ></video>
             </div>
             <div className="mx-auto text-center max-w-129 mb-20">
                 <Heading level={1} variant="light">Caution!</Heading>
