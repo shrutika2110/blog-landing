@@ -8,10 +8,10 @@ import SocialIconList from "@/components/utility/socialIcons";
 export default function Footer() {
 
     return (
-        <footer className="bg-blue-400 p-5 xl:p-16 text-white">
+        <footer className="bg-blue-400 p-5 py-12 xl:p-16 text-white">
             <div className="container ">
                 <div className="max-w-174 mx-auto text-center">
-                    <div className="relative w-18.5 h-5 lg:h-12 lg:w-44 mx-auto">
+                    <div className="relative h-12 w-44 mx-auto">
                         <Image src="/images/logoWhite.svg" alt="logo" fill={true} />
                     </div>
                     <div className="border border-white py-3 px-6 mt-14   flex flex-col gap-2.5 leading-7">

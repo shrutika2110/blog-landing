@@ -31,7 +31,7 @@ export default function Trending({blogsData}: Props) {
                     slidesToScroll={1}
                     arrows={true}
                     dots={false}
-                    mdSlidesToShow={1}
+                    mdSlidesToShow={3}
                     smSlidesToShow={1}
                     autoplay={true}
                     infinite={true}
@@ -47,9 +47,9 @@ export default function Trending({blogsData}: Props) {
                                         <CardBanner src={blog?.attributes?.coverImg?.data?.attributes?.url}></CardBanner>
                                     </div>
                                     <div>
-                                        <div className="p-3 xl:p-5">
+                                        <div className="p-2 xl:p-5">
                                             <CardTitle className="mb-3">{blog?.attributes?.Title}</CardTitle>
-                                            <div className="flex gap-3 items-center">
+                                            <div className="flex gap-2 xl:gap-3 items-center">
                                                 <CardDate>{formatRelativeDate(blog?.attributes?.publish_date)}</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
                                                 <CardTime>{extractAndCalculateReadTime(blog)}</CardTime>
