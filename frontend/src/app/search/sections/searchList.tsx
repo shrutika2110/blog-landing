@@ -5,6 +5,7 @@ import Pagination from "@/components/utility/pagination";
 import Heading from "@/components/composite/Heading";
 import SearchListBlog from "./searchListBlog";
 import SearchListVideo from "./searchListVideo";
+import Text from "@/components/composite/Text";
 
 interface Props {
     searchData?: any;
@@ -35,18 +36,28 @@ export default function SearchList({searchData, query}: Props) {
                 <Heading level={1} variant="primary"  className="text-blue-350 xl:text-5.5xl font-inter">
                      {query}
                 </Heading>
-                <div className="grid grid-cols-1 gap-5 lg:gap-9 mt-5 mb-7">
-                    {paginatedData && paginatedData.map((post:any, index:any) => (
-                        <div key={index} >
-                        {
-                            post.type == "youtube" ? 
-                            <SearchListVideo post={post}  />
-                            : 
-                            <SearchListBlog post={post}  />
-                         }
+                
+                    {paginatedData.length > 0 ?
+                        <div className="grid grid-cols-1 gap-5 lg:gap-9 mt-5 mb-7">
+                           { paginatedData.map((post:any, index:any) => (
+                                    <div key={index} >
+                                    {
+                                        post.type == "youtube" ? 
+                                        <SearchListVideo post={post}  />
+                                        : 
+                                        <SearchListBlog post={post}  />
+                                    }
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
+                        :
+                        <div className="text-center gap-2 flex flex-col mt-5 mb-20">
+                            <Heading level={1} variant="light" className="text-4.5xl font-extrabold text-black-900">Sorry!</Heading>
+                            <Text variant="light" size="lg" className="text-black-900 font-medium">We were not able to find anything related “{query}”</Text>
+                        </div>
+                    }
+
+               
                 <Pagination
                     items={allSearchData.length} 
                     currentPage={currentPage} 

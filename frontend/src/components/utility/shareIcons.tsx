@@ -69,7 +69,7 @@ export default function ShareIcons({blogDetails}: Props) {
                         <FaXTwitter  />
             </div>
             <div className={`text-3xl h-7.5 w-7.5 flex items-center cursor-pointer ${
-                                isCopied ? 'text-primary' : 'text-primary'
+                                isCopied ? 'text-skyBlue-400' : 'text-primary'
                             }`}
                             onClick={handleClick}
                             title={`${isCopied ? 'Copied link' : 'Copy link'}`}
