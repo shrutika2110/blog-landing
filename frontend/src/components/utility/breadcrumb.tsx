@@ -8,7 +8,7 @@ export default function Breadcrumb(props: any) {
   }
 
   return (
-      <ul className="flex lg:items-center flex-col lg:flex-row">
+      <ul className="flex items-center flex-row flex-wrap">
         {props.crumbs.map((crumb: any, ci: any) => {
           const disabled = isLast(ci);
           return (
