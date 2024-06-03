@@ -1,12 +1,13 @@
 'use client'
 import { Card, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
-import { dateFormate, paginate } from "@/lib/helpers";
+import { paginate } from "@/lib/helpers";
 import { useState } from "react";
 import Pagination from "@/components/utility/pagination";
 import Breadcrumb from "@/components/utility/breadcrumb";
 import Link from "next/link";
 import VideoIframe from "@/components/utility/videoIframe";
 import CalculateVideoDuration from "@/components/utility/calculateVideoDuration";
+import { formatRelativeDate } from "@/components/utility/formatDateFromNow";
 
 interface Props {
     videosData?: any;
@@ -48,7 +49,7 @@ export default function VideoList({videosData}: any) {
                                                         <div className="p-3 xl:p-5">
                                                             <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                             <div className="flex gap-3 items-center">
-                                                                <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
+                                                                <CardDate>{formatRelativeDate(video?.attributes?.publishedAt)}</CardDate>
                                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
                                                                 <CardTime>
                                                                     <CalculateVideoDuration videoUrl={video?.attributes?.Link} />

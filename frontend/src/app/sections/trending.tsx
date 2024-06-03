@@ -2,7 +2,7 @@ import Heading from "@/components/composite/Heading";
 import { Card, CardBanner, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import Carousel from "@/components/utility/Carousel";
 import extractAndCalculateReadTime from "@/components/utility/calculateReadTime";
-import { dateFormate } from "@/lib/helpers";
+import { formatRelativeDate } from "@/components/utility/formatDateFromNow";
 import Link from "next/link";
 
 interface Props {
@@ -50,7 +50,7 @@ export default function Trending({blogsData}: Props) {
                                         <div className="p-3 xl:p-5">
                                             <CardTitle className="mb-3">{blog?.attributes?.Title}</CardTitle>
                                             <div className="flex gap-3 items-center">
-                                                <CardDate>{dateFormate(blog?.attributes?.publish_date)}</CardDate>
+                                                <CardDate>{formatRelativeDate(blog?.attributes?.publish_date)}</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
                                                 <CardTime>{extractAndCalculateReadTime(blog)}</CardTime>
                                             </div>

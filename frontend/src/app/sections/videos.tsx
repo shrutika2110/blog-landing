@@ -3,9 +3,9 @@ import Heading from "@/components/composite/Heading";
 import { Card, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import VideoIframe from "@/components/utility/videoIframe";
-import { dateFormate } from "@/lib/helpers";
 import CalculateVideoDuration from "@/components/utility/calculateVideoDuration";
 import Link from "next/link";
+import { formatRelativeDate } from "@/components/utility/formatDateFromNow";
 
 interface Props {
     videosData?: any;
@@ -49,7 +49,7 @@ export default function Videos({videosData}: Props) {
                                                 <div className="p-4.5">
                                                     <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                     <div className="flex gap-3 items-center">
-                                                        <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
+                                                        <CardDate>{formatRelativeDate(video?.attributes?.publishedAt)}</CardDate>
                                                         <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
                                                         <CardTime>
                                                             <CalculateVideoDuration videoUrl={video?.attributes?.Link} />
@@ -79,7 +79,7 @@ export default function Videos({videosData}: Props) {
                                                     <div className="p-3 xl:p-5">
                                                         <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                         <div className="flex gap-3 items-center">
-                                                            <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
+                                                            <CardDate>{formatRelativeDate(video?.attributes?.publishedAt)}</CardDate>
                                                             <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
                                                             <CardTime>
                                                                 <CalculateVideoDuration videoUrl={video?.attributes?.Link} />
