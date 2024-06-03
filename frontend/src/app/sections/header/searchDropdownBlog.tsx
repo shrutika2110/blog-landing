@@ -18,7 +18,7 @@ export default function SearchDropdownBlog({post}: Props) {
                                         <div className="px-3">
                                             <CardTitle className="min-h-auto h-auto line-clamp-1 text-xs mb-1 font-medium font-overpass leading-3.75">
                                             {post?.attributes?.Title}</CardTitle>
-                                            <div className="flex gap-3 items-center">
+                                            <div className="flex gap-2 xl:gap-3 items-center">
                                                 <CardDescription className="text-xxs font-overpass leading-3.25 line-clamp-2" >
                                                 {post?.attributes?.shortDes}
                                                 </CardDescription>

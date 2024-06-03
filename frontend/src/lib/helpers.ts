@@ -27,6 +27,12 @@ export const paginate = (items:any, pageNumber:any, pageSize:any) => {
   console.log(msg);
 }
 
+export function formatDate(dateString: string) {
+  const date = new Date(dateString);
+  const formattedDate = date.toLocaleDateString('en-GB'); // Change locale as per your requirement
+
+  return formattedDate;
+}
 
 export function extractVideoId(url: string): string | null {
   const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;

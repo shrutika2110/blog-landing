@@ -2,14 +2,17 @@
 import { TermsService } from "@/service";
 import type { Metadata } from 'next'
 import Heading from "@/components/composite/Heading";
+import Text from "@/components/composite/Text";
 import ReactMarkdown from "react-markdown";
+import { formatDate } from "@/lib/helpers";
+import Breadcrumb from "@/components/utility/breadcrumb";
 
 export const metadata: Metadata = {
-    title: 'Kofuku - privacy policy',
+    title: 'Kofuku - Terms of use',
     description: 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more',
 }
 
-async function fetchPolicyData() {
+async function fetchTermsData() {
     try {
         const { data } = await TermsService();
         const content = data.term.data;
@@ -23,23 +26,27 @@ async function fetchPolicyData() {
 
 
 export default async function Page() {
+    const crumbs = [{ title: 'Home', path: '/' }, { title: 'Terms of use' }];
 
-    const policyData = await fetchPolicyData();
+    const termsData = await fetchTermsData();
 
     return (
-        <div className="relative ">
-            <div className="container py-32">
-                <Heading level={1} >
-                    {policyData.attributes.title}
+        <div className="relative font-overpass">
+            <div className="container py-12">
+                <Breadcrumb crumbs={crumbs}/>
+                <Heading level={1} className="xl:text-6xl text-blank mt-4" >
+                    {termsData.attributes.title}
                 </Heading>
                 <div className="pt-12">
                     <ReactMarkdown className="text-lg">
-                        {policyData.attributes.description}
+                        {termsData.attributes.description}
                     </ReactMarkdown>
+                    <Text size="md" variant="light">
+                        <p className="py-2 lg:py-0">
+                        Last updated: {formatDate(termsData?.attributes?.publishedAt)}
+                        </p>
+                    </Text>
                 </div>
-
-
-
             </div>
         </div>
     );

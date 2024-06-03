@@ -75,7 +75,7 @@ const CardTitle = React.forwardRef<HTMLParagraphElement, CardTitleProps>(
                 {
                     "text-black": variant === "light",
                     "text-white": variant === "dark",
-                    "text-base font-bold leading-5 h-10 max-h-10": size === "base",
+                    "text-sm xl:text-base font-bold leading-5 h-10 max-h-10": size === "base",
                     "font-extrabold md:text-2xl xl:text-4xl leading-9 h-19.5 max-h-19.5": size === "lg",
                 },
                 className
@@ -92,7 +92,7 @@ const CardDate = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <div
         ref={ref}
-        className={cn("text-sm text-gray-350", className)}
+        className={cn("text-sm text-gray-350 line-clamp-1", className)}
         {...props}
     />
 ))
@@ -102,11 +102,11 @@ const CardTime = React.forwardRef<
     HTMLParagraphElement,
     React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
-        <div className="flex items-center gap-1 text-gray-350">
+        <div className="flex items-center gap-1 text-gray-350 ">
             <MdOutlineAccessTime />
             <div
                 ref={ref}
-                className={cn("text-sm  text-gray-350", className)}
+                className={cn("text-sm  text-gray-350 line-clamp-1", className)}
                 {...props}
             />
 

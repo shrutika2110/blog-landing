@@ -3,9 +3,9 @@ import Heading from "@/components/composite/Heading";
 import { Card, CardContent, CardDate, CardTime, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import VideoIframe from "@/components/utility/videoIframe";
-import { dateFormate } from "@/lib/helpers";
 import CalculateVideoDuration from "@/components/utility/calculateVideoDuration";
 import Link from "next/link";
+import { formatRelativeDate } from "@/components/utility/formatDateFromNow";
 
 interface Props {
     videosData?: any;
@@ -22,19 +22,19 @@ export default function Videos({videosData}: Props) {
                 <Heading level={3} variant="primary" className="font-extrabold">
                     Videos
                 </Heading>
-                <div className="grid xl:grid-cols-2 gap-5 xl:gap-8 mt-5 mb-7">
-                    <div className="xl:col-span-1">
+                <div className="grid lg:grid-cols-2 gap-5 lg:gap-8 mt-5 mb-7">
+                    <div className="lg:col-span-1">
                                 <Card className="h-full">
                                     <CardContent className="relative h-full p-0">
                                         <VideoIframe videoId={firstVideo?.attributes?.Link} size="lg" inlinePlay />
-                                        <CardTitle variant="dark" size="lg" className="absolute bottom-4.5 left-4.5 w-full xl:max-w-8/12 z-35">
+                                        <CardTitle variant="dark" size="lg" className="absolute bottom-4.5 left-4.5 w-full lg:max-w-8/12 z-35">
                                             {firstVideo?.attributes?.Title}
                                         </CardTitle>
                                     </CardContent>
                                 </Card>
                         </div>
-                    <div className="xl:col-span-1">
-                        <div className="flex flex-col gap-5 xl:gap-8">
+                    <div className="lg:col-span-1">
+                        <div className="flex flex-col gap-5 lg:gap-8">
                         {otherVideos.map((video:any, index:any) => (
                             <Card  key={index} >
                                 <CardContent className="p-0">
@@ -46,10 +46,10 @@ export default function Videos({videosData}: Props) {
                                         </div>
                                         <div className="col-span-8">
                                             <Link href={'/videos/' + video?.attributes?.slug} >
-                                                <div className="p-4.5">
+                                                <div className="p-2 xl:p-4.5">
                                                     <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
-                                                    <div className="flex gap-3 items-center">
-                                                        <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
+                                                    <div className="flex gap-2 xl:gap-3 items-center">
+                                                        <CardDate>{formatRelativeDate(video?.attributes?.publishedAt)}</CardDate>
                                                         <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
                                                         <CardTime>
                                                             <CalculateVideoDuration videoUrl={video?.attributes?.Link} />
@@ -76,10 +76,10 @@ export default function Videos({videosData}: Props) {
                                             </div>
                                             <div >
                                                 <Link href={'/videos/' + video?.attributes?.slug} >
-                                                    <div className="p-3 xl:p-5">
+                                                    <div className="p-2 xl:p-5">
                                                         <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
-                                                        <div className="flex gap-3 items-center">
-                                                            <CardDate>{dateFormate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
+                                                        <div className="flex gap-2 xl:gap-3 items-center">
+                                                            <CardDate>{formatRelativeDate(video?.attributes?.publishedAt)}</CardDate>
                                                             <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
                                                             <CardTime>
                                                                 <CalculateVideoDuration videoUrl={video?.attributes?.Link} />

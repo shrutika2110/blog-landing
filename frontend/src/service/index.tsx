@@ -1,39 +1,6 @@
 import { gql } from "@apollo/client";
 import cmsClient from "./smsClient";
 
-export function BlogCategoryService() {
-  return cmsClient.query({
-    query: gql`
-      query blogCategories {
-        blogCategories {
-          data {
-            id
-            attributes {
-              title
-              slug
-              slider {
-                title
-                description
-                bgColor
-                image {
-                  id
-                  altText
-                  image {
-                    data {
-                      attributes {
-                        url
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `,
-  });
-}
 
 export function BlogService() {
   return cmsClient.query({
@@ -313,207 +280,6 @@ export function getBlogsByTitle(titleString: string) {
   });
 }
 
-//Get blogs by userId and watch flag
-export const getVideoBlogs = gql`
-  query getVideoBlogs(
-    $userId: String
-    $page: Int
-    $pageSize: Int
-    $state: Boolean = false
-  ) {
-    bookMarks(
-      filters: { userId: { eq: $userId }, blog: { watch: { eq: $state } } }
-      sort: "createdAt:desc"
-      pagination: { page: $page, pageSize: $pageSize }
-    ) {
-      data {
-        id
-        attributes {
-          userId
-          blog {
-            data {
-              id
-              attributes {
-                Title
-                shortDes
-                publish_date
-                watch
-                slug
-                coverImg {
-                  data {
-                    id
-                    attributes {
-                      alternativeText
-                      url
-                    }
-                  }
-                }
-                blog_categories {
-                  data {
-                    id
-                    attributes {
-                      title
-                      slug
-                    }
-                  }
-                }
-                views
-                video {
-                  video {
-                    data {
-                      attributes {
-                        url
-                      }
-                    }
-                  }
-                  coverImg {
-                    id
-                    image {
-                      data {
-                        attributes {
-                          url
-                        }
-                      }
-                    }
-                    altText
-                  }
-                }
-                videoViews
-                blog_authors {
-                  data {
-                    id
-                    attributes {
-                      name
-                      image {
-                        data {
-                          attributes {
-                            url
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      meta {
-        pagination {
-          total
-          page
-          pageSize
-          pageCount
-        }
-      }
-    }
-  }
-`;
-
-//Get blogs by userId and watch flag
-export const getBlogs = gql`
-  query getBlogs($userId: String, $page: Int, $pageSize: Int) {
-    bookMarks(
-      filters: {
-        userId: { eq: $userId }
-        and: [
-          {
-            or: [
-              { blog: { watch: { ne: true } } }
-              { blog: { watch: { null: true } } }
-            ]
-          }
-        ]
-      }
-      sort: "createdAt:desc"
-      pagination: { page: $page, pageSize: $pageSize }
-    ) {
-      data {
-        id
-        attributes {
-          userId
-          blog {
-            data {
-              id
-              attributes {
-                Title
-                shortDes
-                publish_date
-                watch
-                slug
-                coverImg {
-                  data {
-                    id
-                    attributes {
-                      alternativeText
-                      url
-                    }
-                  }
-                }
-                blog_categories {
-                  data {
-                    id
-                    attributes {
-                      title
-                      slug
-                    }
-                  }
-                }
-                views
-                video {
-                  video {
-                    data {
-                      attributes {
-                        url
-                      }
-                    }
-                  }
-                  coverImg {
-                    id
-                    image {
-                      data {
-                        attributes {
-                          url
-                        }
-                      }
-                    }
-                    altText
-                  }
-                }
-                videoViews
-                blog_authors {
-                  data {
-                    id
-                    attributes {
-                      name
-                      image {
-                        data {
-                          attributes {
-                            url
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      meta {
-        pagination {
-          total
-          page
-          pageSize
-          pageCount
-        }
-      }
-    }
-  }
-`;
-
 export function getBlogsAndVideosByTitle(titleString: string) {
   return cmsClient.query({
     query: gql`
@@ -584,7 +350,6 @@ export function getBlogsAndVideosByTitle(titleString: string) {
   });
 }
 
-
 export function TermsService() {
   return cmsClient.query({
     query: gql`
@@ -602,6 +367,7 @@ export function TermsService() {
     `,
   });
 }
+
 export function PrivacyPolicyService() {
   return cmsClient.query({
     query: gql`
