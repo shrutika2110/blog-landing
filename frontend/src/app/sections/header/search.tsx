@@ -46,11 +46,17 @@ export default function Search() {
     }
   };
 
-  const router = useRouter()
-  const handleClick = (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const router = useRouter();
+  const handleClick = (e?: React.SyntheticEvent) => {
+    if (e) e.preventDefault();
     router.push(`/search?q=${query}`);
     setIsDropdownOpen(false);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleClick();
+    }
   };
 
   const pathname = usePathname();
@@ -65,10 +71,11 @@ export default function Search() {
       </div>
       <div className="bg-search-grad rounded-lg p-px">
         <Input
-          className="pl-10 pr-14 h-9 rounded-1.75 border-none "
+          className="pl-10 pr-14 h-9 rounded-1.75 border-none"
           placeholder="Search kōfuku"
           value={query}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
         />
       </div>
       <div className="h-9 w-9 bg-gray-150 rounded-full absolute right-0 top-px flex text-white justify-center items-center cursor-pointer transition-all duration-200 hover:bg-primary"

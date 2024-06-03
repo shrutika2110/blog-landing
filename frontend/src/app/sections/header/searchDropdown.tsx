@@ -27,7 +27,7 @@ export default function SearchDropdown({results, query}: Props) {
                             ) )
                             : 
                             <div className="p-4 text-center">
-                                <Text variant="light" >We were not able to find anything related "{query}"</Text>
+                                <Text variant="light" >We were not able to find anything related &quot;{query}&quot;</Text>
                             </div>
                         }
                     </div>
