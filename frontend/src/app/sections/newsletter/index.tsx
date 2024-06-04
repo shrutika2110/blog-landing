@@ -19,11 +19,10 @@ export default function Newsletter({ isListPage }: Props) {
   const [emailSuccess, setEmailSuccess] = useState(false);
   const [emailError, setEmailError] = useState<any>(true);
   const inputRef = useRef<any>(null);
-  // const body = document.body;
 
   const handleCloseModal = () => {
     setIsModalVisible(false);
-    // body.classList.remove('overflow-hidden');
+    document.body.classList.remove('overflow-hidden')
     sessionStorage.setItem('isNewsletterModalClosed', 'true');
   };
 
@@ -33,12 +32,11 @@ export default function Newsletter({ isListPage }: Props) {
 
     if (isSubscribedCookie === 'true' || isModalClosed === 'true') {
       setIsModalVisible(false);
-      // body.classList.remove('overflow-hidden');
+      document.body.classList.remove('overflow-hidden')
     } else {
       const timer = setTimeout(() => {
         setIsModalVisible(true);
-        // body.classList.add('overflow-hidden');
-
+        document.body.classList.add('overflow-hidden')
       }, isListPage ? 5000 : 7000);
       return () => clearTimeout(timer);
     }
