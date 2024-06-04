@@ -49,7 +49,7 @@ const NewsletterContent: React.FC<NewsletterContentProps> = ({
                     </div>
                 }
                 {!showSuccessMsg ? (
-                    <div className='bg-yellow-20 shadow-2xl rounded-xl p-3 lg:px-10 xl:px-20 relative'>
+                    <div className='bg-yellow-20 shadow-2xl rounded-xl p-3 lg:px-10 xl:px-20 lg:py-10 relative'>
                         <div className='relative w-86 h-65 lg:h-65 lg:w-159 xl:h-109 xl:w-240 mx-auto'>
                             {isMobile? <Image src="/images/newsletterMobile.svg" alt="Newsletter" fill={true}></Image> : 
                             isTab ? <Image src="/images/newsletterTab.svg" alt="Newsletter" fill={true}></Image> :
