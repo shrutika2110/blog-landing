@@ -49,25 +49,25 @@ const NewsletterContent: React.FC<NewsletterContentProps> = ({
                     </div>
                 }
                 {!showSuccessMsg ? (
-                    <div className='bg-yellow-20 shadow-2xl rounded-xl py-10 px-3 lg:px-10 xl:px-20 relative'>
-                        <div className='relative w-70 h-50.5 lg:h-65 lg:w-159 xl:h-109 xl:w-240 mx-auto'>
-                            {isMobile? <Image src="/images/newsletterTab.svg" alt="Newsletter" fill={true} className='hidden'></Image> : 
+                    <div className='bg-yellow-20 shadow-2xl rounded-xl p-3 lg:px-10 xl:px-20 relative'>
+                        <div className='relative w-86 h-65 lg:h-65 lg:w-159 xl:h-109 xl:w-240 mx-auto'>
+                            {isMobile? <Image src="/images/newsletterMobile.svg" alt="Newsletter" fill={true}></Image> : 
                             isTab ? <Image src="/images/newsletterTab.svg" alt="Newsletter" fill={true}></Image> :
                             <Image src="/images/newsletterBg.svg" alt="Newsletter" fill={true}></Image>
                             }
                         </div>
 
-                        <div className='absolute z-10 top-12.5 left-17.5 right-15 lg:top-25 lg:left-67.5 lg:right-35 xl:top-35 xl:left-105 xl:right-65'>
-                            <Heading level={3} size="lg" variant='light' className='font-rubik xl:w-82 leading-9.5 xl:mb-3 sm:text-base lg:text-base xl:text-4xl'>Join the Kofuku family!</Heading>
+                        <div className='absolute z-10 top-12 left-15 right-18.5 lg:top-25 lg:left-67.5 lg:right-35 xl:top-35 xl:left-105 xl:right-65'>
+                            <Heading level={3} size="lg" variant='light' className='font-rubik xl:w-82 leading-9.5 xl:mb-3 sm:text-base lg:text-base xl:text-4xl text-primary xl:"text-black-250'>Join the Kofuku family!</Heading>
                             <Text variant='light' className='lg:text-sm xl:text-base'>
                                 Hey fam! Want to read our informative blogs and watch our exciting videos?
                             </Text>
-                            <div className='mt-4 flex flex-col gap-2 lg:gap-1 xl:gap-3'>
+                            <div className='mt-2 lg:mt-4 flex flex-col gap-1 xl:gap-3'>
                                 <label className='font-rubik font-medium text-sm xl:text-base '>
                                     Subscribe to our Newsletter
                                 </label>
                                 <div className='relative'>
-                                    <Input placeholder='Your email address' ref={inputRef} value={email} className='pr-14' onFocus={handleInputFocus} onChange={handleChange}></Input>
+                                    <Input placeholder='Your email address' ref={inputRef} value={email} className='pr-14 text-xs lg:text-base' onFocus={handleInputFocus} onChange={handleChange}></Input>
                                     <Button onClick={handleClick} isdisabled={emailError} className='absolute p-0 flex items-center justify-center top-1.5 right-1.5 bottom-1.5 !bg-primary h-7 w-9 rounded'>
                                         <IoSendSharp size="20" className='text-white' />
                                     </Button>
