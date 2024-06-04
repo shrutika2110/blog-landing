@@ -8,7 +8,9 @@ interface Props {
 
 export default function SearchDropdownVideo({post}: Props) {
     return (
-        <Card className="bg-gray-900" >
+        <Link href={'/videos/' + post?.attributes?.slug} >
+
+            <Card className="bg-gray-900" >
                 <CardContent className="p-0">
                     <div className="grid grid-cols-12">
                         <div className="col-span-3">
@@ -32,6 +34,7 @@ export default function SearchDropdownVideo({post}: Props) {
                     </div>
                 </CardContent>
             </Card>
+        </Link>
                            
     );
 };

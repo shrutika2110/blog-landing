@@ -44,7 +44,8 @@ export default function VideoIframe({ videoId, coverImg, size, inlinePlay, isSin
         }
     };
 
-    const handlePlayPause = () => {
+    const handlePlayPause = (e: any) => {
+        if (e) e.preventDefault();
         if (playerRef.current) {
             if (isPlaying) {
                 playerRef.current.pauseVideo();

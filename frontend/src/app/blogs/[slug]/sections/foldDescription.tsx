@@ -7,7 +7,7 @@ export default function FoldDescription({foldDetails}:Props) {
     return (
         <>
             {foldDetails?.description && 
-                <div className="lg:columns-2 mb-10 text-lg">
+                <div className="xl:columns-2 mb-10 text-lg mt-5">
                     {foldDetails?.description}
                 </div>
             }
