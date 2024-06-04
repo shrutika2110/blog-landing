@@ -14,7 +14,7 @@ export default function RelatedBlogs({blogsData}:Props) {
             {
                 blogsData && 
                     <div className="w-full">
-                        <div className="lg:columns-2">
+                        <div className="xl:columns-2">
                                 { blogsData.map((blog:any, index:any) => (
                                     <Link href={'/blogs/' + blog?.attributes?.slug} key={index}>
                                         <Card  className="mb-5"  >

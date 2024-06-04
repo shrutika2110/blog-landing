@@ -16,7 +16,7 @@ export default function HeroSection({singleBlogData}:Props) {
                <Heading level={1} className="text-skyBlue-400 text-4xl lg:text-5.5xl font-inter lg:leading-14.5 lg:max-w-10/12">
                     {blogDetails?.Title}
                </Heading>
-               <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-10">
+               <div className="flex flex-col lg:flex-row justify-between lg:items-baseline gap-10">
                     <Text variant="light" size="lg" className="mt-3 font-inter text-xl lg:text-3xl text-black-300 leading-8.75 line-clamp-1">
                     {blogDetails?.shortDes}
                     </Text>
