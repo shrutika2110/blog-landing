@@ -40,13 +40,14 @@ export default function VideoList({videosData}: any) {
                 <Breadcrumb crumbs={crumbs} />
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 xl:gap-8 mt-5 mb-7">
                             {paginatedBlogs && paginatedBlogs.map((video:any, index:any) => (
-                                    <Card key={index} >
+                                <Link href={'/videos/' + video?.attributes?.slug} key={index} >
+
+                                    <Card  >
                                         <CardContent className="p-0">
                                                 <div className="h-48">
                                                     <VideoIframe videoId={video?.attributes?.Link} size="md" coverImg={video?.attributes?.CoverImg?.data?.attributes?.url} />
                                                 </div>
                                                 <div >
-                                                    <Link href={'/videos/' + video?.attributes?.slug} >
                                                         <div className="p-3 xl:p-5">
                                                             <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                             <div className="flex gap-2 xl:gap-3 items-center">
@@ -57,11 +58,10 @@ export default function VideoList({videosData}: any) {
                                                                 </CardTime>
                                                             </div>
                                                         </div>
-                                                    </Link>
                                                 </div>
                                         </CardContent>
-                                </Card>
-                               
+                                    </Card>
+                                </Link>
                             ))}
                         
 

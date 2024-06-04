@@ -24,6 +24,7 @@ export default function Videos({videosData}: Props) {
                 </Heading>
                 <div className="grid lg:grid-cols-2 gap-5 lg:gap-8 mt-5 mb-7">
                     <div className="lg:col-span-1">
+                            <Link href={'/videos/' + firstVideo?.attributes?.slug} >
                                 <Card className="h-full">
                                     <CardContent className="relative h-full p-0">
                                         <VideoIframe videoId={firstVideo?.attributes?.Link} size="lg" inlinePlay />
@@ -32,11 +33,13 @@ export default function Videos({videosData}: Props) {
                                         </CardTitle>
                                     </CardContent>
                                 </Card>
+                            </Link>
                         </div>
                     <div className="lg:col-span-1">
                         <div className="flex flex-col gap-5 lg:gap-8">
                         {otherVideos.map((video:any, index:any) => (
-                            <Card  key={index} >
+                        <Link href={'/videos/' + video?.attributes?.slug} key={index}>
+                            <Card >
                                 <CardContent className="p-0">
                                     <div className="grid grid-cols-12">
                                         <div className="col-span-4">
@@ -45,7 +48,6 @@ export default function Videos({videosData}: Props) {
                                             </div>
                                         </div>
                                         <div className="col-span-8">
-                                            <Link href={'/videos/' + video?.attributes?.slug} >
                                                 <div className="p-2 xl:p-4.5">
                                                     <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                     <div className="flex gap-2 xl:gap-3 items-center">
@@ -56,11 +58,12 @@ export default function Videos({videosData}: Props) {
                                                         </CardTime>
                                                     </div>
                                                 </div>
-                                            </Link>
                                         </div>
                                     </div>
                                 </CardContent>
                             </Card>
+                            </Link>
+
                             
                         ))}
                         </div>
@@ -69,13 +72,13 @@ export default function Videos({videosData}: Props) {
                 </div>
                 <div className="grid lg:grid-cols-3 gap-5 my-5">
                         {otherVideos.map((video:any, index:any) => (
-                            <Card  key={index}>
+                            <Link href={'/videos/' + video?.attributes?.slug} key={index}>
+                                <Card>
                                     <CardContent className="p-0">
                                             <div className="h-48">
                                                 <VideoIframe videoId={video?.attributes?.Link} size="md" coverImg={video?.attributes?.CoverImg?.data?.attributes?.url} />
                                             </div>
                                             <div >
-                                                <Link href={'/videos/' + video?.attributes?.slug} >
                                                     <div className="p-2 xl:p-5">
                                                         <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                         <div className="flex gap-2 xl:gap-3 items-center">
@@ -86,11 +89,10 @@ export default function Videos({videosData}: Props) {
                                                             </CardTime>
                                                         </div>
                                                     </div>
-                                                </Link>
                                             </div>
                                     </CardContent>
-                            </Card>
-                            
+                                </Card>
+                            </Link>
                         ))}
                       
                 </div>
