@@ -29,9 +29,10 @@ export default function Newsletter({isListPage}:Props) {
         if (isSubscribedCookie === 'true') {
             setIsModalVisible(false);
         } else {
-          setTimeout(() => {
-            setIsModalVisible(true);
-        }, isListPage ? 5000 : 7000);
+          const timer = setTimeout(() => {
+              setIsModalVisible(true);
+          }, isListPage ? 5000 : 7000);
+          return () => clearTimeout(timer);
 
         }
     }, [isListPage]);
