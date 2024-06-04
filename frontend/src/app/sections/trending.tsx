@@ -29,13 +29,14 @@ export default function Trending({blogsData}: Props) {
                 <Carousel
                     slidesToShow={3}
                     slidesToScroll={1}
-                    arrows={true}
+                    arrow={true}
                     dots={false}
-                    mdSlidesToShow={3}
+                    mdSlidesToShow={1}
                     smSlidesToShow={1}
                     autoplay={true}
                     infinite={true}
                     autoplaySpeed={2000}
+                    centerMode={true}
                 >
           
                     {trendingBlogs.map((blog:any, index:any) => (
