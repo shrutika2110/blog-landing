@@ -39,6 +39,7 @@ function Carousel({
   fade,
   autoplay,
   infinite,
+  centerMode
 }: any) {
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -64,7 +65,10 @@ function Carousel({
           slidesToShow: mdSlidesToShow,
           slidesToScroll: slidesToScroll,
           infinite: infinite ? infinite : false,
-          arrows: arrow ? arrow : true,
+          arrows: false,
+          swipeToSlide: true,
+          centerMode:centerMode ? centerMode : false,
+          centerPadding: '150px',
         },
       },
       {
@@ -74,8 +78,10 @@ function Carousel({
           slidesToScroll: 1,
           initialSlide: 1,
           infinite: infinite ? infinite : false,
-          arrows: arrow ? arrow : true,
+          arrows: false,
           swipeToSlide: true,
+          centerMode:centerMode ? centerMode : false,
+          centerPadding: '150px',
         },
       },
       {
@@ -84,8 +90,10 @@ function Carousel({
           slidesToShow: smSlidesToShow,
           slidesToScroll: 1,
           infinite: infinite ? infinite : false,
-          arrows: arrow ? arrow : true,
-          fade: fade ? false : true,
+          arrows: false,
+          swipeToSlide: true,
+          centerMode:centerMode ? centerMode : false,
+          centerPadding: '40px',
         },
       },
     ],
