@@ -37,8 +37,8 @@ const NewsletterContent: React.FC<NewsletterContentProps> = ({
     emailError,
 }) => {
 
-   const isTab = useMediaQuery(768);
-   const isMobile = useMediaQuery(400);
+   const isTab = useMediaQuery(1279);
+   const isMobile = useMediaQuery(767);
 
     return (
         <div className='container'>
@@ -49,20 +49,20 @@ const NewsletterContent: React.FC<NewsletterContentProps> = ({
                     </div>
                 }
                 {!showSuccessMsg ? (
-                    <div className='bg-yellow-20 shadow-2xl rounded-xl py-10 px-5 lg:px-10 xl:px-20 relative'>
-                        <div className='relative lg:h-[260px] lg:w-[636px] xl:h-109 xl:w-240 mx-auto'>
-                            {isTab ?
-                            <Image src="/images/newsletterTab.svg" alt="Newsletter" fill={true}></Image> :
+                    <div className='bg-yellow-20 shadow-2xl rounded-xl py-10 px-3 lg:px-10 xl:px-20 relative'>
+                        <div className='relative w-70 h-50.5 lg:h-65 lg:w-159 xl:h-109 xl:w-240 mx-auto'>
+                            {isMobile? <Image src="/images/newsletterTab.svg" alt="Newsletter" fill={true} className='hidden'></Image> : 
+                            isTab ? <Image src="/images/newsletterTab.svg" alt="Newsletter" fill={true}></Image> :
                             <Image src="/images/newsletterBg.svg" alt="Newsletter" fill={true}></Image>
                             }
                         </div>
 
-                        <div className='lg:absolute z-10 lg:top-[100px] lg:left-[270px] lg:right-[140px] xl:top-35 xl:left-105 xl:right-65'>
+                        <div className='absolute z-10 top-12.5 left-17.5 right-15 lg:top-25 lg:left-67.5 lg:right-35 xl:top-35 xl:left-105 xl:right-65'>
                             <Heading level={3} size="lg" variant='light' className='font-rubik xl:w-82 leading-9.5 xl:mb-3 sm:text-base lg:text-base xl:text-4xl'>Join the Kofuku family!</Heading>
                             <Text variant='light' className='lg:text-sm xl:text-base'>
                                 Hey fam! Want to read our informative blogs and watch our exciting videos?
                             </Text>
-                            <div className='mt-4 flex flex-col gap-1 xl:gap-3'>
+                            <div className='mt-4 flex flex-col gap-2 lg:gap-1 xl:gap-3'>
                                 <label className='font-rubik font-medium text-sm xl:text-base '>
                                     Subscribe to our Newsletter
                                 </label>
