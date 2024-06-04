@@ -7,6 +7,7 @@ import Pagination from "@/components/utility/pagination";
 import Breadcrumb from "@/components/utility/breadcrumb";
 import Link from "next/link";
 import { formatRelativeDate } from "@/components/utility/formatDateFromNow";
+import Newsletter from "@/app/sections/newsletter";
 
 interface Props {
     blogsData?: any;
@@ -56,10 +57,11 @@ export default function BlogList({blogsData}: any) {
                                 </CardContent>
                             </Card>
                             </Link>
-                            ))}
+                    ))}
                         
 
                 </div>
+                <Newsletter isListPage />
                 <Pagination
                     items={allBlogs.length} 
                     currentPage={currentPage} 

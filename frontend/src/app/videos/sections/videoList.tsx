@@ -8,6 +8,7 @@ import Link from "next/link";
 import VideoIframe from "@/components/utility/videoIframe";
 import CalculateVideoDuration from "@/components/utility/calculateVideoDuration";
 import { formatRelativeDate } from "@/components/utility/formatDateFromNow";
+import Newsletter from "@/app/sections/newsletter";
 
 interface Props {
     videosData?: any;
@@ -65,6 +66,7 @@ export default function VideoList({videosData}: any) {
                         
 
                 </div>
+                <Newsletter isListPage />
                 <Pagination
                     items={allVideos.length} 
                     currentPage={currentPage} 

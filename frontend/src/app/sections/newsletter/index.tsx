@@ -7,8 +7,11 @@ import { validateForm } from '@/components/utility/verifyAuthForm';
 import NewsletterContent from './newsletterContent';
 import NewsletterModal from './newsletterModal';
 
+interface Props {
+  isListPage?: any;
+}
 
-export default function Newsletter() {
+export default function Newsletter({isListPage}:Props) {
     const [isInputFocused, setIsInputFocused] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [showSuccessMsg, setShowSuccessMsg] = useState(false);
@@ -26,20 +29,14 @@ export default function Newsletter() {
         if (isSubscribedCookie === 'true') {
             setIsModalVisible(false);
         } else {
+          setTimeout(() => {
             setIsModalVisible(true);
+        }, isListPage ? 5000 : 7000);
+
         }
-    }, []);
+    }, [isListPage]);
 
-    useEffect(() => {
-        if (!isInputFocused && isModalVisible) {
-            const timer = setTimeout(() => {
-                setIsModalVisible(false);
-            }, 3000);
-
-            return () => clearTimeout(timer);
-        }
-    }, [isInputFocused, isModalVisible]);
-
+   
     const handleInputFocus = () => {
         setIsInputFocused(true);
     };
@@ -54,7 +51,6 @@ export default function Newsletter() {
         setShowSuccessMsg(true);
 
         setTimeout(() => {
-            setIsModalVisible(false);
             setShowSuccessMsg(false);
         }, 3000);
 
@@ -111,6 +107,7 @@ export default function Newsletter() {
                 isInputFocused={isInputFocused}
                />
             )}
+           { !isListPage && 
              <NewsletterContent
                 isModalVisible={isModalVisible}
                 handleCloseModal={handleCloseModal}
@@ -125,6 +122,7 @@ export default function Newsletter() {
                 isInputFocused={isInputFocused}
 
             />
+           }
         </>
     );
 }
