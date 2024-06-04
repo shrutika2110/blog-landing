@@ -40,7 +40,6 @@ const NewsletterContent: React.FC<NewsletterContentProps> = ({
    const isTab = useMediaQuery(768);
    const isMobile = useMediaQuery(400);
 
-   console.log('isTab', isTab);
     return (
         <div className='container'>
             <div className='xl:m-10 my-14 xl:mb-16 relative'>
