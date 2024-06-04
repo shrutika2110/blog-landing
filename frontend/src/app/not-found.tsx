@@ -16,8 +16,11 @@ export default function NotFound() {
                     autoPlay
                     muted
                     loop
-                    src="/images/404.mp4"
-                ></video>
+                    preload="none"
+                >
+                    <source src="/images/404.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
             </div>
             <div className="mx-auto text-center max-w-129 mb-20">
                 <Heading level={1} variant="light">Caution!</Heading>

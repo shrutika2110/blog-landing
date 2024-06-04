@@ -84,7 +84,7 @@ function Carousel({
           slidesToShow: smSlidesToShow,
           slidesToScroll: 1,
           infinite: infinite ? infinite : false,
-          arrows: arrow ? arrow : true,
+          arrows: false,
           fade: fade ? false : true,
         },
       },
