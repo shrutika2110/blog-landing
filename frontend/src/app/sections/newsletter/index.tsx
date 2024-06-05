@@ -85,6 +85,7 @@ export default function Newsletter({ page }: Props) {
 
     setTimeout(() => {
       setShowSuccessMsg(false);
+      setIsModalVisible(false);
     }, 3000);
 
     const obj = {
