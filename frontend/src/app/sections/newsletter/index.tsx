@@ -34,14 +34,21 @@ export default function Newsletter({ page }: Props) {
   };
 
   useEffect(() => {
+    const closedPagesFromStorage = localStorage.getItem('closedPages');
+    if (closedPagesFromStorage) {
+      setClosedPages(JSON.parse(closedPagesFromStorage));
+    }
+  }, []);
+
+  useEffect(() => {
     const isSubscribedCookie = getCookie('isSubscribed');
     if (page === 'blogList' || page === 'videoList') {
       setListPage(true);
     } else {
       setListPage(false);
     }
-  
-    if (isSubscribedCookie === 'true') {
+
+    if (isSubscribedCookie === 'true' || closedPages.includes(page)) {
       setIsModalVisible(false);
       document.body.classList.remove('overflow-hidden');
     } else {
@@ -51,7 +58,7 @@ export default function Newsletter({ page }: Props) {
       }, isListPage ? 5000 : 7000);
       return () => clearTimeout(timer);
     }
-  }, [page, isListPage]);
+  }, [page, isListPage, closedPages]);
 
   useEffect(() => {
     const handleBeforeUnload = () => {
