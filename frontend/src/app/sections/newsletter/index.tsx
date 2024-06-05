@@ -8,13 +8,14 @@ import NewsletterContent from './newsletterContent';
 import NewsletterModal from './newsletterModal';
 
 interface Props {
-  isListPage?: any;
+  page?: any;
 }
 
-export default function Newsletter({ isListPage }: Props) {
+export default function Newsletter({ page }: Props) {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
+  const [isListPage, setListPage] = useState(false);
   const [email, setEmail] = useState('');
   const [emailSuccess, setEmailSuccess] = useState(false);
   const [emailError, setEmailError] = useState<any>(true);
@@ -23,24 +24,30 @@ export default function Newsletter({ isListPage }: Props) {
   const handleCloseModal = () => {
     setIsModalVisible(false);
     document.body.classList.remove('overflow-hidden')
-    sessionStorage.setItem('isNewsletterModalClosed', 'true');
   };
 
   useEffect(() => {
     const isSubscribedCookie = getCookie('isSubscribed');
-    const isModalClosed = sessionStorage.getItem('isNewsletterModalClosed');
+      if (page === 'blogList' || page === 'videoList') {
+        setListPage(true);
+      } else {
+        setListPage(false);
+      }
 
-    if (isSubscribedCookie === 'true' || isModalClosed === 'true') {
+    if (isSubscribedCookie === 'true') {
       setIsModalVisible(false);
-      document.body.classList.remove('overflow-hidden')
+      document.body.classList.remove('overflow-hidden');
     } else {
       const timer = setTimeout(() => {
         setIsModalVisible(true);
-        document.body.classList.add('overflow-hidden')
+        document.body.classList.add('overflow-hidden');
       }, isListPage ? 5000 : 7000);
       return () => clearTimeout(timer);
     }
-  }, [isListPage]);
+
+  }, [page, isListPage]); 
+  
+
 
   const handleInputFocus = () => {
     setIsInputFocused(true);

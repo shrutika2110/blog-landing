@@ -8,7 +8,7 @@ interface SliderProps {
 
 export default function SliderDetails({ BlogSliders }: SliderProps) {
     const sliderList = BlogSliders.blogsData || [];
-    let filteredBlogs = sliderList.slice(0, 3);
+    let filteredBlogs = sliderList && sliderList.slice(0, 3);
 
     return (
         <>

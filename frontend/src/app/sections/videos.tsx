@@ -37,7 +37,7 @@ export default function Videos({videosData}: Props) {
                         </div>
                     <div className="lg:col-span-1">
                         <div className="flex flex-col gap-5 lg:gap-8">
-                        {otherVideos.map((video:any, index:any) => (
+                        {otherVideos && otherVideos.map((video:any, index:any) => (
                         <Link href={'/videos/' + video?.attributes?.slug} key={index}>
                             <Card >
                                 <CardContent className="p-0">
@@ -71,7 +71,7 @@ export default function Videos({videosData}: Props) {
 
                 </div>
                 <div className="grid lg:grid-cols-3 gap-5 my-5">
-                        {otherVideos.map((video:any, index:any) => (
+                        {otherVideos && otherVideos.map((video:any, index:any) => (
                             <Link href={'/videos/' + video?.attributes?.slug} key={index}>
                                 <Card>
                                     <CardContent className="p-0">

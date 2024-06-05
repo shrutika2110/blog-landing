@@ -57,7 +57,7 @@ export default async function Page() {
                         <FirstFoldBlogs blogsData={blogsData} />
                         <FoldDescription foldDetails={secFoldDetails} />
                         <SecFoldBlogs blogsData={blogsData} />
-                        <Newsletter />
+                        <Newsletter page="singleBlogPage" />
                     </div>
             </div>
 
