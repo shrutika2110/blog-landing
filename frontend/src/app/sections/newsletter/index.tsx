@@ -1,5 +1,4 @@
-'use client';
-
+'use client'
 import React, { useEffect, useRef, useState } from 'react';
 import { setCookie, getCookie } from 'cookies-next';
 import { emitErrorNotification } from '@/lib/helpers';
@@ -20,20 +19,28 @@ export default function Newsletter({ page }: Props) {
   const [emailSuccess, setEmailSuccess] = useState(false);
   const [emailError, setEmailError] = useState<any>(true);
   const inputRef = useRef<any>(null);
+  const [closedPages, setClosedPages] = useState<string[]>([]);
 
   const handleCloseModal = () => {
     setIsModalVisible(false);
-    document.body.classList.remove('overflow-hidden')
+    document.body.classList.remove('overflow-hidden');
+    const closedPagesFromStorage = localStorage.getItem('closedPages');
+    const updatedClosedPages = closedPagesFromStorage ? JSON.parse(closedPagesFromStorage) : [];
+    if (page && !updatedClosedPages.includes(page)) {
+      updatedClosedPages.push(page);
+      localStorage.setItem('closedPages', JSON.stringify(updatedClosedPages));
+      setClosedPages(updatedClosedPages);
+    }
   };
 
   useEffect(() => {
     const isSubscribedCookie = getCookie('isSubscribed');
-      if (page === 'blogList' || page === 'videoList') {
-        setListPage(true);
-      } else {
-        setListPage(false);
-      }
-
+    if (page === 'blogList' || page === 'videoList') {
+      setListPage(true);
+    } else {
+      setListPage(false);
+    }
+  
     if (isSubscribedCookie === 'true') {
       setIsModalVisible(false);
       document.body.classList.remove('overflow-hidden');
@@ -44,10 +51,17 @@ export default function Newsletter({ page }: Props) {
       }, isListPage ? 5000 : 7000);
       return () => clearTimeout(timer);
     }
+  }, [page, isListPage]);
 
-  }, [page, isListPage]); 
-  
-
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.removeItem('closedPages');
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
 
   const handleInputFocus = () => {
     setIsInputFocused(true);
@@ -68,7 +82,6 @@ export default function Newsletter({ page }: Props) {
 
     const obj = {
       data: {
-        // eslint-disable-next-line camelcase
         subscription_email: email,
       },
     };
