@@ -15,6 +15,7 @@ interface Props {
 export default function Videos({videosData}: Props) {
 
     const firstVideo = videosData && videosData[0];
+    const topVideos = videosData && videosData.slice(1, 4);
     const otherVideos = videosData && videosData.slice(1, 4);
 
     return (
@@ -36,18 +37,18 @@ export default function Videos({videosData}: Props) {
                             </Link>
                         </div>
                     <div className="lg:col-span-1">
-                        <div className="flex flex-col gap-5 lg:gap-8">
-                        {otherVideos && otherVideos.map((video:any, index:any) => (
+                        <div className="grid grid-cols-2 lg:grid-cols-1 gap-5 lg:gap-8">
+                        {topVideos && topVideos.map((video:any, index:any) => (
                         <Link href={'/videos/' + video?.attributes?.slug} key={index}>
                             <Card >
                                 <CardContent className="p-0">
-                                    <div className="grid grid-cols-12">
-                                        <div className="col-span-4">
+                                    <div className="grid lg:grid-cols-12">
+                                        <div className="lg:col-span-4">
                                             <div className="h-full max-h-27.5">
                                                 <VideoIframe videoId={video?.attributes?.Link} coverImg={video?.attributes?.CoverImg?.data?.attributes?.url} />
                                             </div>
                                         </div>
-                                        <div className="col-span-8">
+                                        <div className="lg:col-span-8">
                                                 <div className="p-2 xl:p-4.5">
                                                     <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                     <div className="flex gap-2 xl:gap-3 items-center">
@@ -70,7 +71,7 @@ export default function Videos({videosData}: Props) {
                     </div>
 
                 </div>
-                <div className="grid lg:grid-cols-3 gap-5 my-5">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 my-5">
                         {otherVideos && otherVideos.map((video:any, index:any) => (
                             <Link href={'/videos/' + video?.attributes?.slug} key={index}>
                                 <Card>
