@@ -20,7 +20,7 @@ export default function HeroSection({singleVideoData}:Props) {
             <div className="my-10 bg-black-200 pt-0.5">
                 <div className='container'>
                     <div className="h-120 w-full relative ">
-                        <VideoIframe videoId={videoDetails?.Link} size="md" coverImg={videoDetails?.CoverImg?.data?.attributes?.url} isSinglePage />
+                        <VideoIframe videoId={videoDetails?.Link} size="md" coverImg={videoDetails?.CoverImg?.data?.attributes?.url} iconCenter />
                     </div>
                 </div>
             </div>

@@ -7,14 +7,13 @@ import { formatRelativeDate } from "@/components/utility/formatDateFromNow";
 
 interface Props {
     video?: any;
-    index?: any;
 }
 
 
-export default function sliderVideos({video, index}: Props) {
+export default function sliderVideos({video}: Props) {
 
     return (
-        <Link href={'/videos/' + video?.attributes?.slug} key={index}>
+        <Link href={'/videos/' + video?.attributes?.slug} >
             <Card>
                 <CardContent className="p-0">
                         <div className="h-27 lg:h-48">

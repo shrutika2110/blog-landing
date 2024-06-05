@@ -8,6 +8,7 @@ import Link from "next/link";
 import { formatRelativeDate } from "@/components/utility/formatDateFromNow";
 import Carousel from "@/components/utility/Carousel";
 import SliderVideos from "./sliderVideos";
+import useMediaQuery from "@/components/utility/useMediaQuery";
 
 interface Props {
     videosData?: any;
@@ -15,10 +16,11 @@ interface Props {
 
 
 export default function Videos({videosData}: Props) {
-
     const firstVideo = videosData && videosData[0];
-    const topVideos = videosData && videosData.slice(1, 4);
-    const otherVideos = videosData && videosData.slice(1, 4);
+    const isMobile = useMediaQuery(767);
+
+    const topVideos = videosData && videosData.slice(1, isMobile? 9 : 4);
+    const otherVideos = videosData && videosData.slice(5, 9);
 
     return (
             <div className="mt-7 pt-5 border-t border-offwhite-700 border-b pb-4 mb-10" id="videos">
@@ -28,9 +30,9 @@ export default function Videos({videosData}: Props) {
                 <div className="grid lg:grid-cols-2 gap-5 lg:gap-8 mt-5 mb-7">
                     <div className="lg:col-span-1">
                             <Link href={'/videos/' + firstVideo?.attributes?.slug} >
-                                <Card className="h-full">
+                                <Card className="h-full min-h-[224px]">
                                     <CardContent className="relative h-full p-0">
-                                        <VideoIframe videoId={firstVideo?.attributes?.Link} size="lg" inlinePlay />
+                                        <VideoIframe videoId={firstVideo?.attributes?.Link} size="lg" inlinePlay iconCenter />
                                         <CardTitle variant="dark" size="lg" className="absolute bottom-4.5 left-4.5 w-full lg:max-w-8/12 z-35">
                                             {firstVideo?.attributes?.Title}
                                         </CardTitle>
@@ -75,11 +77,12 @@ export default function Videos({videosData}: Props) {
                 </div>
 
                 {/* Slider videos */}
-                <div className="grid grid-cols-2 lg:hidden xl:grid xl:grid-cols-3 gap-5 my-5">
+                <div className=" hidden xl:grid xl:grid-cols-3 gap-5 my-5">
                         {otherVideos && otherVideos.map((video:any, index:any) => (
-                            <SliderVideos video={video} index={index} />
+                            <SliderVideos video={video} key={index} />
                         ))}
                 </div>
+
                 {/* Slider only in tabs */}
                 <div className=" hidden lg:block xl:hidden gap-5 my-5">
                         <Carousel
@@ -95,7 +98,7 @@ export default function Videos({videosData}: Props) {
                             centerMode={true}
                         >
                                 {otherVideos && otherVideos.map((video:any, index:any) => (
-                                    <SliderVideos video={video} index={index} />
+                                    <SliderVideos video={video} key={index} />
                                 ))}
                         </Carousel>
                     </div>
