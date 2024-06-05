@@ -6,6 +6,8 @@ import VideoIframe from "@/components/utility/videoIframe";
 import CalculateVideoDuration from "@/components/utility/calculateVideoDuration";
 import Link from "next/link";
 import { formatRelativeDate } from "@/components/utility/formatDateFromNow";
+import Carousel from "@/components/utility/Carousel";
+import SliderVideos from "./sliderVideos";
 
 interface Props {
     videosData?: any;
@@ -71,32 +73,33 @@ export default function Videos({videosData}: Props) {
                     </div>
 
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 my-5">
+
+                {/* Slider videos */}
+                <div className="grid grid-cols-2 lg:hidden xl:grid xl:grid-cols-3 gap-5 my-5">
                         {otherVideos && otherVideos.map((video:any, index:any) => (
-                            <Link href={'/videos/' + video?.attributes?.slug} key={index}>
-                                <Card>
-                                    <CardContent className="p-0">
-                                            <div className="h-48">
-                                                <VideoIframe videoId={video?.attributes?.Link} size="md" coverImg={video?.attributes?.CoverImg?.data?.attributes?.url} />
-                                            </div>
-                                            <div >
-                                                    <div className="p-2 xl:p-5">
-                                                        <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
-                                                        <div className="flex gap-2 xl:gap-3 items-center">
-                                                            <CardDate>{formatRelativeDate(video?.attributes?.publishedAt)}</CardDate>
-                                                            <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
-                                                            <CardTime>
-                                                                <CalculateVideoDuration videoUrl={video?.attributes?.Link} />
-                                                            </CardTime>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                    </CardContent>
-                                </Card>
-                            </Link>
+                            <SliderVideos video={video} index={index} />
                         ))}
-                      
                 </div>
+                {/* Slider only in tabs */}
+                <div className=" hidden lg:block xl:hidden gap-5 my-5">
+                        <Carousel
+                            slidesToShow={3}
+                            slidesToScroll={1}
+                            arrow={true}
+                            dots={false}
+                            mdSlidesToShow={1}
+                            smSlidesToShow={1}
+                            autoplay={true}
+                            infinite={true}
+                            autoplaySpeed={2000}
+                            centerMode={true}
+                        >
+                                {otherVideos && otherVideos.map((video:any, index:any) => (
+                                    <SliderVideos video={video} index={index} />
+                                ))}
+                        </Carousel>
+                    </div>
+
                 <div className="flex items-end justify-end">
                         <Button variant="outline" asChild >
                             <Link href="/videos">
