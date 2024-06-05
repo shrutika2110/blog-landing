@@ -39,7 +39,7 @@ export default function Trending({blogsData}: Props) {
                     centerMode={true}
                 >
           
-                    {trendingBlogs.map((blog:any, index:any) => (
+                    {trendingBlogs && trendingBlogs.map((blog:any, index:any) => (
                         <Link href={'/blogs/' +blog?.attributes?.slug} key={index}>
 
                             <Card  >

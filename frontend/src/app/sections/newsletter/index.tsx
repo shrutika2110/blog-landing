@@ -1,5 +1,4 @@
-'use client';
-
+'use client'
 import React, { useEffect, useRef, useState } from 'react';
 import { setCookie, getCookie } from 'cookies-next';
 import { emitErrorNotification } from '@/lib/helpers';
@@ -8,39 +7,68 @@ import NewsletterContent from './newsletterContent';
 import NewsletterModal from './newsletterModal';
 
 interface Props {
-  isListPage?: any;
+  page?: any;
 }
 
-export default function Newsletter({ isListPage }: Props) {
+export default function Newsletter({ page }: Props) {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
+  const [isListPage, setListPage] = useState(false);
   const [email, setEmail] = useState('');
   const [emailSuccess, setEmailSuccess] = useState(false);
   const [emailError, setEmailError] = useState<any>(true);
   const inputRef = useRef<any>(null);
+  const [closedPages, setClosedPages] = useState<string[]>([]);
 
   const handleCloseModal = () => {
     setIsModalVisible(false);
-    document.body.classList.remove('overflow-hidden')
-    sessionStorage.setItem('isNewsletterModalClosed', 'true');
+    document.body.classList.remove('overflow-hidden');
+    const closedPagesFromStorage = localStorage.getItem('closedPages');
+    const updatedClosedPages = closedPagesFromStorage ? JSON.parse(closedPagesFromStorage) : [];
+    if (page && !updatedClosedPages.includes(page)) {
+      updatedClosedPages.push(page);
+      localStorage.setItem('closedPages', JSON.stringify(updatedClosedPages));
+      setClosedPages(updatedClosedPages);
+    }
   };
 
   useEffect(() => {
-    const isSubscribedCookie = getCookie('isSubscribed');
-    const isModalClosed = sessionStorage.getItem('isNewsletterModalClosed');
+    const closedPagesFromStorage = localStorage.getItem('closedPages');
+    if (closedPagesFromStorage) {
+      setClosedPages(JSON.parse(closedPagesFromStorage));
+    }
+  }, []);
 
-    if (isSubscribedCookie === 'true' || isModalClosed === 'true') {
+  useEffect(() => {
+    const isSubscribedCookie = getCookie('isSubscribed');
+    if (page === 'blogList' || page === 'videoList') {
+      setListPage(true);
+    } else {
+      setListPage(false);
+    }
+
+    if (isSubscribedCookie === 'true' || closedPages.includes(page)) {
       setIsModalVisible(false);
-      document.body.classList.remove('overflow-hidden')
+      document.body.classList.remove('overflow-hidden');
     } else {
       const timer = setTimeout(() => {
         setIsModalVisible(true);
-        document.body.classList.add('overflow-hidden')
+        document.body.classList.add('overflow-hidden');
       }, isListPage ? 5000 : 7000);
       return () => clearTimeout(timer);
     }
-  }, [isListPage]);
+  }, [page, isListPage, closedPages]);
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.removeItem('closedPages');
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
 
   const handleInputFocus = () => {
     setIsInputFocused(true);
@@ -61,7 +89,6 @@ export default function Newsletter({ isListPage }: Props) {
 
     const obj = {
       data: {
-        // eslint-disable-next-line camelcase
         subscription_email: email,
       },
     };

@@ -49,7 +49,7 @@ export default async function Page() {
                         <HeroSection singleVideoData={singleVideoData} />
                         <div className='relative container'>
                           <RelatedVideos videosData={videosData} />
-                          <Newsletter />
+                          <Newsletter page="singleVideoPage"/>
                           <BackToTop /> 
                       </div>
                   </div>
