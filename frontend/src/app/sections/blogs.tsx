@@ -17,7 +17,11 @@ export default function Blogs({blogsData}: Props) {
     const firstBlog = blogsData && blogsData[0];
     const otherBlogs = blogsData && blogsData
         .filter((data: any) => data?.attributes?.good_read)
-        .sort((a: any, b: any) => b.attributes.views - a.attributes.views).slice(1, 4);
+        .sort(
+            (a: any, b: any) =>
+              new Date(b.attributes?.publish_date).getTime() -
+              new Date(a.attributes?.publish_date).getTime(),
+        ).slice(1, 4);
 
     return (
         <div id="blogs">
