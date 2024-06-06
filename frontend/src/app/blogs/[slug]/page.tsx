@@ -45,6 +45,11 @@ export default async function Page() {
 
     const firstFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.firstFold
     const secFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.secondFold
+    const thirdFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.thirdFold
+    const fourthFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.fourthFold
+    const fifthFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.fifthFold
+    const sixthFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.sixthFold
+    const seventhFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.seventhFold
 
   return (
     <>
@@ -53,10 +58,16 @@ export default async function Page() {
 
                   <div className="pt-5 mt-3 mb-14" >
                         <HeroSection singleBlogData={singleBlogData} />
-                        <FoldDescription foldDetails={firstFoldDetails} />
+                        {firstFoldDetails && <FoldDescription foldDetails={firstFoldDetails} />}
                         <FirstFoldBlogs blogsData={blogsData} />
-                        <FoldDescription foldDetails={secFoldDetails} />
+                        {secFoldDetails && <FoldDescription foldDetails={secFoldDetails} />}
                         <SecFoldBlogs blogsData={blogsData} />
+                        {thirdFoldDetails && <FoldDescription foldDetails={thirdFoldDetails} />}
+                        {fourthFoldDetails && <FoldDescription foldDetails={fourthFoldDetails} />}
+                        {fifthFoldDetails && <FoldDescription foldDetails={fifthFoldDetails} />}
+                        {sixthFoldDetails && <FoldDescription foldDetails={sixthFoldDetails} />}
+                        {seventhFoldDetails && <FoldDescription foldDetails={seventhFoldDetails} />}
+
                         <Newsletter page="singleBlogPage" />
                     </div>
             </div>

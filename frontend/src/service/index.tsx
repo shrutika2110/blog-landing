@@ -147,6 +147,26 @@ export function SingleBlogService(slug: any) {
                 Title
                 description
               }
+              thirdFold {
+                Title
+                description
+              }
+              fourthFold {
+                Title
+                description
+              }
+              fifthFold {
+                Title
+                description
+              }
+              sixthFold {
+                Title
+                description
+              }
+              seventhFold {
+                Title
+                description
+              }
               blog_categories {
                 data {
                   id
