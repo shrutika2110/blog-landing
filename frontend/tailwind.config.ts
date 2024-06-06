@@ -231,6 +231,7 @@ module.exports = {
         '18.5': '74px',
         '19.5': '78px',
         '25': '100px',
+        '27': '108px',
         '27.5': '110px',
         '35': '140px',
         '44': '176px',
@@ -298,7 +299,7 @@ module.exports = {
       },
       backgroundImage: {
         'black-grad': 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 64.36%, rgba(0, 0, 0, 0.60) 100%, lightgray 50%)',
-        'search-grad' :'linear-gradient(90deg, #00B2ED 0%, rgba(0, 178, 237, 0) 93%)'
+        'search-grad' :'linear-gradient(90deg, #00B2ED 0%, rgba(0, 178, 237, 0) 92%, rgba(0, 178, 237, 0) 100%);'
       },
       screens: {
         sm: '360px',
