@@ -87,7 +87,7 @@ export default function Search() {
         <FaArrowRightLong size={16} />
       </div>
       <div
-        className={`h-9 w-9 absolute -right-2 top-px flex bg-white z-5 `}
+        className={`h-10 w-10 absolute -right-2 -top-px flex bg-white z-5 `}
       >
       </div>
       {isDropdownOpen && <SearchDropdown results={results} query={query} />}
