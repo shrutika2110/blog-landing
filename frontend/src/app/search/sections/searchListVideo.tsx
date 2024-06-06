@@ -20,7 +20,6 @@ export default function SearchListVideo({post}: Props) {
                                 </div>
                         </div>
                         <div className="col-span-8">
-                            <Link href={ "/videos/" + post?.attributes?.slug } >
 
                             <div className="flex items-center h-full">
                                 <div className="p-3 xl:p-5 ">
@@ -32,7 +31,6 @@ export default function SearchListVideo({post}: Props) {
                                     </div>
                                 </div>
                             </div>
-                            </Link>
                         </div>
                     </div>
                 </CardContent>

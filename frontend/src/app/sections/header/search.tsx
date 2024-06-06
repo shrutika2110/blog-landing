@@ -81,10 +81,14 @@ export default function Search() {
         />
       </div>
       <div
-        className={`h-9 w-9 rounded-full absolute right-0 top-px flex text-white justify-center items-center  transition-all duration-200 ${query.trim() ? ' bg-primary cursor-pointer' : 'bg-gray-150 cursor-not-allowed'}`}
+        className={`h-9 w-9 rounded-full absolute right-0 top-px z-10 flex text-white justify-center items-center  transition-all duration-200 ${query.trim() ? ' bg-primary cursor-pointer' : 'bg-gray-150 cursor-not-allowed'}`}
         onClick={handleClick}
       >
         <FaArrowRightLong size={16} />
+      </div>
+      <div
+        className={`h-9 w-9 absolute -right-2 top-px flex bg-white z-5 `}
+      >
       </div>
       {isDropdownOpen && <SearchDropdown results={results} query={query} />}
     </div>
