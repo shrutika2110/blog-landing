@@ -22,7 +22,7 @@ export default function SliderDetails({ BlogSliders }: SliderProps) {
                             />
                         </div>
 
-                        <div className="absolute bottom-12 left-0 text-center w-full">
+                        <div className="absolute bottom-12 xl:right-5 xl:left-5 right-1 left-1 text-center ">
                             <Heading level={2} variant='dark' className="text-4.5xl">
                                 {data.attributes?.Title}
                             </Heading>

@@ -38,8 +38,8 @@ const fontRubik = Rubik({
 
 
 export const metadata: Metadata = {
-  title: "Kofuku-blog",
-  description: "Kofuku",
+  title: "Kofuku",
+  description: "Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more",
 };
 
 
@@ -55,6 +55,8 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/favicon.png" />
+        <meta property="og:image" content="/opengraph-image.jpg" />
+        <meta name="twitter:image" content="/twitter-image.jpg" />
 
       </head>
       <body className={`${fontSans.variable} ${fontOverpass.variable} ${fontManrope.variable} ${fontRubik.variable} bg-white font-manrope overscroll-none `}>
