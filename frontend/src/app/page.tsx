@@ -41,9 +41,7 @@ export default async function Page() {
   return (
     <div className="relative ">
       <div className="container">
-        <div className="min-h-140">
-          <HeroSlider blogsData={blogsData} />
-        </div>
+        <HeroSlider blogsData={blogsData} />
       </div>
       <HeroTab blogsData={blogsData} videosData={videosData} />
       <div className="container relative">

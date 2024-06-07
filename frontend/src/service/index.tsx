@@ -18,6 +18,8 @@ export function BlogService() {
               recommended
               pick
               watch
+              hero_slider
+              publishedAt
               trending
               coverImg {
                 data {
