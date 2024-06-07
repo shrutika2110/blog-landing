@@ -128,6 +128,7 @@ export function SingleBlogService(slug: any) {
               Title
               shortDes
               publish_date
+              publishedAt
               slug
               good_read
               recommended
