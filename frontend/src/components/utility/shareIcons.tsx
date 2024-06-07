@@ -5,9 +5,7 @@ import { FacebookShareButton, WhatsappShareButton } from 'react-share';
 import { FaCopy, FaFacebook, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 
 interface Props {
-    blogDetails?: {
-        Title?: string;
-    };
+    blogDetails?: any;
 }
 
 export default function ShareIcons({ blogDetails }: Props) {
