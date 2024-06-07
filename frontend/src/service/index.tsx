@@ -18,6 +18,8 @@ export function BlogService() {
               recommended
               pick
               watch
+              hero_slider
+              publishedAt
               trending
               coverImg {
                 data {
@@ -57,6 +59,34 @@ export function BlogService() {
                 }
               }
               videoViews
+              firstFold {
+                Title
+								description
+              }
+              secondFold {
+                Title
+								description
+              }
+							thirdFold {
+   							Title
+								description
+							}
+							fourthFold {
+   							Title
+								description
+							}
+							fifthFold {
+                Title
+								description
+              }
+							sixthFold {
+                Title
+								description
+              }
+							seventhFold {
+                Title
+								description
+              }
               blog_authors {
                 data {
                   id
@@ -126,6 +156,7 @@ export function SingleBlogService(slug: any) {
               Title
               shortDes
               publish_date
+              publishedAt
               slug
               good_read
               recommended

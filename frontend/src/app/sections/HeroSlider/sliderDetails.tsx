@@ -7,12 +7,10 @@ interface SliderProps {
 }
 
 export default function SliderDetails({ BlogSliders }: SliderProps) {
-    const sliderList = BlogSliders.blogsData || [];
-    let filteredBlogs = sliderList && sliderList.slice(0, 3);
 
     return (
         <>
-            {filteredBlogs && filteredBlogs.map((data: any) => (
+            {BlogSliders && BlogSliders.map((data: any) => (
                 <div className="relative" key={data.id}>
                     <Link href={'/blogs/' + data?.attributes?.slug}>
                         <div className="relative h-120 max-h-120 min-h-120 w-full after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad">

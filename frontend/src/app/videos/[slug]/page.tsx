@@ -1,11 +1,12 @@
 import { headers } from "next/headers";
-import { SingleVideoService, VideoService } from "@/service";
+import { SingleVideoService } from "@/service";
 import Newsletter from "@/app/sections/newsletter";
 import HeroSection from "./sections/heroSection";
 import type { Metadata } from 'next'
 import NullPoint from "@/components/utility/nullPoint";
 import RelatedVideos from "./sections/relatedVideos";
 import BackToTop from "@/components/utility/backToTop";
+import { fetchVideoData } from "@/service/videoService";
 
 export const metadata: Metadata = {
   title: 'Kofuku - Video',
@@ -15,17 +16,6 @@ export const metadata: Metadata = {
 async function fetchSingleVideoData(slug: string) {
   try {
     const { data } = await SingleVideoService(slug);
-    const content = data.youtubes.data;
-    return content
-  }
-  catch (e: any) {
-    console.log("error:\n", e.message);
-  }
-}
-
-async function fetchVideoData() {
-  try {
-    const { data } = await VideoService();
     const content = data.youtubes.data;
     return content
   }

@@ -7,22 +7,14 @@ import type { Metadata } from 'next'
 import FirstFoldBlogs from "./sections/firstFoldBlogs";
 import SecFoldBlogs from "./sections/secFoldBlogs";
 import NullPoint from "@/components/utility/nullPoint";
+import { fetchBlogData } from "@/service/blogService";
 
 export const metadata: Metadata = {
   title: 'Kofuku - Blog',
   description: 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more',
 }
 
-async function fetchBlogData() {
-  try {
-    const { data } = await BlogService();
-    const content = data.blogs.data;
-    return content
-  }
-  catch (e: any) {
-    console.log("error:\n", e.message);
-  }
-}
+
 
 async function fetchSingleBlogData(slug: string) {
   try {

@@ -13,11 +13,12 @@ export default function Trending({blogsData}: Props) {
 
     const trendingBlogs = blogsData && blogsData
           .filter((data: any) => data?.attributes?.trending)
-          .sort(
-            (a: any, b: any) =>
-              new Date(b.attributes?.publish_date).getTime() -
-              new Date(a.attributes?.publish_date).getTime(),
-          )
+          .sort((a:any, b:any) => {
+                const dateA = new Date(a.attributes.publishedAt);
+                const dateB = new Date(b.attributes.publishedAt);
+                return dateB.getTime() - dateA.getTime();
+            })
+          
 
 
     return (
@@ -51,7 +52,7 @@ export default function Trending({blogsData}: Props) {
                                         <div className="p-2 xl:p-5">
                                             <CardTitle className="mb-3">{blog?.attributes?.Title}</CardTitle>
                                             <div className="flex gap-2 xl:gap-3 items-center">
-                                                <CardDate>{formatRelativeDate(blog?.attributes?.publish_date)}</CardDate>
+                                                <CardDate>{formatRelativeDate(blog?.attributes?.publishedAt)}</CardDate>
                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
                                                 <CardTime>{extractAndCalculateReadTime(blog)}</CardTime>
                                             </div>

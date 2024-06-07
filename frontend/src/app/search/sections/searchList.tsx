@@ -15,11 +15,11 @@ interface Props {
 export default function SearchList({searchData, query}: Props) {
 
     const allSearchData = searchData && searchData
-    .sort(
-      (a: any, b: any) =>
-        new Date(b.attributes?.publish_date).getTime() -
-        new Date(a.attributes?.publish_date).getTime(),
-    );
+    .sort((a:any, b:any) => {
+        const dateA = new Date(a.attributes.publishedAt);
+        const dateB = new Date(b.attributes.publishedAt);
+        return dateB.getTime() - dateA.getTime();
+    })
 
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 9;
