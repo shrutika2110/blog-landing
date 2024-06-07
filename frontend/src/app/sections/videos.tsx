@@ -16,11 +16,20 @@ interface Props {
 
 
 export default function Videos({videosData}: Props) {
-    const firstVideo = videosData && videosData[0];
+
+    const allVideos = videosData
+        .sort((a: any, b: any) => {
+            const dateA = new Date(a.attributes.publishedAt);
+            const dateB = new Date(b.attributes.publishedAt);
+            return dateB.getTime() - dateA.getTime();
+        });
+
+    const firstVideo = allVideos && allVideos[0];
+
     const isMobile = useMediaQuery(767);
 
-    const topVideos = videosData && videosData.slice(1, isMobile? 9 : 4);
-    const otherVideos = videosData && videosData.slice(5, 9);
+    const topVideos = allVideos && allVideos.slice(1, isMobile? 9 : 4);
+    const otherVideos = allVideos && allVideos.slice(5, 9);
 
     return (
             <div className="mt-7 pt-5 border-t border-offwhite-700 border-b pb-4 mb-10" id="videos">
