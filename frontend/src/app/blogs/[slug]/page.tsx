@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { BlogService, SingleBlogService } from "@/service";
+import { SingleBlogService } from "@/service";
 import Newsletter from "@/app/sections/newsletter";
 import FoldDescription from "./sections/foldDescription";
 import HeroSection from "./sections/heroSection";
@@ -8,6 +8,8 @@ import FirstFoldBlogs from "./sections/firstFoldBlogs";
 import SecFoldBlogs from "./sections/secFoldBlogs";
 import NullPoint from "@/components/utility/nullPoint";
 import { fetchBlogData } from "@/service/blogService";
+// import type { Metadata } from 'next'
+
 
 export const metadata: Metadata = {
   title: 'Kofuku - Blog',
@@ -15,6 +17,23 @@ export const metadata: Metadata = {
 }
 
 
+// export async function generateMetadata(): Promise<Metadata> {
+ 
+//   // fetch data
+//   const headerList = headers();
+//   const pathname = headerList.get("x-current-path");
+//   const blogPath = pathname?.split('/blogs/')[1];
+//   const singleBlogData = await fetchSingleBlogData(blogPath || '');
+ 
+  
+//   return {
+//     title: singleBlogData[0]?.attributes?.Title,
+//     description: singleBlogData[0]?.attributes?.shortDes,
+//     openGraph: {
+//       images: [singleBlogData[0]?.attributes?.coverImg?.data?.attributes?.url],
+//     },
+//   }
+// }
 
 async function fetchSingleBlogData(slug: string) {
   try {

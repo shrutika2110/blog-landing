@@ -38,7 +38,7 @@ const fontRubik = Rubik({
 
 
 export const metadata: Metadata = {
-  title: "Kofuku-blog",
+  title: "Kofuku",
   description: "Kofuku",
 };
 

@@ -5,11 +5,12 @@ import { FacebookShareButton, WhatsappShareButton } from 'react-share';
 import { FaCopy, FaFacebook, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 
 interface Props {
-    blogDetails?: any;
+    blogDetails?: {
+        Title?: string;
+    };
 }
 
-
-export default function ShareIcons({blogDetails}: Props) {
+export default function ShareIcons({ blogDetails }: Props) {
     const [isCopied, setIsCopied] = useState(false);
     const currentUrlRef = useRef("");
 
@@ -24,12 +25,13 @@ export default function ShareIcons({blogDetails}: Props) {
             const textToCopy = currentUrlRef.current;
             await navigator.clipboard.writeText(textToCopy);
             setIsCopied(true);
+            setTimeout(() => setIsCopied(false), 10000);  
         } catch (err) {
             console.error('Failed to copy: ', err);
         }
     };
 
-    const shareOnTwitter = (title: any) => {
+    const shareOnTwitter = (title?: string) => {
         const url = 'https://twitter.com/intent/tweet';
         const params = {
             text: title,
@@ -61,7 +63,7 @@ export default function ShareIcons({blogDetails}: Props) {
                 title="Share on Twitter"
                 onClick={() => shareOnTwitter(blogDetails?.Title)}
             >
-                <FaXTwitter  />
+                <FaXTwitter />
             </div>
             <div className={`text-3xl h-7.5 w-7.5 flex items-center cursor-pointer ${
                 isCopied ? 'text-skyBlue-400' : 'text-primary'
@@ -75,4 +77,4 @@ export default function ShareIcons({blogDetails}: Props) {
             </div>
         </>
     );
-};
+}
