@@ -12,14 +12,18 @@ interface Props {
 
 export default function Blogs({blogsData}: Props) {
     
-    const firstBlog = blogsData && blogsData[0];
-    const otherBlogs = blogsData && blogsData
-    .filter((data: any) => data?.attributes?.good_read)
-    .sort((a:any, b:any) => {
-        const dateA = new Date(a.attributes.publishedAt);
-        const dateB = new Date(b.attributes.publishedAt);
-        return dateB.getTime() - dateA.getTime();
-    }).slice(1, 4);
+    const otherBlogs = blogsData
+        .filter((data: any) => data?.attributes?.recommended)
+        .sort((a: any, b: any) => {
+            const dateA = new Date(a.attributes.publishedAt);
+            const dateB = new Date(b.attributes.publishedAt);
+            return dateB.getTime() - dateA.getTime();
+        });
+
+        const firstBlog = otherBlogs.length > 0 ? otherBlogs[0] : null;
+        const remainingBlogs = otherBlogs.slice(1, 4);
+
+   
 
     return (
         <div id="blogs">
@@ -44,7 +48,7 @@ export default function Blogs({blogsData}: Props) {
                         </div>
                     <div className="lg:col-span-1">
                         <div className="flex flex-col gap-5 lg:gap-8">
-                            {otherBlogs && otherBlogs.map((blog:any, index:any) => (
+                            {remainingBlogs && remainingBlogs.map((blog:any, index:any) => (
                                 <Link href={'/blogs/' +blog?.attributes?.slug} key={index}>
                                 <Card   >
                                     <CardContent className="p-0">
