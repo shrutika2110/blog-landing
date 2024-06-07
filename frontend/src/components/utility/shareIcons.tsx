@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import queryString from 'query-string';
 import { FacebookShareButton, WhatsappShareButton } from 'react-share';
 import { FaCopy, FaFacebook, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
@@ -10,18 +10,18 @@ interface Props {
 
 export default function ShareIcons({ blogDetails }: Props) {
     const [isCopied, setIsCopied] = useState(false);
-    const currentUrlRef = useRef("");
+    const [currentUrl, setCurrentUrl] = useState("");
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            currentUrlRef.current = window.location.href;
+            const url = window.location.href;
+            setCurrentUrl(url);
         }
     }, []);
 
     const handleClick = async () => {
         try {
-            const textToCopy = currentUrlRef.current;
-            await navigator.clipboard.writeText(textToCopy);
+            await navigator.clipboard.writeText(currentUrl);
             setIsCopied(true);
             setTimeout(() => setIsCopied(false), 10000);  
         } catch (err) {
@@ -33,7 +33,7 @@ export default function ShareIcons({ blogDetails }: Props) {
         const url = 'https://twitter.com/intent/tweet';
         const params = {
             text: title,
-            url: currentUrlRef.current,
+            url: currentUrl,
         };
         const shareUrl = `${url}?${queryString.stringify(params)}`;
         window.open(shareUrl, '_blank', 'width=600,height=300');
@@ -43,7 +43,7 @@ export default function ShareIcons({ blogDetails }: Props) {
         <>
             <div className="text-3xl h-7.5 w-7.5 flex items-center" title="Share on Facebook">
                 <FacebookShareButton
-                    url={currentUrlRef.current}
+                    url={currentUrl}
                     title={blogDetails?.Title}
                 >
                     <FaFacebook />
@@ -51,7 +51,7 @@ export default function ShareIcons({ blogDetails }: Props) {
             </div>
             <div className="text-3xl h-7.5 w-7.5 flex items-center" title="Share on Whatsapp">
                 <WhatsappShareButton
-                    url={currentUrlRef.current}
+                    url={currentUrl}
                     title={blogDetails?.Title}
                 >
                     <FaWhatsapp />
