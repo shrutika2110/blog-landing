@@ -55,8 +55,11 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/favicon.png" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta property="og:image" content="/opengraph-image.jpg" />
         <meta name="twitter:image" content="/twitter-image.jpg" />
+       
 
       </head>
       <body className={`${fontSans.variable} ${fontOverpass.variable} ${fontManrope.variable} ${fontRubik.variable} bg-white font-manrope overscroll-none `}>
