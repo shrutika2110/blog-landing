@@ -68,6 +68,7 @@ export default function RootLayout({
         <meta name="twitter:description" content="Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/og-image.jpg" />
+        <meta name="twitter:text:title" content="Kofuku" />
        
       </head>
       <body className={`${fontSans.variable} ${fontOverpass.variable} ${fontManrope.variable} ${fontRubik.variable} bg-white font-manrope overscroll-none `}>
