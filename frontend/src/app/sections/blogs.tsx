@@ -12,7 +12,7 @@ interface Props {
 
 export default function Blogs({blogsData}: Props) {
     
-    const otherBlogs = blogsData
+    const otherBlogs = blogsData && blogsData
         .filter((data: any) => data?.attributes?.recommended)
         .sort((a: any, b: any) => {
             const dateA = new Date(a.attributes.publishedAt);
@@ -20,8 +20,8 @@ export default function Blogs({blogsData}: Props) {
             return dateB.getTime() - dateA.getTime();
         });
 
-        const firstBlog = otherBlogs.length > 0 ? otherBlogs[0] : null;
-        const remainingBlogs = otherBlogs.slice(1, 4);
+        const firstBlog = otherBlogs && otherBlogs.length > 0 ? otherBlogs[0] : null;
+        const remainingBlogs = otherBlogs && otherBlogs.slice(1, 4);
 
    
 

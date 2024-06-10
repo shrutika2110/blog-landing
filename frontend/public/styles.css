@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+#fullpage .section h1 {
+  @apply text-white text-center uppercase;
+}
+.animationForward {
+  animation-fill-mode: forwards;
+}
+
+html,
+body {
+  height: -webkit-fill-available;
+}
+
+.h-screenCustom {
+  /* height: 100svh;
+  min-height: 100svh;
+  height: -webkit-fill-available; */
+  height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+}
+
+.fullpage-wrapper .fp-section.blackBg {
+  @apply bg-black;
+}
+
+.fullpage-wrapper {
+  width: 100% !important;
+  transform: none !important;
+}
+.fullpage-wrapper .fp-section {
+  @apply bg-primary;
+
+  width: 100% !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  /* opacity: 0; */
+  z-index: 0;
+  /* transition: all 0.3s ease-in-out; */
+}
+
+.fullpage-wrapper .fp-section.active {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
+.fullpage-wrapper .fp-section .fp-slidesContainer {
+  width: 100% !important;
+  transform: none !important;
+}
+
+.circleBlack {
+  background: url(images/ellipses.svg);
+  @apply bg-black bg-cover bg-center bg-no-repeat flex justify-center items-center;
+}
+.oLogo {
+  background: url(images/oText.png);
+  @apply bg-contain bg-center bg-no-repeat sm:h-[98px] sm:w-[73px] h-[54px] w-[40px];
+}
+.makeText {
+  background: url(images/make-new.png);
+  @apply bg-cover bg-center bg-no-repeat h-[56px] w-[297px] xl:h-[92px] xl:w-[495px];
+}
+.oLetter {
+  background: url(images/letter_logo.svg);
+  @apply bg-contain bg-center bg-no-repeat sm:h-18.25 sm:w-18.25 h-[40px] w-[40px];
+}
+.partialLogo {
+  background: url(images/partialLogo.svg);
+  @apply bg-contain bg-center bg-no-repeat xl:w-[685px] xl:h-[188px] lg:w-[375px] lg:h-[98px] w-[232px] h-[63px];
+}
+.onlyOText {
+  background-image: url(images/shortLogo.svg);
+  background-position: center center;
+  @apply bg-contain bg-no-repeat;
+}
+.fullpage-wrapper .fp-section.active {
+  /* visibility: visible; */
+  /* opacity: 1; */
+  z-index: 1;
+}
+.fullpage-wrapper .fp-section .fp-slidesContainer {
+  width: 100% !important;
+  transform: none !important;
+}
+.fullpage-wrapper .fp-section .fp-slidesContainer .fp-slide {
+  width: 100% !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* visibility: hidden; */
+  /* opacity: 0; */
+  z-index: 0;
+  /* transition: all 0.7s ease-in-out; */
+}
+.othertexts {
+  transition: all 0.7s ease-in-out;
+}
+.fullpage-wrapper .fp-section .fp-slidesContainer .fp-slide.active {
+  /* visibility: visible; */
+  /* opacity: 1; */
+  z-index: 1;
+}
+#videoId {
+  max-width: 100%;
+}
+.video-contaller {
+  /* @apply relative w-full max-w-full  overflow-hidden flex justify-center items-center; */
+  margin: 0px;
+  padding: 0px;
+}
+.video-contaller video {
+  @apply left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
+#section5 {
+  @apply relative;
+}
+#section3:after,
+#section4:after {
+  content: "";
+  @apply bg-circle bg-no-repeat absolute bottom-0 right-0 left-auto top-auto w-72 h-72 lg:hidden !important;
+}
+@media screen and (max-width: 1280px) {
+  #gif-container img {
+    @apply object-contain h-full w-full;
+  }
+}
+.video-contaller video {
+  @apply object-cover;
+}
+@media screen and (max-width: 1024px) {
+  .video-contaller video {
+    @apply object-cover;
+  }
+}
+#videoText .wow {
+  visibility: visible !important;
+}
+.fadeBig .wow,
+.oLogoFirst,
+.oLogoOut {
+  visibility: visible !important;
+}
+.oLogoOut {
+  @apply -left-[77px] top-[1px] h-[132px] w-[170px] md:-left-[7px] md:top-[82px] md:h-[131px] md:w-[171px] xl:-left-[34px] xl:-top-[141px] xl:h-[405px] xl:w-[394px];
+}
+
+@media screen and (min-width: 768px) and (max-height: 499px) {
+  div.videoEnlarged {
+    @apply h-80 max-h-[75vh] w-146.75;
+  }
+  div.videoSmall {
+    @apply h-62.5 w-82;
+  }
+  div.weMakeTabView,
+  div.wemakeDesktopView,
+  div.wemakeAnimDesktop {
+    @apply hidden;
+  }
+  div.weMakeMobileView {
+    @apply block;
+  }
+  .videoGameReel {
+    @apply h-44 object-contain;
+  }
+}
+
+.watermarked {
+  @apply relative w-full;
+}
+
+.watermarked:after {
+  content: "";
+
+  @apply absolute top-0 right-0 left-0 right-0 bg-primary z-10 bottom-0 opacity-0;
+}

@@ -8,9 +8,9 @@ export default function HeroSlider(blogsData: any) {
 
 const sliderList = blogsData.blogsData || [];
 
-const filteredList = sliderList.filter((blog: any) => blog?.attributes?.hero_slider);
+const filteredList = sliderList && sliderList.filter((blog: any) => blog?.attributes?.hero_slider);
 
-const remainingList = sliderList
+const remainingList = sliderList && sliderList
   .filter((blog: any) => !blog?.attributes?.hero_slider)
   .sort((a:any, b:any) => {
     const dateA = new Date(a.attributes.publishedAt);
