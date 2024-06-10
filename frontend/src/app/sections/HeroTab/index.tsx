@@ -70,7 +70,7 @@ export default function HeroTab({blogsData, videosData}: any) {
                                 Videos
                             </div>
                             <div className="text-sm lg:text-2xl font-bold px-7 py-3 text-black-200">
-                                <Link href="https://www.kofuku.com" target="_blank">
+                                <Link href="/about-us" >
                                     About us
                                 </Link>
                             </div>
