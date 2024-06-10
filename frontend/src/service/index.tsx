@@ -28,15 +28,6 @@ export function BlogService() {
                   }
                 }
               }
-              blog_categories {
-                data {
-                  id
-                  attributes {
-                    title
-                    slug
-                  }
-                }
-              }
               views
               video {
                 video {
@@ -116,7 +107,6 @@ export function SingleVideoService(slug: any) {
     query getSingleVideo($slug: String) {
       youtubes(filters: { slug: { eq: $slug } }) {
         data {
-          id
           attributes {
             Title
             Link
@@ -151,7 +141,6 @@ export function SingleBlogService(slug: any) {
       query getSingleBlog($slug: String) {
         blogs(filters: { slug: { eq: $slug } }) {
           data {
-            id
             attributes {
               Title
               shortDes
@@ -197,15 +186,6 @@ export function SingleBlogService(slug: any) {
               seventhFold {
                 Title
                 description
-              }
-              blog_categories {
-                data {
-                  id
-                  attributes {
-                    title
-                    slug
-                  }
-                }
               }
               views
               video {
@@ -302,15 +282,6 @@ export function getBlogsByTitle(titleString: string) {
               Title
               shortDes
               slug
-              blog_categories {
-                data {
-                  id
-                  attributes {
-                    title
-                    slug
-                  }
-                }
-              }
               coverImg {
                 data {
                   id
@@ -347,15 +318,6 @@ export function getBlogsAndVideosByTitle(titleString: string) {
               publishedAt
               shortDes
               slug
-              blog_categories {
-                data {
-                  id
-                  attributes {
-                    title
-                    slug
-                  }
-                }
-              }
               coverImg {
                 data {
                   id
