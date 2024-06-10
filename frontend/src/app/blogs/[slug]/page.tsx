@@ -9,6 +9,7 @@ import SecFoldBlogs from "./sections/secFoldBlogs";
 import NullPoint from "@/components/utility/nullPoint";
 import { fetchBlogData } from "@/service/blogService";
 import type { Metadata } from 'next'
+import Head from "next/head";
 
 
 // export const metadata: Metadata = {
@@ -61,8 +62,23 @@ export default async function Page() {
     const sixthFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.sixthFold
     const seventhFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.seventhFold
 
+    const metadata:any = await generateMetadata();
+
   return (
     <>
+        <Head>
+            <title>{metadata.title}</title>
+            <meta name="description" content={metadata.description} />
+            <meta property="og:title" content={metadata.title} />
+            <meta property="twitter:title" content={metadata.title} />
+            <meta property="og:description" content={metadata.description} />
+            <meta property="og:image" content={metadata.openGraph.images[0]} />
+            <meta property="twitter:image" content={metadata.openGraph.images[0]} />
+            <meta property="og:image:alt" content={metadata.title} />
+            <meta name="twitter:description" content={metadata.description} />
+            <meta name="twitter:text:title" content={metadata.title} />
+          </Head>
+          
         { singleBlogData.length ?
             <div className='container'>
 

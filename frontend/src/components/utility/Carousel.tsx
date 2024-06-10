@@ -47,7 +47,7 @@ function Carousel({
     dots: dots ? dots : false,
     fade: false,
     infinite: infinite ? infinite : false,
-    speed: 500,
+    speed: 300,
     slidesToShow: slidesToShow,
     slidesToScroll: slidesToScroll,
     autoplay: autoplay,
