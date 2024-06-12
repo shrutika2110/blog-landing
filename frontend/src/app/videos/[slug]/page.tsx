@@ -57,7 +57,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: singleVideoData[0]?.attributes?.shortDes,
       images: [
         {
-          url: process.env.NEXT_PUBLIC_IMAGE_BASE_URL + singleVideoData[0]?.attributes?.coverImg?.data?.attributes?.url,
+          url:  singleVideoData[0]?.attributes?.coverImg?.data?.attributes?.url,
           width: 800, 
           height: 600, 
         }
@@ -66,7 +66,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       images: [{
-        url: process.env.NEXT_PUBLIC_IMAGE_BASE_URL + singleVideoData[0]?.attributes?.coverImg?.data?.attributes?.url,
+        url: singleVideoData[0]?.attributes?.coverImg?.data?.attributes?.url,
         width: 800, 
         height: 600, 
       }],

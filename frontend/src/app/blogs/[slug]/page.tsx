@@ -58,7 +58,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: singleBlogData[0]?.attributes?.shortDes,
       images: [
         {
-          url: process.env.NEXT_PUBLIC_IMAGE_BASE_URL + singleBlogData[0]?.attributes?.coverImg?.data?.attributes?.url,
+          url: singleBlogData[0]?.attributes?.coverImg?.data?.attributes?.url,
           width: 800, // Replace with the actual width of the image
           height: 600, // Replace with the actual height of the image
         }
@@ -67,7 +67,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       images: [{
-        url: process.env.NEXT_PUBLIC_IMAGE_BASE_URL + singleBlogData[0]?.attributes?.coverImg?.data?.attributes?.url,
+        url: singleBlogData[0]?.attributes?.coverImg?.data?.attributes?.url,
         width: 800, // Replace with the actual width of the image
         height: 600, // Replace with the actual height of the image
       }],
