@@ -9,86 +9,90 @@ import SecFoldBlogs from "./sections/secFoldBlogs";
 import NullPoint from "@/components/utility/nullPoint";
 import { fetchBlogData } from "@/service/blogService";
 
-
-// export const metadata: Metadata = {
-//   title: 'Kofuku - Blog',
-//   description: 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more',
-// }
-
+const cmsUrl = "https://kofuku-cms.blr0.geekydev.com"; // Base URL for your CMS
 
 export async function generateMetadata(): Promise<Metadata> {
- 
-  // fetch data
+
+  // Fetch data
   const headerList = headers();
   const pathname = headerList.get("x-current-path");
   const blogPath = pathname?.split('/blogs/')[1];
   const singleBlogData = await fetchSingleBlogData(blogPath || '');
-  
+
+  if (!singleBlogData || singleBlogData.length === 0) {
+    return {
+      title: 'Kofuku - Blog',
+      description: 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more',
+    }
+  }
+
   return {
     title: singleBlogData[0]?.attributes?.Title,
     description: singleBlogData[0]?.attributes?.shortDes,
     openGraph: {
-      images: [singleBlogData[0]?.attributes?.coverImg?.data?.attributes?.url],
+      title: singleBlogData[0]?.attributes?.Title,
+      description: singleBlogData[0]?.attributes?.shortDes,
+      images: [
+        {
+          url: cmsUrl + singleBlogData[0]?.attributes?.coverImg?.data?.attributes?.url,
+          width: 800, // Replace with the actual width of the image
+          height: 600, // Replace with the actual height of the image
+        }
+      ],
     },
+
   }
 }
 
 async function fetchSingleBlogData(slug: string) {
   try {
     const { data } = await SingleBlogService(slug);
-    const content = data.blogs.data;
-    return content
-  }
-  catch (e: any) {
-    console.log("error:\n", e.message);
+    return data.blogs.data;
+  } catch (e: any) {
+    console.error("Error fetching single blog data:", e.message);
+    return [];
   }
 }
 
 export default async function Page() {
-    const headerList = headers();
-    const pathname = headerList.get("x-current-path");
-    const blogPath = pathname?.split('/blogs/')[1];
+  const headerList = headers();
+  const pathname = headerList.get("x-current-path");
+  const blogPath = pathname?.split('/blogs/')[1];
 
-    const blogsData = await fetchBlogData();
-    const singleBlogData = await fetchSingleBlogData(blogPath || '');
+  const blogsData = await fetchBlogData();
+  const singleBlogData = await fetchSingleBlogData(blogPath || '');
 
-    const firstFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.firstFold
-    const secFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.secondFold
-    const thirdFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.thirdFold
-    const fourthFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.fourthFold
-    const fifthFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.fifthFold
-    const sixthFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.sixthFold
-    const seventhFoldDetails = singleBlogData && singleBlogData[0]?.attributes?.seventhFold
+  const firstFoldDetails = singleBlogData?.[0]?.attributes?.firstFold;
+  const secFoldDetails = singleBlogData?.[0]?.attributes?.secondFold;
+  const thirdFoldDetails = singleBlogData?.[0]?.attributes?.thirdFold;
+  const fourthFoldDetails = singleBlogData?.[0]?.attributes?.fourthFold;
+  const fifthFoldDetails = singleBlogData?.[0]?.attributes?.fifthFold;
+  const sixthFoldDetails = singleBlogData?.[0]?.attributes?.sixthFold;
+  const seventhFoldDetails = singleBlogData?.[0]?.attributes?.seventhFold;
 
-    const metadata:any = await generateMetadata();
+  const metadata: any = await generateMetadata();
 
   return (
     <>
-    
-          
-        { singleBlogData.length ?
-            <div className='container'>
-
-                  <div className="pt-5 mt-3 mb-14" >
-                        <HeroSection singleBlogData={singleBlogData} />
-                        {firstFoldDetails && <FoldDescription foldDetails={firstFoldDetails} />}
-                        <FirstFoldBlogs blogsData={blogsData} />
-                        {secFoldDetails && <FoldDescription foldDetails={secFoldDetails} />}
-                        <SecFoldBlogs blogsData={blogsData} />
-                        {thirdFoldDetails && <FoldDescription foldDetails={thirdFoldDetails} />}
-                        {fourthFoldDetails && <FoldDescription foldDetails={fourthFoldDetails} />}
-                        {fifthFoldDetails && <FoldDescription foldDetails={fifthFoldDetails} />}
-                        {sixthFoldDetails && <FoldDescription foldDetails={sixthFoldDetails} />}
-                        {seventhFoldDetails && <FoldDescription foldDetails={seventhFoldDetails} />}
-
-                        <Newsletter page="singleBlogPage" />
-                    </div>
-            </div>
-
-            : 
-            <NullPoint pageUrl={blogPath} />
-        }
-      </>
+      {singleBlogData.length ?
+        <div className='container'>
+          <div className="pt-5 mt-3 mb-14" >
+            <HeroSection singleBlogData={singleBlogData} />
+            {firstFoldDetails && <FoldDescription foldDetails={firstFoldDetails} />}
+            <FirstFoldBlogs blogsData={blogsData} />
+            {secFoldDetails && <FoldDescription foldDetails={secFoldDetails} />}
+            <SecFoldBlogs blogsData={blogsData} />
+            {thirdFoldDetails && <FoldDescription foldDetails={thirdFoldDetails} />}
+            {fourthFoldDetails && <FoldDescription foldDetails={fourthFoldDetails} />}
+            {fifthFoldDetails && <FoldDescription foldDetails={fifthFoldDetails} />}
+            {sixthFoldDetails && <FoldDescription foldDetails={sixthFoldDetails} />}
+            {seventhFoldDetails && <FoldDescription foldDetails={seventhFoldDetails} />}
+            <Newsletter page="singleBlogPage" />
+          </div>
+        </div>
+        :
+        <NullPoint pageUrl={blogPath} />
+      }
+    </>
   );
 }
-
