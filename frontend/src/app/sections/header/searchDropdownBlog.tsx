@@ -12,7 +12,7 @@ export default function SearchDropdownBlog({post}: Props) {
                             <CardContent className="p-0">
                                 <div className="grid grid-cols-12">
                                     <div className="col-span-3">
-                                            <CardBanner src={post?.attributes?.coverImg?.data?.attributes?.url} className="rounded"></CardBanner> 
+                                            <CardBanner src={post?.attributes?.coverImg?.data?.attributes?.url || '/images/poster.jpeg'} className="rounded"></CardBanner> 
                                     </div>
                                     <div className="col-span-9">
                                         <div className="px-3">

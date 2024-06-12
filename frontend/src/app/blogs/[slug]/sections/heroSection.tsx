@@ -26,7 +26,7 @@ export default function HeroSection({singleBlogData}:Props) {
                </div>
             </div>
             <div className="h-120 w-full relative mb-10">
-                <Image src={blogDetails?.coverImg?.data?.attributes?.url} alt={blogDetails?.Title} className="object-cover" fill={true} />
+                <Image src={blogDetails?.coverImg?.data?.attributes?.url || '/images/poster.jpeg'} alt={blogDetails?.Title} className="object-cover" fill={true} />
             </div>
            
         </>

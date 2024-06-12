@@ -37,7 +37,7 @@ export default function Blogs({blogsData}: Props) {
                                 <Card className="h-full">
                                         <CardContent className="relative h-full p-0">
                                             <div className="min-h-97.5 rounded overflow-hidden relative w-full h-full after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black-grad ">
-                                                <CardBanner src={firstBlog?.attributes?.coverImg?.data?.attributes?.url}  ></CardBanner>
+                                                <CardBanner src={firstBlog?.attributes?.coverImg?.data?.attributes?.url || '/images/poster.jpeg'}  ></CardBanner>
                                             </div>
                                             <CardTitle variant="dark"  size="lg" className="absolute bottom-4.5 left-4.5 w-full lg:max-w-8/12">
                                                     {firstBlog?.attributes?.Title}
@@ -54,7 +54,7 @@ export default function Blogs({blogsData}: Props) {
                                     <CardContent className="p-0">
                                         <div className="grid grid-cols-12">
                                             <div className="col-span-4">
-                                                <CardBanner src={blog?.attributes?.coverImg?.data?.attributes?.url} roundedLeft></CardBanner>
+                                                <CardBanner src={blog?.attributes?.coverImg?.data?.attributes?.url || '/images/poster.jpeg'} roundedLeft></CardBanner>
                                             </div>
                                             <div className="col-span-8">
                                                 <div className="p-2 xl:p-5">

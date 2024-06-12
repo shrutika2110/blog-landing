@@ -58,9 +58,10 @@ div .slick-next {
     list-style: initial ;
 }
 .markdown li {
-    margin: 3px;
-    padding: 3px;
-    
+    @apply m-0.75 p-0.75;
+}
+.markdown code {
+    @apply text-wrap;
 }
 .markdown blockquote, 
 .markdown dl, 

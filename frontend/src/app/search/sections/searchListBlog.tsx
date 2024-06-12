@@ -15,7 +15,7 @@ export default function SearchListBlog({post}: Props) {
                 <CardContent className="p-0 ">
                     <div className="grid grid-cols-12 min-h-35 lg:min-h-50" >
                         <div className="col-span-4">
-                            <CardBanner src={post?.attributes?.coverImg?.data?.attributes?.url} roundedLeft></CardBanner> 
+                            <CardBanner src={post?.attributes?.coverImg?.data?.attributes?.url || '/images/poster.jpeg'} roundedLeft></CardBanner> 
                         </div>
                         <div className="col-span-8">
                             <div className="flex items-center h-full">

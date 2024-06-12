@@ -42,7 +42,7 @@ export default function BlogList({blogsData}: any) {
                                 <Card >
                                 <CardContent className="p-0">
                                     <div className="h-48">
-                                        <CardBanner src={blog?.attributes?.coverImg?.data?.attributes?.url}></CardBanner>
+                                        <CardBanner src={blog?.attributes?.coverImg?.data?.attributes?.url || '/images/poster.jpeg'}></CardBanner>
                                     </div>
                                     <div>
                                         <div className="p-3 xl:p-5">

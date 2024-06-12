@@ -16,8 +16,7 @@ interface Props {
 
 
 export default function Videos({videosData}: Props) {
-
-    const allVideos = videosData
+    const allVideos = videosData && videosData
         .sort((a: any, b: any) => {
             const dateA = new Date(a.attributes.publishedAt);
             const dateB = new Date(b.attributes.publishedAt);
@@ -36,6 +35,8 @@ export default function Videos({videosData}: Props) {
                 <Heading level={3} variant="primary" className="font-extrabold">
                     Videos
                 </Heading>
+                { videosData.length > 0 ?
+                <>
                 <div className="grid lg:grid-cols-2 gap-5 lg:gap-8 mt-5 mb-7">
                     <div className="lg:col-span-1">
                             <Link href={'/videos/' + firstVideo?.attributes?.slug} >
@@ -84,6 +85,7 @@ export default function Videos({videosData}: Props) {
                     </div>
 
                 </div>
+               
 
                 {/* Slider videos */}
                 <div className=" hidden xl:grid xl:grid-cols-3 gap-5 my-5">
@@ -119,6 +121,12 @@ export default function Videos({videosData}: Props) {
                             </Link>
                         </Button>
                 </div>
+                </>
+                 : 
+                <div className="p-10 text-center">
+                    No videos to show
+                </div>
+                }
             </div>
     );
 };
