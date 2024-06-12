@@ -9,7 +9,6 @@ import SecFoldBlogs from "./sections/secFoldBlogs";
 import NullPoint from "@/components/utility/nullPoint";
 import { fetchBlogData } from "@/service/blogService";
 
-const cmsUrl = "https://kofuku-cms.blr0.geekydev.com"; // Base URL for your CMS
 
 export async function generateMetadata(): Promise<Metadata> {
 
@@ -18,11 +17,36 @@ export async function generateMetadata(): Promise<Metadata> {
   const pathname = headerList.get("x-current-path");
   const blogPath = pathname?.split('/blogs/')[1];
   const singleBlogData = await fetchSingleBlogData(blogPath || '');
+  const commonTitle = 'Kofuku - Blog';
+  const commonDescription = 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more';
+
 
   if (!singleBlogData || singleBlogData.length === 0) {
     return {
-      title: 'Kofuku - Blog',
-      description: 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more',
+        title: commonTitle,
+        description: commonDescription,
+        openGraph: {
+          title: commonTitle,
+          description: commonDescription,
+          images: [
+            {
+              url: "og-image.jpg",
+              width: 800, 
+              height: 600,
+            }
+          ],
+        },
+        twitter: {
+          title: commonTitle,
+          description: commonDescription,
+          images: [
+            {
+              url: "og-image.jpg",
+              width: 800, 
+              height: 600,
+            }
+          ],
+        },
     }
   }
 
@@ -34,11 +58,21 @@ export async function generateMetadata(): Promise<Metadata> {
       description: singleBlogData[0]?.attributes?.shortDes,
       images: [
         {
-          url: cmsUrl + singleBlogData[0]?.attributes?.coverImg?.data?.attributes?.url,
+          url: process.env.NEXT_PUBLIC_IMAGE_BASE_URL + singleBlogData[0]?.attributes?.coverImg?.data?.attributes?.url,
           width: 800, // Replace with the actual width of the image
           height: 600, // Replace with the actual height of the image
         }
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [{
+        url: process.env.NEXT_PUBLIC_IMAGE_BASE_URL + singleBlogData[0]?.attributes?.coverImg?.data?.attributes?.url,
+        width: 800, // Replace with the actual width of the image
+        height: 600, // Replace with the actual height of the image
+      }],
+      title: singleBlogData[0]?.attributes?.Title,
+      description: singleBlogData[0]?.attributes?.shortDes,
     },
 
   }

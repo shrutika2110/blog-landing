@@ -8,11 +8,74 @@ import RelatedVideos from "./sections/relatedVideos";
 import BackToTop from "@/components/utility/backToTop";
 import { fetchVideoData } from "@/service/videoService";
 
-export const metadata: Metadata = {
-  title: 'Kofuku - Video',
-  description: 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more',
-}
 
+export async function generateMetadata(): Promise<Metadata> {
+
+  const commonTitle = 'Kofuku - Video';
+  const commonDescription = 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more';
+
+  // Fetch data
+  const headerList = headers();
+  const pathname = headerList.get("x-current-path");
+  const blogPath = pathname?.split('/blogs/')[1];
+  const singleVideoData = await fetchSingleVideoData(blogPath || '');
+
+  if (!singleVideoData || singleVideoData.length === 0) {
+    return {
+      title: commonTitle,
+      description: commonDescription,
+      openGraph: {
+        title: commonTitle,
+        description: commonDescription,
+        images: [
+          {
+            url: "og-image.jpg",
+            width: 800, 
+            height: 600,
+          }
+        ],
+      },
+      twitter: {
+        title: commonTitle,
+        description: commonDescription,
+        images: [
+          {
+            url: "og-image.jpg",
+            width: 800, 
+            height: 600,
+          }
+        ],
+      },
+    }
+  }
+
+  return {
+    title: singleVideoData[0]?.attributes?.Title,
+    description: singleVideoData[0]?.attributes?.shortDes,
+    openGraph: {
+      title: singleVideoData[0]?.attributes?.Title,
+      description: singleVideoData[0]?.attributes?.shortDes,
+      images: [
+        {
+          url: process.env.NEXT_PUBLIC_IMAGE_BASE_URL + singleVideoData[0]?.attributes?.coverImg?.data?.attributes?.url,
+          width: 800, 
+          height: 600, 
+        }
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [{
+        url: process.env.NEXT_PUBLIC_IMAGE_BASE_URL + singleVideoData[0]?.attributes?.coverImg?.data?.attributes?.url,
+        width: 800, 
+        height: 600, 
+      }],
+      title: singleVideoData[0]?.attributes?.Title,
+      description: singleVideoData[0]?.attributes?.shortDes,
+    },
+
+  }
+}
 async function fetchSingleVideoData(slug: string) {
   try {
     const { data } = await SingleVideoService(slug);
