@@ -33,6 +33,7 @@
     "react-share": "^5.1.0",
     "react-slick": "^0.30.2",
     "react-youtube": "^10.1.0",
+    "remark-gfm": "^4.0.0",
     "slick-carousel": "^1.8.1",
     "stylelint": "^16.3.1",
     "stylelint-config-recommended": "^14.0.0",
