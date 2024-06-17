@@ -54,8 +54,14 @@ div .slick-next {
 .markdown a {
     @apply text-primary hover:text-sky-800  focus:text-sky-800 visited:text-sky-800; 
 }
+.markdown ol , .markdown ul {
+    @apply m-4 p-4;
+}
 .markdown ul {
-    list-style: initial ;
+    list-style: disc ;
+}
+.markdown ol {
+    list-style-type: decimal;
 }
 .markdown li {
     @apply m-0.75 p-0.75;
@@ -78,3 +84,29 @@ div .slick-next {
 .markdown pre {
     margin: inherit 
 }
+.markdown h1 {
+    @apply font-bold text-5xl ;
+}
+.markdown h2 {
+    @apply font-bold text-4xl;
+}
+.markdown h3 {
+    @apply font-bold text-3xl;
+}
+.markdown h4 {
+    @apply font-bold text-2xl;
+}
+.markdown h5 {
+    @apply font-bold text-xl;
+}
+.markdown h6 {
+    @apply font-bold text-lg;
+}
+
+.markdown .blockquote {
+    @apply mx-4 my-0 italic pl-4 border-l-4 border-offwhite-700 text-black-700;
+}
+
+.markdown  code {
+    @apply text-primary px-4 py-2 rounded text-sm bg-white-300;
+  }
