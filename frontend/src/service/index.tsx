@@ -400,38 +400,3 @@ export function PrivacyPolicyService() {
 }
 
 
-export function WebsiteBlog() {
-  return cmsClient.query({
-    query: gql`
-      query getWebsiteBlog {
-        blogWebistes {
-          data {
-            attributes {
-              Title
-              shortDes
-              Description
-              publish_date
-              conclusion
-              
-              CoverImg{
-                data{
-                  attributes{
-                    url
-                  }
-                }
-              }
-              BottomImg{
-                data{
-                  attributes{
-                    url
-                  }
-                }
-              }
-            
-            }
-          }
-        }
-      }
-    `,
-  });
-}
