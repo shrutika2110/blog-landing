@@ -63,7 +63,7 @@ export default async function Page() {
                 <Heading level={1}  className="xl:text-6xl text-blank mt-4" >
                     {policyData.attributes.title}
                 </Heading>
-                <div className="pt-12">
+                <div className="pt-12 text-lg">
                     <MarkdownRenderer content={policyData.attributes.description}>
                     </MarkdownRenderer>
                     <Text size="md" variant="light">
