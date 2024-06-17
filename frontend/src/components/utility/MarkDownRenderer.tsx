@@ -36,7 +36,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
                 ol: ({ node, ...props }) => <ol className="list-decimal pl-8">{props.children}</ol>,
                 li: ({ node, ...props }) => <li className="mb-2">{props.children}</li>,
                 a: ({ node, ...props }) => (
-                    <a className="text-primary hover:text-sky-800  focus:text-sky-800 visited:text-sky-800" href={props.href} target="_blank" rel="noopener noreferrer">
+                    <a className="text-primary hover:text-sky-800  focus:text-sky-800 visited:text-sky-800" href={props.href}>
                         {props.children}
                     </a>
                 ),
