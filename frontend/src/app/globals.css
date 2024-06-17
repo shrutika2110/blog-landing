@@ -50,31 +50,3 @@ div .slick-next {
         @apply !h-full;
     }
 }
-
-.markdown a {
-    @apply text-primary hover:text-sky-800  focus:text-sky-800 visited:text-sky-800; 
-}
-.markdown ul {
-    list-style: initial ;
-}
-.markdown li {
-    @apply m-0.75 p-0.75;
-}
-.markdown code {
-    @apply text-wrap;
-}
-.markdown blockquote, 
-.markdown dl, 
-.markdown dd, 
-.markdown h1, 
-.markdown h2, 
-.markdown h3, 
-.markdown h4, 
-.markdown h5, 
-.markdown h6, 
-.markdown hr, 
-.markdown figure, 
-.markdown p, 
-.markdown pre {
-    margin: inherit 
-}
