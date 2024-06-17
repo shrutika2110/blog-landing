@@ -12,7 +12,6 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
     return (
         <div className='markdown'>
             <ReactMarkdown
-                children={content}
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeRaw]}
                 components={{
@@ -31,6 +30,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
                 // Add more components as needed (e.g., h1, h3, p, etc.)
             }}
         >
+            {content}
         </ReactMarkdown>
         </div>
     );
