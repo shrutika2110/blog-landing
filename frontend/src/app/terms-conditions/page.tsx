@@ -3,9 +3,9 @@ import { TermsService } from "@/service";
 import type { Metadata } from 'next'
 import Heading from "@/components/composite/Heading";
 import Text from "@/components/composite/Text";
-import ReactMarkdown from "react-markdown";
 import { formatDate } from "@/lib/helpers";
 import Breadcrumb from "@/components/utility/breadcrumb";
+import MarkdownRenderer from "@/components/utility/MarkDownRenderer";
 
 const commonTitle = 'Kofuku - Terms of use';
 const commonDescription = 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more';
@@ -63,10 +63,9 @@ export default async function Page() {
                 <Heading level={1} className="xl:text-6xl text-blank mt-4" >
                     {termsData.attributes.title}
                 </Heading>
-                <div className="pt-12">
-                    <ReactMarkdown className="text-lg">
-                        {termsData.attributes.description}
-                    </ReactMarkdown>
+                <div className="pt-12 text-lg">
+                    <MarkdownRenderer content={termsData.attributes.description}>
+                    </MarkdownRenderer>
                     <Text size="md" variant="light">
                         <p className="py-2 lg:py-0">
                         Last updated: {formatDate(termsData?.attributes?.publishedAt)}

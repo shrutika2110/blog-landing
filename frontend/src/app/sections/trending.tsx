@@ -11,6 +11,11 @@ interface Props {
 
 export default function Trending({blogsData}: Props) {
 
+    if (!blogsData || blogsData.length === 0) {
+        return null;
+      }
+
+      
     const trendingBlogs = blogsData && blogsData
           .filter((data: any) => data?.attributes?.trending)
           .sort((a:any, b:any) => {
@@ -22,6 +27,9 @@ export default function Trending({blogsData}: Props) {
 
 
     return (
+        <>
+           { trendingBlogs.length > 0 && 
+            
             <div className="my-5">
                 <Heading level={3} className="text-skyBlue-150  font-extrabold">
                     Trending
@@ -65,5 +73,8 @@ export default function Trending({blogsData}: Props) {
                     </Carousel>
                 </div>
             </div>
+           
+        }
+         </>
     );
 };
