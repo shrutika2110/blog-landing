@@ -30,7 +30,7 @@ const Heading = ({ level, children, variant = "light", size = "base", className,
                         : level == 3
                             ? size === 'lg' ? 'text-lg lg:text-4xl ' : 'text-sm md:text-base xl:text-2xl'
                             : level == 4
-                                ? size === 'sm' ? ' text-xl' : 'md:text-3xl text-2xl '
+                                ? size === 'sm' ? ' text-xl' : 'text-lg md:text-xl '
                                 : level == 5
                                     ? size === 'sm' ? ' text-sm' :'text-base xl:text-md '
                                     : level == 6 && ''

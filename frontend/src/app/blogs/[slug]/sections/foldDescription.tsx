@@ -15,7 +15,7 @@ export default function FoldDescription({foldDetails}:Props) {
                    
             }
             {foldDetails?.description && 
-                    <ReactMarkdown className="markdown xl:columns-2 gap-5 text-lg">
+                    <ReactMarkdown className="xl:columns-2 gap-5 text-lg">
                          {foldDetails?.description}
                     </ReactMarkdown>
                    
