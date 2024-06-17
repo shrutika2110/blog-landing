@@ -1,5 +1,5 @@
 import Heading from "@/components/composite/Heading";
-import ReactMarkdown from "react-markdown";
+import MarkdownRenderer from "@/components/utility/MarkDownRenderer";
 
 interface Props {
     foldDetails?: any;
@@ -15,9 +15,10 @@ export default function FoldDescription({foldDetails}:Props) {
                    
             }
             {foldDetails?.description && 
-                    <ReactMarkdown className="xl:columns-2 gap-5 text-lg">
-                         {foldDetails?.description}
-                    </ReactMarkdown>
+                    <div className="xl:columns-2 gap-5 text-lg">
+                        <MarkdownRenderer content={foldDetails?.description}>
+                        </MarkdownRenderer>
+                    </div>
                    
             }
         </div>
