@@ -12,18 +12,34 @@ interface Props {
 
 export default function Blogs({blogsData}: Props) {
     
-    const otherBlogs = blogsData && blogsData
-        .filter((data: any) => data?.attributes?.recommended)
-        .sort((a: any, b: any) => {
-            const dateA = new Date(a.attributes.publishedAt);
-            const dateB = new Date(b.attributes.publishedAt);
-            return dateB.getTime() - dateA.getTime();
-        });
+    if (!blogsData || blogsData.length === 0) {
+        return null;
+      }
+    
+    const recommendedList = blogsData || [];
+    
+    const filteredList = recommendedList && recommendedList.filter((blog: any) => blog?.attributes?.recommended);
+    
+    const remainingList = recommendedList && recommendedList
+      .filter((blog: any) => !blog?.attributes?.recommended)
+      .sort((a:any, b:any) => {
+        const dateA = new Date(a.attributes.publishedAt);
+        const dateB = new Date(b.attributes.publishedAt);
+        return dateB.getTime() - dateA.getTime();
+      });
+    
+    const sortedRecommendedList = filteredList
+      .sort((a:any, b:any) => {
+        const dateA = new Date(a.attributes.publishedAt);
+        const dateB = new Date(b.attributes.publishedAt);
+        return dateB.getTime() - dateA.getTime();
+      })
+      .slice(0, 3); 
+    
+    const sortedList = [...sortedRecommendedList, ...remainingList.slice(0, 4 - sortedRecommendedList.length)];
 
-        const firstBlog = otherBlogs && otherBlogs.length > 0 ? otherBlogs[0] : null;
-        const remainingBlogs = otherBlogs && otherBlogs.slice(1, 4);
-
-   
+    const firstBlog = sortedList && sortedList.length > 0 ? sortedList[0] : null;
+    const remainingBlogs = sortedList && sortedList.slice(1, 4);
 
     return (
         <div id="blogs">
