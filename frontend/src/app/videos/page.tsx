@@ -40,7 +40,7 @@ export default async function Page() {
   const videosData = await fetchVideoData();
 
   return (
-    <div className="relative ">
+    <div className="relative">
       <div className="container">
         <VideoList videosData={videosData} />
       </div>

@@ -23,7 +23,7 @@ export default function sliderVideos({video}: Props) {
                                 <div className="p-2 xl:p-5">
                                     <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                     <div className="flex gap-2 xl:gap-3 items-center">
-                                        <CardDate>{formatRelativeDate(video?.attributes?.Date || video?.attributes?.publishedAt)}</CardDate>
+                                        <CardDate>{formatRelativeDate(video?.attributes?.publish_date || video?.attributes?.publishedAt)}</CardDate>
                                         <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
                                         <CardTime>
                                             <CalculateVideoDuration videoUrl={video?.attributes?.Link} />
