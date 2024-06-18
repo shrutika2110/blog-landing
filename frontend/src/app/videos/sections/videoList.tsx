@@ -68,7 +68,7 @@ export default function VideoList({videosData}: any) {
                 </div>
                 <Newsletter page="videoList" />
                 <Pagination
-                    items={allVideos.length} 
+                    items={allVideos && allVideos.length} 
                     currentPage={currentPage} 
                     pageSize={pageSize} 
                     onPageChange={onPageChange}
