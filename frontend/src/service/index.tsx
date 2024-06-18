@@ -184,7 +184,6 @@ export function SingleVideoService(slug: any) {
             publish_date
             slug
             publishedAt
-            Duration
             CoverImg {
               data {
                 attributes {
@@ -390,7 +389,6 @@ export function VideoService() {
               publish_date
               slug
               publishedAt
-              Duration
               CoverImg {
                 data {
                   attributes {
@@ -485,7 +483,6 @@ export function getBlogsAndVideosByTitle(titleString: string) {
               publish_date
               slug
               publishedAt
-              Duration
               CoverImg {
                 data {
                   attributes {
