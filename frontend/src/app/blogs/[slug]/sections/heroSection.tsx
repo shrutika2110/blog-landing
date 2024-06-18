@@ -1,6 +1,7 @@
 import Heading from "@/components/composite/Heading";
 import Text from "@/components/composite/Text";
 import ShareIcons from "@/components/utility/shareIcons";
+import { getStrapiMedia } from "@/lib/helpers";
 import Image from "next/image";
 
 interface Props {
@@ -8,7 +9,13 @@ interface Props {
 }
 
 export default function HeroSection({singleBlogData}:Props) {
-    const blogDetails = singleBlogData[0]?.attributes
+    const blogDetails = singleBlogData[0]?.attributes;
+    const authorNameTxt =
+    singleBlogData[0]?.attributes?.blog_authors?.data[0]?.attributes?.name;
+  const authorNameImg =
+    singleBlogData[0]?.attributes?.blog_authors?.data[0]?.attributes?.image?.data
+      ?.attributes?.url ;
+
 
     return (
         <>
@@ -24,6 +31,27 @@ export default function HeroSection({singleBlogData}:Props) {
                         <ShareIcons blogDetails={blogDetails} />
                     </div>
                </div>
+               
+                    {authorNameTxt && (
+                        <div className="flex items-center mt-5">
+                            <div className="relative h-20 w-20 mr-2 rounded-full overflow-hidden">
+                                {authorNameImg ? 
+                                <Image src={getStrapiMedia(authorNameImg)} alt={authorNameTxt} className="object-cover" fill={true} />
+                                :
+                                <Image src={'/images/profileDefault.svg'} alt={authorNameTxt} className="object-cover" fill={true} />
+                                }
+                            </div>
+                            <div className="ml-2 flex gap-1">
+                            <Text  className="italic text-offwhite-600" >
+                                By
+                            </Text>
+                            <Text className="text-primary italic"  >
+                                {authorNameTxt}
+                            </Text>
+                            </div>
+                        </div>
+                    )}
+                
             </div>
             <div className="h-120 w-full relative mb-10">
                 <Image src={blogDetails?.coverImg?.data?.attributes?.url || '/images/poster.jpeg'} alt={blogDetails?.Title} className="object-cover" fill={true} />

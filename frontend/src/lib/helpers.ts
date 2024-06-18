@@ -4,10 +4,15 @@ export function getStrapiURL(path = '') {
       }${path}`;
 }
 
-export function getStrapiMedia(url: string | undefined) {
-  return getStrapiURL(url);
+
+export function getMediaURL(path = '') {
+  return `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL
+      }${path}`;
 }
 
+export function getStrapiMedia(url: string | undefined) {
+  return getMediaURL(url);
+}
 
 export function dateFormate(ctx: any) {
   // const index = arr.findIndex((obj: any) => obj.id === id);
@@ -18,7 +23,7 @@ export function dateFormate(ctx: any) {
 
 export const paginate = (items:any, pageNumber:any, pageSize:any) => {
   const startIndex = (pageNumber - 1) * pageSize;
-  return items.slice(startIndex, startIndex + pageSize);
+  return items && items.slice(startIndex, startIndex + pageSize);
  };
 
  export function emitErrorNotification(

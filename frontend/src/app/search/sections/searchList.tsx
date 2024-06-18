@@ -32,14 +32,14 @@ export default function SearchList({searchData, query}: Props) {
 
     return (
         <div id="search">
-            <div className={`pt-5 mt-3  mx-auto ${paginatedData.length > 0 && 'mb-10  xl:max-w-290'}`} >
+            <div className={`pt-5 mt-3  mx-auto ${paginatedData && paginatedData.length > 0 && 'mb-10  xl:max-w-290'}`} >
                     <div className="container">
                         <Heading level={1} variant="primary"  className="text-blue-350 xl:text-5.5xl font-inter">
                             {query}
                         </Heading>
                     </div>
                 
-                    {paginatedData.length > 0 ?
+                    {paginatedData && paginatedData.length > 0 ?
                         <div className="container">
                             <div className="grid grid-cols-1 gap-5 lg:gap-9 mt-5 mb-7">
                             { paginatedData.map((post:any, index:any) => (
@@ -62,7 +62,7 @@ export default function SearchList({searchData, query}: Props) {
 
                
                 <Pagination
-                    items={allSearchData.length} 
+                    items={allSearchData && allSearchData.length} 
                     currentPage={currentPage} 
                     pageSize={pageSize} 
                     onPageChange={onPageChange}
