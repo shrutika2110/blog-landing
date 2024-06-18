@@ -6,67 +6,48 @@ import {
 } from 'react-icons/fa';
 import { FaGoogle, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 
+interface Props {
+  socialData?: any;
+}
 
-    
-export default function SocialIconList() {
+export default function SocialIconList({ socialData }: Props) {
+  const SocialLinks = socialData;
 
-  const SocialList = [
-    {
-      id: 1,
-      icon: <FaGoogle  />,
-      link: '#',
-      
-    },
-    {
-      id: 2,
-      icon: <FaFacebook  />,
-      link: 'https://www.facebook.com/kofukutechnologies/'
-      ,
-    },
-    {
-      id: 3,
-      icon: <FaInstagram  />,
-      link: 'https://www.instagram.com/kofukutechnologies/'
-      ,
-    },
-    {
-      id: 4,
-      icon: <FaYoutube  />,
-      link: '#',
-    },
-    {
-      id: 5,
-      icon: <FaLinkedin  />,
-      link: 'https://www.linkedin.com/company/kofuku-technologies-private-limited/?viewAsMember=true',
-      
-    },
-    {
-      id: 6,
-      icon: <FaXTwitter  />,
-      link: 'https://twitter.com/kofukuengine',
-      
-    },
-    
-  ];
-    
+  const order = ['google', 'facebook', 'instagram', 'youtube', 'linkedin', 'twitter'];
+
+  const sortedLinks = [...(SocialLinks || [])].sort((a, b) => {
+    return order.indexOf(a?.attributes?.title) - order.indexOf(b?.attributes?.title);
+  });
+
   return (
-        <>
-          {SocialList &&
-              SocialList.map((data:any) => {
-              return (
-                  <div key={data.id}>
-                      <Link href={data.link} target="_blank" className='text-2xl lg:text-5.5xl'>
-                          {data.icon}
-                      </Link>
-                  </div>
-              );
+    <>
+      {sortedLinks && (
+        <div className="flex gap-10 my-10 justify-center">
+          {sortedLinks.map((data, index) => {
+            return (
+              data?.attributes?.link && (
+                <div key={index}>
+                  <Link href={data?.attributes?.link} target="_blank" className="text-2xl lg:text-5.5xl">
+                    {data?.attributes?.title === 'google' ? (
+                      <FaGoogle />
+                    ) : data?.attributes?.title === 'facebook' ? (
+                      <FaFacebook />
+                    ) : data?.attributes?.title === 'instagram' ? (
+                      <FaInstagram />
+                    ) : data?.attributes?.title === 'youtube' ? (
+                      <FaYoutube />
+                    ) : data?.attributes?.title === 'linkedin' ? (
+                      <FaLinkedin />
+                    ) : data?.attributes?.title === 'twitter' ? (
+                      <FaXTwitter />
+                    ) : null}
+                  </Link>
+                </div>
+              )
+            );
           })}
-        </>
-    );
-  };
-
-    
-
-
-
-
+        </div>
+      )}
+    </>
+  );
+}

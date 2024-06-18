@@ -3,9 +3,22 @@ import Image from "next/image";
 import Text from "@/components/composite/Text";
 import Link from "next/link";
 import SocialIconList from "@/components/utility/socialIcons";
+import { SocialService } from "@/service";
 
+async function fetchSocialData() {
+    try {
+        const { data } = await SocialService();
+        const content = data.socials.data;
+        return content
+    }
+    catch (e: any) {
+        console.log("error:\n", e.message);
+    }
+}
 
-export default function Footer() {
+export default async function Footer() {
+
+    const socialData = await fetchSocialData();
 
     return (
         <footer className="bg-blue-400 p-5 py-12 xl:p-16 text-white">
@@ -31,9 +44,9 @@ export default function Footer() {
                         <Link href="/terms-conditions" className="text-sm lg:text-lg font-semibold">Terms & Conditions</Link>
                         <Link href="/privacy-policy" className="text-sm lg:text-lg font-semibold">Privacy Policies</Link>
                     </div>
-                    <div className="flex gap-10 my-10 justify-center">
-                        <SocialIconList />
-                    </div>
+                    
+                    <SocialIconList socialData={socialData} />
+                    
                     <Text size="lg" className="font-bold">
                         @ Kofuku Technologies
                     </Text>
