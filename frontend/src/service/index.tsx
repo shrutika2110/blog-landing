@@ -53,30 +53,100 @@ export function BlogService() {
               firstFold {
                 Title
 								description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
               }
               secondFold {
                 Title
 								description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
               }
 							thirdFold {
    							Title
 								description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
 							}
 							fourthFold {
    							Title
 								description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
 							}
 							fifthFold {
                 Title
 								description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
               }
 							sixthFold {
                 Title
 								description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
               }
 							seventhFold {
                 Title
 								description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
               }
               blog_authors {
                 data {
@@ -162,30 +232,100 @@ export function SingleBlogService(slug: any) {
               firstFold {
                 Title
                 description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
               }
               secondFold {
                 Title
                 description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
               }
               thirdFold {
                 Title
                 description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
               }
               fourthFold {
                 Title
                 description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
               }
               fifthFold {
                 Title
                 description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
               }
               sixthFold {
                 Title
                 description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
               }
               seventhFold {
                 Title
                 description
+                coverImg {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  altText
+                }
               }
               views
               video {
@@ -316,6 +456,7 @@ export function getBlogsAndVideosByTitle(titleString: string) {
             attributes {
               Title
               publishedAt
+              publish_date
               shortDes
               slug
               coverImg {
