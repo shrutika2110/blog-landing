@@ -404,6 +404,24 @@ export function VideoService() {
   });
 }
 
+export function SocialService() {
+  return cmsClient.query({
+    query: gql`
+      query getSocialLinks {
+        socials {
+          data {
+            id
+            attributes {
+              title
+              link
+            }
+          }
+        }
+      }
+    `,
+  });
+}
+
 //Get blogs by title for search
 export function getBlogsByTitle(titleString: string) {
   return cmsClient.query({
