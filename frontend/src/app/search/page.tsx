@@ -49,8 +49,8 @@ async function fetchSearchData(query:any) {
       }));
       const combinedSearch = [...blogs, ...youtubes].sort(
         (a: any, b: any) =>
-          new Date(b.attributes.publishedAt).getTime() -
-          new Date(a.attributes.publishedAt).getTime()
+          new Date(b.attributes.publish_date || b.attributes.publishedAt).getTime() -
+          new Date(a.attributes.publish_date || a.attributes.publishedAt).getTime()
       );
 
     const content = combinedSearch;

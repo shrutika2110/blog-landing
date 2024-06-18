@@ -19,8 +19,8 @@ export default function Trending({blogsData}: Props) {
     const trendingBlogs = blogsData && blogsData
           .filter((data: any) => data?.attributes?.trending)
           .sort((a:any, b:any) => {
-                const dateA = new Date(a.attributes.publishedAt);
-                const dateB = new Date(b.attributes.publishedAt);
+                const dateA = new Date(a.attributes.publish_date || a.attributes.publishedAt);
+                const dateB = new Date(b.attributes.publish_date || b.attributes.publishedAt);
                 return dateB.getTime() - dateA.getTime();
             })
           

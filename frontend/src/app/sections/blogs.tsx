@@ -23,15 +23,15 @@ export default function Blogs({blogsData}: Props) {
     const remainingList = recommendedList && recommendedList
       .filter((blog: any) => !blog?.attributes?.recommended)
       .sort((a:any, b:any) => {
-        const dateA = new Date(a.attributes.publishedAt);
-        const dateB = new Date(b.attributes.publishedAt);
+        const dateA = new Date(a.attributes.publish_date || a.attributes.publishedAt);
+        const dateB = new Date(b.attributes.publish_date || b.attributes.publishedAt);
         return dateB.getTime() - dateA.getTime();
       });
     
     const sortedRecommendedList = filteredList
       .sort((a:any, b:any) => {
-        const dateA = new Date(a.attributes.publishedAt);
-        const dateB = new Date(b.attributes.publishedAt);
+        const dateA = new Date(a.attributes.publish_date || a.attributes.publishedAt);
+        const dateB = new Date(b.attributes.publish_date || b.attributes.publishedAt);
         return dateB.getTime() - dateA.getTime();
       })
       .slice(0, 3); 

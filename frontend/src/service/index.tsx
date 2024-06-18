@@ -181,7 +181,7 @@ export function SingleVideoService(slug: any) {
             Title
             Link
             Description
-            Date
+            publish_date
             slug
             publishedAt
             Duration
@@ -387,7 +387,7 @@ export function VideoService() {
               Title
               Link
               Description
-              Date
+              publish_date
               slug
               publishedAt
               Duration
@@ -482,7 +482,7 @@ export function getBlogsAndVideosByTitle(titleString: string) {
               Title
               Link
               Description
-              Date
+              publish_date
               slug
               publishedAt
               Duration
