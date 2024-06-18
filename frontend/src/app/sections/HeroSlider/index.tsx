@@ -13,15 +13,15 @@ const filteredList = sliderList && sliderList.filter((blog: any) => blog?.attrib
 const remainingList = sliderList && sliderList
   .filter((blog: any) => !blog?.attributes?.hero_slider)
   .sort((a:any, b:any) => {
-    const dateA = new Date(a.attributes.publishedAt);
-    const dateB = new Date(b.attributes.publishedAt);
+    const dateA = new Date(a.attributes.publish_date || a.attributes.publishedAt);
+    const dateB = new Date(b.attributes.publish_date || b.attributes.publishedAt);
     return dateB.getTime() - dateA.getTime();
   });
 
 const sortedFilteredList = filteredList
   .sort((a:any, b:any) => {
-    const dateA = new Date(a.attributes.publishedAt);
-    const dateB = new Date(b.attributes.publishedAt);
+    const dateA = new Date(a.attributes.publish_date || a.attributes.publishedAt);
+    const dateB = new Date(b.attributes.publish_date || b.attributes.publishedAt);
     return dateB.getTime() - dateA.getTime();
   })
   .slice(0, 3); 

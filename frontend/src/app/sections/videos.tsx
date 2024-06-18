@@ -18,8 +18,8 @@ interface Props {
 export default function Videos({videosData}: Props) {
     const allVideos = videosData && videosData
         .sort((a: any, b: any) => {
-            const dateA = new Date(a.attributes.publishedAt);
-            const dateB = new Date(b.attributes.publishedAt);
+            const dateA = new Date(a.attributes.publish_date || a.attributes.publishedAt);
+            const dateB = new Date(b.attributes.publish_date || b.attributes.publishedAt);
             return dateB.getTime() - dateA.getTime();
         });
 
@@ -35,7 +35,7 @@ export default function Videos({videosData}: Props) {
                 <Heading level={3} variant="primary" className="font-extrabold">
                     Videos
                 </Heading>
-                { videosData.length > 0 ?
+                { videosData && videosData.length > 0 ?
                 <>
                 <div className="grid lg:grid-cols-2 gap-5 lg:gap-8 mt-5 mb-7">
                     <div className="lg:col-span-1">
@@ -66,7 +66,7 @@ export default function Videos({videosData}: Props) {
                                                 <div className="p-2 xl:p-4.5">
                                                     <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                     <div className="flex gap-2 xl:gap-3 items-center">
-                                                        <CardDate>{formatRelativeDate(video?.attributes?.publishedAt)}</CardDate>
+                                                        <CardDate>{formatRelativeDate(video?.attributes?.publish_date || video?.attributes?.publishedAt)}</CardDate>
                                                         <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
                                                         <CardTime>
                                                             <CalculateVideoDuration videoUrl={video?.attributes?.Link} />

@@ -18,8 +18,8 @@ export default function VideoList({videosData}: any) {
 
     const allVideos = videosData && videosData
     .sort((a:any, b:any) => {
-        const dateA = new Date(a.attributes.publishedAt);
-        const dateB = new Date(b.attributes.publishedAt);
+        const dateA = new Date(a.attributes.publish_date || a.attributes.publishedAt);
+        const dateB = new Date(b.attributes.publish_date || b.attributes.publishedAt);
         return dateB.getTime() - dateA.getTime();
     })
 
@@ -51,7 +51,7 @@ export default function VideoList({videosData}: any) {
                                                         <div className="p-3 xl:p-5">
                                                             <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                             <div className="flex gap-2 xl:gap-3 items-center">
-                                                                <CardDate>{formatRelativeDate(video?.attributes?.publishedAt)}</CardDate>
+                                                                <CardDate>{formatRelativeDate(video?.attributes?.publish_date || video?.attributes?.publishedAt)}</CardDate>
                                                                 <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
                                                                 <CardTime>
                                                                     <CalculateVideoDuration videoUrl={video?.attributes?.Link} />
@@ -68,7 +68,7 @@ export default function VideoList({videosData}: any) {
                 </div>
                 <Newsletter page="videoList" />
                 <Pagination
-                    items={allVideos.length} 
+                    items={allVideos && allVideos.length} 
                     currentPage={currentPage} 
                     pageSize={pageSize} 
                     onPageChange={onPageChange}

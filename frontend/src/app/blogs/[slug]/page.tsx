@@ -120,7 +120,7 @@ export default async function Page() {
             {fourthFoldDetails && <FoldDescription foldDetails={fourthFoldDetails} />}
             {fifthFoldDetails && <FoldDescription foldDetails={fifthFoldDetails} />}
             {sixthFoldDetails && <FoldDescription foldDetails={sixthFoldDetails} />}
-            {seventhFoldDetails && <FoldDescription foldDetails={seventhFoldDetails} />}
+            {seventhFoldDetails && <FoldDescription foldDetails={seventhFoldDetails} foldName="seventh" />}
             <Newsletter page="singleBlogPage" />
           </div>
         </div>

@@ -23,15 +23,15 @@ export default function Blogs({blogsData}: Props) {
     const remainingList = recommendedList && recommendedList
       .filter((blog: any) => !blog?.attributes?.recommended)
       .sort((a:any, b:any) => {
-        const dateA = new Date(a.attributes.publishedAt);
-        const dateB = new Date(b.attributes.publishedAt);
+        const dateA = new Date(a.attributes.publish_date || a.attributes.publishedAt);
+        const dateB = new Date(b.attributes.publish_date || b.attributes.publishedAt);
         return dateB.getTime() - dateA.getTime();
       });
     
     const sortedRecommendedList = filteredList
       .sort((a:any, b:any) => {
-        const dateA = new Date(a.attributes.publishedAt);
-        const dateB = new Date(b.attributes.publishedAt);
+        const dateA = new Date(a.attributes.publish_date || a.attributes.publishedAt);
+        const dateB = new Date(b.attributes.publish_date || b.attributes.publishedAt);
         return dateB.getTime() - dateA.getTime();
       })
       .slice(0, 3); 
@@ -76,7 +76,7 @@ export default function Blogs({blogsData}: Props) {
                                                 <div className="p-2 xl:p-5">
                                                     <CardTitle className="mb-3">{blog?.attributes?.Title}</CardTitle>
                                                     <div className="flex gap-2 xl:gap-3 items-center">
-                                                        <CardDate>{formatRelativeDate(blog?.attributes?.publishedAt)}</CardDate>
+                                                        <CardDate>{formatRelativeDate(blog?.attributes?.publish_date || blog?.attributes?.publishedAt)}</CardDate>
                                                         <div className="h-1 w-1 bg-gray-350 rounded-full"></div>
                                                         <CardTime>{extractAndCalculateReadTime(blog)}</CardTime>
                                                     </div>
