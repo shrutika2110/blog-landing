@@ -33,7 +33,7 @@ const Heading = ({ level, children, variant = "light", size = "base", className,
                                 ? size === 'sm' ? ' text-xl' : 'text-lg md:text-xl '
                                 : level == 5
                                     ? size === 'sm' ? ' text-sm' :'text-base xl:text-md '
-                                    : level == 6 && ''
+                                    : level == 6 && 'text-sm md:text-base '
                 }
                 ${headingVariant}
             `, className)}

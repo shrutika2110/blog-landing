@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Image from 'next/image';
 import rehypeRaw from 'rehype-raw';
+import Heading from '../composite/Heading';
 
 interface MarkdownRendererProps {
     content: any;
@@ -36,7 +37,12 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
                     ol: ({ node, ...props }) => <ol className="list-decimal pl-8">{props.children}</ol>,
                     li: ({ node, ...props }) => <li className="mb-2">{props.children}</li>,
                     p: ({ node, ...props }) => <p className="mb-2">{props.children}</p>,
-
+                    h1: ({ node, ...props }) => <Heading level={1}>{props.children}</Heading>,
+                    h2: ({ node, ...props }) => <Heading level={2}>{props.children}</Heading>,
+                    h3: ({ node, ...props }) => <Heading level={3}>{props.children}</Heading>,
+                    h4: ({ node, ...props }) => <Heading level={4}>{props.children}</Heading>,
+                    h5: ({ node, ...props }) => <Heading level={5}>{props.children}</Heading>,
+                    h6: ({ node, ...props }) => <Heading level={6}>{props.children}</Heading>,
                     a: ({ node, ...props }) => (
                         <a className="text-primary hover:text-sky-800  focus:text-sky-800 visited:text-sky-800" href={props.href}>
                             {props.children}
