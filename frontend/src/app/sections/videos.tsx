@@ -40,9 +40,9 @@ export default function Videos({videosData}: Props) {
                 <div className="grid lg:grid-cols-2 gap-5 lg:gap-8 mt-5 mb-7">
                     <div className="lg:col-span-1">
                             <Link href={'/videos/' + firstVideo?.attributes?.slug} >
-                                <Card className="h-full min-h-[224px]">
+                                <Card className="h-full min-h-56">
                                     <CardContent className="relative h-full p-0">
-                                        <VideoIframe videoId={firstVideo?.attributes?.Link} size="lg" inlinePlay />
+                                        <VideoIframe videoId={firstVideo?.attributes?.Link} size="lg" largeVideo inlinePlay />
                                         <CardTitle variant="dark" size="lg" className="absolute bottom-4.5 left-4.5 w-full lg:max-w-8/12 z-35">
                                             {firstVideo?.attributes?.Title}
                                         </CardTitle>
