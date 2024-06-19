@@ -37,12 +37,12 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
                     ol: ({ node, ...props }) => <ol className="list-decimal pl-8">{props.children}</ol>,
                     li: ({ node, ...props }) => <li className="mb-2">{props.children}</li>,
                     p: ({ node, ...props }) => <p className="mb-2">{props.children}</p>,
-                    h1: ({ node, ...props }) => <h1 className='text-5xl'>{props.children}</h1>,
-                    h2: ({ node, ...props }) => <h2 className='text-4xl'>{props.children}</h2>,
-                    h3: ({ node, ...props }) => <h3 className='text-2xl'>{props.children}</h3>,
-                    h4: ({ node, ...props }) => <h4 className='text-lg'>{props.children}</h4>,
-                    h5: ({ node, ...props }) => <h5 className='text-md'>{props.children}</h5>,
-                    h6: ({ node, ...props }) => <h6 className='text-base'>{props.children}</h6>,
+                    h1: ({ node, ...props }) => <h1 className='font-bold text-2xl md:text-3xl xl:text-4xl text-black-250 '>{props.children}</h1>,
+                    h2: ({ node, ...props }) => <h2 className='font-bold text-2xl md:text-3xl xl:text-4xl text-black-250 mb-2 '>{props.children}</h2>,
+                    h3: ({ node, ...props }) => <h3 className='font-bold text-sm md:text-base xl:text-2xl text-black-250 mb-2'>{props.children}</h3>,
+                    h4: ({ node, ...props }) => <h4 className='font-bold text-sm md:text-base xl:text-lg text-black-250 mb-2'>{props.children}</h4>,
+                    h5: ({ node, ...props }) => <h5 className='font-bold text-sm md:text-base xl:text-md text-black-250 mb-2'>{props.children}</h5>,
+                    h6: ({ node, ...props }) => <h6 className='font-bold text-xs md:text-sm xl:text-base text-black-250 mb-2'>{props.children}</h6>,
                     a: ({ node, ...props }) => (
                         <a className="text-primary hover:text-sky-800  focus:text-sky-800 visited:text-sky-800" href={props.href}>
                             {props.children}
