@@ -57,7 +57,7 @@ export default async function Page() {
     const termsData = await fetchTermsData();
 
     return (
-        <div className="relative font-overpass">
+        <div className="relative  ">
             <div className="container py-12">
                 <Breadcrumb crumbs={crumbs}/>
                 <Heading level={1} className="xl:text-6xl text-blank mt-4" >
