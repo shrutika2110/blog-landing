@@ -17,30 +17,10 @@
 // export default client;
 
 
-// import { ApolloClient, InMemoryCache } from "@apollo/client";
-// const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-
-// const url = process.env.NEXT_PUBLIC_API_URL;
-// const cmsClient = new ApolloClient({
-//   uri: `${process.env.NEXT_PUBLIC_BASE_URL}/graphql`,
-//   cache: new InMemoryCache(),
-//   headers: {
-//     Authorization: `Bearer ${token}`,
-//   },
-//   defaultOptions: {
-//     watchQuery: {
-//       fetchPolicy: 'network-only', // Always fetch from network
-
-//       // fetchPolicy: 'cache-and-network', // Fetch from cache first, then fetch from network
-//       // pollInterval: 60000, // Poll data every 60 seconds (60000 milliseconds)
-//     },
-//   },
-// });
-// export default cmsClient;
-
 import { ApolloClient, InMemoryCache } from "@apollo/client";
-
 const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+
+const url = process.env.NEXT_PUBLIC_API_URL;
 const cmsClient = new ApolloClient({
   uri: `${process.env.NEXT_PUBLIC_BASE_URL}/graphql`,
   cache: new InMemoryCache(),
@@ -49,13 +29,9 @@ const cmsClient = new ApolloClient({
   },
   defaultOptions: {
     watchQuery: {
-      fetchPolicy: 'cache-and-network', // Use this policy for watch queries
+      fetchPolicy: 'cache-and-network', // Fetch from cache first, then fetch from network
       pollInterval: 60000, // Poll data every 60 seconds (60000 milliseconds)
-    },
-    query: {
-      fetchPolicy: 'network-only', // Always fetch fresh data for queries
     },
   },
 });
-
 export default cmsClient;
