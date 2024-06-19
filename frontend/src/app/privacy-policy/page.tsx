@@ -57,7 +57,7 @@ export default async function Page() {
     const policyData = await fetchPolicyData();
 
     return (
-        <div className="relative">
+        <div className="relative font-overpass">
             <div className="container py-12">
                 <Breadcrumb crumbs={crumbs}/>
                 <Heading level={1}  className="xl:text-6xl text-blank mt-4" >

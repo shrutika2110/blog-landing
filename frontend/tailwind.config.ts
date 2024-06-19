@@ -27,7 +27,14 @@ module.exports = {
         '9xl': '7.5rem', //120px
       },
       fontFamily: {
-        body: ['var(--font-manrope)'],
+        body: ['Overpass'],
+        display: ['Overpass'],
+        regular: ['Overpass'],
+        heading: ['Roboto'],
+        overpass: ['var(--font-overpass)'],
+        manrope: ['var(--font-manrope)'],
+        rubik: ['var(--font-rubik)'],
+        inter: ['Inter', 'sans-serif'],
       },
       lineHeight: {
         '0.5': '2px',
