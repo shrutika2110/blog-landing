@@ -1,15 +1,14 @@
-
 import HeroTab from "./sections/HeroTab";
 import BackToTop from "@/components/utility/backToTop";
 import HeroSlider from "./sections/HeroSlider";
 import Newsletter from "./sections/newsletter";
 import type { Metadata } from 'next'
-import { fetchBlogData } from "@/service/blogService";
-import { fetchVideoData } from "@/service/videoService";
+import { fetchBlogData as fetchBlogDataService } from "@/service/blogService";
+import { fetchVideoData as fetchVideoDataService } from "@/service/videoService";
+import debounce from 'lodash/debounce';
 
 const commonTitle = 'Kofuku - Home';
 const commonDescription = 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more';
-
 
 export const metadata: Metadata = {
   title: commonTitle,
@@ -38,10 +37,13 @@ export const metadata: Metadata = {
   },
 }
 
+const debouncedFetchBlogData = debounce(fetchBlogDataService, 500);
+const debouncedFetchVideoData = debounce(fetchVideoDataService, 500);
+
 export default async function Page() {
 
-  const blogsData = await fetchBlogData();
-  const videosData = await fetchVideoData();
+  const blogsData = await debouncedFetchBlogData();
+  const videosData = await debouncedFetchVideoData();
 
   return (
     <div className="relative ">
@@ -56,4 +58,3 @@ export default async function Page() {
     </div>
   );
 }
-

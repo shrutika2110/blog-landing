@@ -63,7 +63,7 @@ export default function BlogList({blogsData}: any) {
                 </div>
                 <Newsletter page="blogList" />
                 <Pagination
-                    items={allBlogs.length} 
+                    items={allBlogs && allBlogs.length} 
                     currentPage={currentPage} 
                     pageSize={pageSize} 
                     onPageChange={onPageChange}

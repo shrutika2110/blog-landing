@@ -1,13 +1,10 @@
-
-import { BlogService } from "@/service";
 import BlogList from "./sections/blogList";
-
-import type { Metadata } from 'next'
-import { fetchBlogData } from "@/service/blogService";
+import type { Metadata } from 'next';
+import { fetchBlogData as fetchBlogDataService } from "@/service/blogService";
+import debounce from 'lodash/debounce';
 
 const commonTitle = 'Kofuku - Blog Library';
 const commonDescription = 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more';
-
 
 export const metadata: Metadata = {
   title: commonTitle,
@@ -18,7 +15,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "og-image.jpg",
-        width: 800, 
+        width: 800,
         height: 600,
       }
     ],
@@ -29,24 +26,24 @@ export const metadata: Metadata = {
     images: [
       {
         url: "og-image.jpg",
-        width: 800, 
+        width: 800,
         height: 600,
       }
     ],
   },
 }
 
-export default async function Page() {
+const debouncedFetchBlogData = debounce(fetchBlogDataService, 600);
 
-  const blogsData = await fetchBlogData();
+export default async function Page() {
+  
+  const blogsData = await debouncedFetchBlogData();
 
   return (
-    <div className="relative ">
+    <div className="relative">
       <div className="container">
         <BlogList blogsData={blogsData} />
       </div>
     </div>
-
   );
 }
-
