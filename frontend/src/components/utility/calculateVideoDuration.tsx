@@ -11,7 +11,7 @@ function CalculateVideoDuration({ videoUrl }: any) {
       height: '100%',
       width: '100%',
       playerVars: {
-          controls: 0,
+        controls: 0,
           rel: 0,
           loop: 1,
           start: 0,
@@ -25,7 +25,7 @@ function CalculateVideoDuration({ videoUrl }: any) {
 
   const onReady = (event: any) => {
       playerRef.current = event.target;
-      playerRef.current.mute();
+      // playerRef.current.mute();
       const videoDuration = playerRef.current.getDuration();
       setDuration(videoDuration);
   };
