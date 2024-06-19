@@ -20,7 +20,7 @@ export default function FoldDescription({ foldDetails, foldName }: Props) {
                         </Heading>
                     }
                     {foldDetails?.description &&
-                        <div className={`text-lg`}>
+                        <div className={`text-sm md:text-base xl:text-lg`}>
                             <MarkdownRenderer content={foldDetails?.description}>
                             </MarkdownRenderer>
                             {foldImage &&
