@@ -13,13 +13,13 @@ interface Props {
 export default function sliderVideos({video}: Props) {
 
     return (
-        <Link href={'/videos/' + video?.attributes?.slug} >
             <Card>
                 <CardContent className="p-0">
                         <div className="h-27 lg:h-48">
                             <VideoIframe videoId={video?.attributes?.Link} size="md" coverImg={video?.attributes?.CoverImg?.data?.attributes?.url} />
                         </div>
-                        <div >
+                        <div>
+                            <Link href={'/videos/' + video?.attributes?.slug} >
                                 <div className="p-2 xl:p-5">
                                     <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                     <div className="flex gap-2 xl:gap-3 items-center">
@@ -30,9 +30,10 @@ export default function sliderVideos({video}: Props) {
                                         </CardTime>
                                     </div>
                                 </div>
+                            </Link>
                         </div>
                 </CardContent>
             </Card>
-        </Link>
+       
     );
 };

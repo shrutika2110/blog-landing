@@ -39,7 +39,7 @@ export default function Videos({videosData}: Props) {
                 <>
                 <div className="grid lg:grid-cols-2 gap-5 lg:gap-8 mt-5 mb-7">
                     <div className="lg:col-span-1">
-                            <Link href={'/videos/' + firstVideo?.attributes?.slug} >
+                            {/* <Link href={'/videos/' + firstVideo?.attributes?.slug} > */}
                                 <Card className="h-full min-h-56">
                                     <CardContent className="relative h-full p-0">
                                         <VideoIframe videoId={firstVideo?.attributes?.Link} size="lg" largeVideo inlinePlay />
@@ -48,13 +48,13 @@ export default function Videos({videosData}: Props) {
                                         </CardTitle>
                                     </CardContent>
                                 </Card>
-                            </Link>
+                            {/* </Link> */}
                         </div>
                     <div className="lg:col-span-1">
                         <div className="grid grid-cols-2 lg:grid-cols-1 gap-5 lg:gap-8">
                         {topVideos && topVideos.map((video:any, index:any) => (
-                        <Link href={'/videos/' + video?.attributes?.slug} key={index}>
-                            <Card >
+                        
+                            <Card key={index}>
                                 <CardContent className="p-0">
                                     <div className="grid lg:grid-cols-12">
                                         <div className="lg:col-span-4">
@@ -63,6 +63,7 @@ export default function Videos({videosData}: Props) {
                                             </div>
                                         </div>
                                         <div className="lg:col-span-8">
+                                            <Link href={'/videos/' + video?.attributes?.slug} >
                                                 <div className="p-2 xl:p-4.5">
                                                     <CardTitle className="mb-3">{video?.attributes?.Title}</CardTitle>
                                                     <div className="flex gap-2 xl:gap-3 items-center">
@@ -73,11 +74,12 @@ export default function Videos({videosData}: Props) {
                                                         </CardTime>
                                                     </div>
                                                 </div>
+                                            </Link>
                                         </div>
                                     </div>
                                 </CardContent>
                             </Card>
-                            </Link>
+                           
 
                             
                         ))}
