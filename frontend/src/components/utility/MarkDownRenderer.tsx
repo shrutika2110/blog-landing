@@ -28,7 +28,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
                         </span>
                     ),
                     blockquote: ({ node, ...props }) => (
-                        <blockquote className="mx-4 my-0 italic pl-4 border-l-4 border-offwhite-700 text-black-700" {...props} />
+                        <blockquote className="mx-4 my-0 italic pl-4 border-l-4 border-offwhite-700 text-black-700 mb-2" {...props} />
                     ),
                     code: ({ node, ...props }) => (
                         <code className="text-wrap text-primary px-4 py-2 rounded text-sm bg-white-300" {...props} />
