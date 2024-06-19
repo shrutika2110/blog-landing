@@ -17,7 +17,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
                 rehypePlugins={[rehypeRaw]}
                 components={{
                     img: ({ node, ...props }) => (
-                        <span className="block">
+                        <span className="block mb-2">
                             <Image
                                 src={String(props.src)}
                                 width={600}
