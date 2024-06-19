@@ -37,12 +37,12 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
                     ol: ({ node, ...props }) => <ol className="list-decimal pl-8">{props.children}</ol>,
                     li: ({ node, ...props }) => <li className="mb-2">{props.children}</li>,
                     p: ({ node, ...props }) => <p className="mb-2">{props.children}</p>,
-                    h1: ({ node, ...props }) => <Heading level={1}>{props.children}</Heading>,
-                    h2: ({ node, ...props }) => <Heading level={2}>{props.children}</Heading>,
-                    h3: ({ node, ...props }) => <Heading level={3}>{props.children}</Heading>,
-                    h4: ({ node, ...props }) => <Heading level={4}>{props.children}</Heading>,
-                    h5: ({ node, ...props }) => <Heading level={5}>{props.children}</Heading>,
-                    h6: ({ node, ...props }) => <Heading level={6}>{props.children}</Heading>,
+                    h1: ({ node, ...props }) => <h1 className='text-5xl'>{props.children}</h1>,
+                    h2: ({ node, ...props }) => <h2 className='text-4xl'>{props.children}</h2>,
+                    h3: ({ node, ...props }) => <h3 className='text-2xl'>{props.children}</h3>,
+                    h4: ({ node, ...props }) => <h4 className='text-lg'>{props.children}</h4>,
+                    h5: ({ node, ...props }) => <h5 className='text-md'>{props.children}</h5>,
+                    h6: ({ node, ...props }) => <h6 className='text-base'>{props.children}</h6>,
                     a: ({ node, ...props }) => (
                         <a className="text-primary hover:text-sky-800  focus:text-sky-800 visited:text-sky-800" href={props.href}>
                             {props.children}
