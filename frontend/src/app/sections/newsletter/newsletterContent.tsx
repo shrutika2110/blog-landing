@@ -58,12 +58,12 @@ const NewsletterContent: React.FC<NewsletterContentProps> = ({
                         </div>
 
                         <div className='absolute z-10 top-12 left-15 right-18.5 lg:top-25 lg:left-67.5 lg:right-35 xl:top-35 xl:left-105 xl:right-65'>
-                            <Heading level={3} size="lg" variant='light' className='xl:w-92 leading-9.5 xl:mb-3 sm:text-base lg:text-base xl:text-4xl text-primary xl:"text-black-250'>Join the Kofuku family!</Heading>
+                            <Heading level={3} size="lg" variant='light' className='font-rubik xl:w-82 leading-9.5 xl:mb-3 sm:text-base lg:text-base xl:text-4xl text-primary xl:"text-black-250'>Join the Kofuku family!</Heading>
                             <Text variant='light' className='lg:text-sm xl:text-base'>
                                 Hey fam! Want to read our informative blogs and watch our exciting videos?
                             </Text>
                             <div className='mt-2 lg:mt-4 flex flex-col gap-1 xl:gap-3'>
-                                <label className='font-medium text-sm xl:text-base '>
+                                <label className='font-rubik font-medium text-sm xl:text-base '>
                                     Subscribe to our Newsletter
                                 </label>
                                 <div className='relative'>
