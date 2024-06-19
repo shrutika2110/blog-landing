@@ -168,6 +168,8 @@ export function BlogService() {
         }
       }
     `,
+    fetchPolicy: 'network-only', // Always fetch fresh data
+
   });
 }
 
