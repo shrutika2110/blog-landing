@@ -1,25 +1,19 @@
+import BlogList from "./sections/blogList"; // Adjust the path as per your project structure
+import type { Metadata } from 'next';
 
-// import { BlogService } from "@/service";
-import BlogList from "./sections/blogList";
-
-import type { Metadata } from 'next'
-// import { fetchBlogData } from "@/service/blogService";
+import { BlogService } from "@/service";
 
 const commonTitle = 'Kofuku - Blog Library';
 const commonDescription = 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more';
 
-import { BlogService } from "@/service";
-
 export async function fetchBlogData() {
   try {
-
-    const { data } = await BlogService();
+    const { data } = await BlogService(); // Assuming BlogService returns the necessary data structure
     const content = data.blogs.data;
-    return content
-  }
-  catch (e: any) {
-    console.log("error:\n", e.message);
-
+    return content;
+  } catch (error) {
+    console.error("Error fetching blog data:", error);
+    return null; // Handle error gracefully, possibly return a default value or handle in UI
   }
 }
 
@@ -48,19 +42,27 @@ export const metadata: Metadata = {
       }
     ],
   },
-}
+};
 
-export default async function Page() {
-
-  const blogsData = await fetchBlogData();
-
+export default function Page({ blogsData }: { blogsData: any }) {
+  // Ensure blogsData is fetched before rendering the page
   return (
-    <div className="relative ">
+    <div className="relative">
       <div className="container">
         <BlogList blogsData={blogsData} />
       </div>
     </div>
-
   );
 }
 
+// Server-side rendering (SSR) example:
+export async function getServerSideProps() {
+  const blogsData = await fetchBlogData();
+
+  // Return props to be passed to the Page component
+  return {
+    props: {
+      blogsData,
+    },
+  };
+}
