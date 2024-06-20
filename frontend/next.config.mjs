@@ -61,7 +61,7 @@ const nextConfig = {
           },
           {
             protocol: 'https',
-            hostname: 'kofuku-cms.blr0.geekydev.com',
+            hostname: 'cms.kofuku.com',
             pathname: '**',
           },
           {
