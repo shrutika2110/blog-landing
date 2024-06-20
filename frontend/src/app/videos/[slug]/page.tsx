@@ -22,6 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!singleVideoData || singleVideoData.length === 0) {
     return {
+      metadataBase: new URL(`${process.env.NEXT_BASE_PATH}`),
       title: commonTitle,
       description: commonDescription,
       openGraph: {
@@ -29,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
         description: commonDescription,
         images: [
           {
-            url: "og-image.jpg",
+            url: "/og-image.jpg",
             width: 800, 
             height: 600,
           }
@@ -40,7 +41,7 @@ export async function generateMetadata(): Promise<Metadata> {
         description: commonDescription,
         images: [
           {
-            url: "og-image.jpg",
+            url: "/og-image.jpg",
             width: 800, 
             height: 600,
           }

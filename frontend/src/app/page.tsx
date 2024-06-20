@@ -10,8 +10,8 @@ import { fetchVideoData } from "@/service/videoService";
 const commonTitle = 'Kofuku - Home';
 const commonDescription = 'Kofuku is a one of a kind social media platform for healthcare. Talk about all things health, lifestyle and wellness by joining Kofuku and explore a content sharing search engine where you can read, write, share and more';
 
-
 export const metadata: Metadata = {
+  metadataBase: new URL(`${process.env.NEXT_BASE_PATH}`),
   title: commonTitle,
   description: commonDescription,
   openGraph: {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: commonDescription,
     images: [
       {
-        url: "og-image.jpg",
+        url: "/og-image.jpg",
         width: 800, 
         height: 600,
       }
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: commonDescription,
     images: [
       {
-        url: "og-image.jpg",
+        url: "/og-image.jpg",
         width: 800, 
         height: 600,
       }

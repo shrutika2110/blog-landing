@@ -10,6 +10,7 @@ const commonDescription = 'Kofuku is a one of a kind social media platform for h
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`${process.env.NEXT_BASE_PATH}`),
   title: commonTitle,
   description: commonDescription,
   openGraph: {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     description: commonDescription,
     images: [
       {
-        url: "og-image.jpg",
+        url: "/og-image.jpg",
         width: 800, 
         height: 600,
       }
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     description: commonDescription,
     images: [
       {
-        url: "og-image.jpg",
+        url: "/og-image.jpg",
         width: 800, 
         height: 600,
       }
