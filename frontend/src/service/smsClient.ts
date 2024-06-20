@@ -20,7 +20,7 @@
 // export default cmsClient;
 
 
-import { ApolloClient, InMemoryCache, HttpLink, ApolloLink } from '@apollo/client';
+import { ApolloClient, InMemoryCache, HttpLink, ApolloLink, NormalizedCacheObject } from '@apollo/client';
 
 const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -31,30 +31,30 @@ if (!token || !baseUrl) {
 
 const httpLink = new HttpLink({
   uri: `${baseUrl}/graphql`,
-  fetch: (uri, options) => {
+  fetch: (uri, options = {}) => {
     return fetch(uri, {
       ...options,
       headers: {
         ...options.headers,
-        Authorization: `Bearer ${token}`
-      }
+        Authorization: `Bearer ${token}`,
+      },
     });
-  }
+  },
 });
 
-const client = new ApolloClient({
+export const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   cache: new InMemoryCache(),
   link: ApolloLink.from([httpLink]),
   defaultOptions: {
     query: {
       fetchPolicy: 'no-cache',
-      errorPolicy: 'all'
+      errorPolicy: 'all',
     },
     watchQuery: {
       fetchPolicy: 'no-cache',
-      errorPolicy: 'all'
-    }
-  }
+      errorPolicy: 'all',
+    },
+  },
 });
 
 export default client;
