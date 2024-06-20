@@ -1,4 +1,4 @@
-import cmsClient from "./smsClient";
+import { BlogService } from "@/service";
 
 export async function fetchBlogData() {
   try {
