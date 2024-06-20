@@ -12,8 +12,11 @@ const cmsClient = new ApolloClient({
   defaultOptions: {
     watchQuery: {
       fetchPolicy: "no-cache",
-      pollInterval: 60000, // Poll data every 60 seconds (60000 milliseconds)
-    },
+      // pollInterval: 60000, // Poll data every 60 seconds (60000 milliseconds)
+      errorPolicy: "ignore",
+
+    }
+
   },
 });
 export default cmsClient;
