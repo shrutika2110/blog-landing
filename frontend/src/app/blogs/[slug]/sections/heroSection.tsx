@@ -20,11 +20,11 @@ export default function HeroSection({singleBlogData}:Props) {
     return (
         <>
             <div className="border-l-10 border-primary pl-8 mt-5 mb-10">
-               <Heading level={1} className="text-skyBlue-400 text-4xl lg:text-5.5xl font-inter lg:leading-14.5 lg:max-w-10/12">
+               <Heading level={1} className="text-skyBlue-400 text-4xl lg:text-5.5xl   lg:leading-14.5 lg:max-w-10/12">
                     {blogDetails?.Title}
                </Heading>
                <div className="flex flex-col lg:flex-row justify-between lg:items-baseline gap-10">
-                    <Text variant="light" size="lg" className="mt-3 font-inter text-xl lg:text-3xl text-black-300 leading-8.75 break-words max-w-screen-md xl:max-w-screen-lg text-wrap">
+                    <Text variant="light" size="lg" className="mt-3   text-xl lg:text-3xl text-black-300 leading-8.75 break-words max-w-screen-md xl:max-w-screen-lg text-wrap">
                     {blogDetails?.shortDes}
                     </Text>
                     <div className="flex gap-10 text-primary items-center justify-end">
