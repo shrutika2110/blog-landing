@@ -168,6 +168,8 @@ export function BlogService() {
         }
       }
     `,
+    fetchPolicy: "no-cache", // Ensure no-cache behavior for this query
+
   });
 }
 
@@ -197,6 +199,7 @@ export function SingleVideoService(slug: any) {
     
     }
     `,
+    fetchPolicy: "no-cache", // Ensure no-cache behavior for this query
 
     variables: {
       slug: slug,
@@ -368,6 +371,7 @@ export function SingleBlogService(slug: any) {
         }
       }
     `,
+    fetchPolicy: "no-cache", // Ensure no-cache behavior for this query
 
     variables: {
       slug: slug,
@@ -401,6 +405,8 @@ export function VideoService() {
         }
       }
     `,
+    fetchPolicy: "no-cache", // Ensure no-cache behavior for this query
+
   });
 }
 
