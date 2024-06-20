@@ -81,7 +81,7 @@ export default function HeroTab({ blogsData, videosData }: any) {
             </div>
             <div className='container'>
                 <div ref={blogsRef}>
-                    <Blogs />
+                    <Blogs blogsData={blogsData} />
                 </div>
                 <div ref={videosRef}>
                     <Videos videosData={videosData} />

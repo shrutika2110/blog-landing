@@ -48,7 +48,7 @@ export default async function Page() {
       <div className="container">
         <HeroSlider blogsData={blogsData} />
       </div>
-      <HeroTab blogsData videosData={videosData} />
+      <HeroTab blogsData={blogsData} videosData={videosData} />
       <div className="container relative">
         <Newsletter page="homepage" />
         <BackToTop />
