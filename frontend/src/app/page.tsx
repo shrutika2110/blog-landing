@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "og-image.jpg",
-        width: 800, 
+        width: 800,
         height: 600,
       }
     ],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "og-image.jpg",
-        width: 800, 
+        width: 800,
         height: 600,
       }
     ],
@@ -48,10 +48,10 @@ export default async function Page() {
       <div className="container">
         <HeroSlider blogsData={blogsData} />
       </div>
-      <HeroTab blogsData={blogsData} videosData={videosData} />
+      <HeroTab blogsData videosData={videosData} />
       <div className="container relative">
-        <Newsletter  page="homepage" />
-        <BackToTop /> 
+        <Newsletter page="homepage" />
+        <BackToTop />
       </div>
     </div>
   );
