@@ -16,7 +16,6 @@
 // });
 // export default client;
 
-
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
@@ -29,7 +28,7 @@ const cmsClient = new ApolloClient({
   },
   defaultOptions: {
     watchQuery: {
-      fetchPolicy: 'cache-and-network', // Fetch from cache first, then fetch from network
+      fetchPolicy: "no-cache",
       pollInterval: 60000, // Poll data every 60 seconds (60000 milliseconds)
     },
   },
