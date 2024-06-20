@@ -1,26 +1,9 @@
-// import { ApolloClient, InMemoryCache } from '@apollo/client';
-
-// const cmsClient = new ApolloClient({
-//   ssrMode: true,
-//   uri: `${process.env.NEXT_PUBLIC_BASE_URL}/graphql`,
-//   cache: new InMemoryCache(),
-// });
-
-// export default cmsClient;
-
-// import { ApolloClient, InMemoryCache } from "@apollo/client";
-// const url = process.env.NEXT_PUBLIC_API_URL;
-// const client = new ApolloClient({
-//     uri: `${url}/graphql`,
-//     cache: new InMemoryCache()
-// });
-// export default client;
-
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
 const url = process.env.NEXT_PUBLIC_API_URL;
 const cmsClient = new ApolloClient({
+  ssrMode: true,
   uri: `${process.env.NEXT_PUBLIC_BASE_URL}/graphql`,
   cache: new InMemoryCache(),
   headers: {

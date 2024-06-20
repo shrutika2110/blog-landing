@@ -7,11 +7,11 @@ import Videos from '../videos';
 
 interface Props {
     blogsData?: any;
-    videosData ?:any
+    videosData?: any
 }
 
-export default function HeroTab({blogsData, videosData}: any) {
-   
+export default function HeroTab({ blogsData, videosData }: any) {
+
     const blogsRef = useRef<HTMLDivElement>(null);
     const videosRef = useRef<HTMLDivElement>(null);
     const [activeTab, setActiveTab] = useState<'blogs' | 'videos'>('blogs');
@@ -61,12 +61,12 @@ export default function HeroTab({blogsData, videosData}: any) {
                 <div className='container'>
                     <Tabs defaultValue="blogs">
                         <TabsList className="w-full border-b border-offwhite-150">
-                            <div className={`tabLink text-sm lg:text-2xl font-bold px-7 py-3 cursor-pointer ${activeTab === 'blogs' ? 'text-gray-1300 relative after:absolute after:left-8 after:right-8 after:h-1.5 after:rounded-2xl after:bg-primary after:content-[""] after:-bottom-1' : 'text-black-200'}`} 
-                            onClick={() => handleTabClick('blogs')}>
+                            <div className={`tabLink text-sm lg:text-2xl font-bold px-7 py-3 cursor-pointer ${activeTab === 'blogs' ? 'text-gray-1300 relative after:absolute after:left-8 after:right-8 after:h-1.5 after:rounded-2xl after:bg-primary after:content-[""] after:-bottom-1' : 'text-black-200'}`}
+                                onClick={() => handleTabClick('blogs')}>
                                 Blogs
                             </div>
-                            <div className={`tabLink text-sm lg:text-2xl font-bold px-7 py-3 cursor-pointer ${activeTab === 'videos' ? 'text-gray-1300 relative after:absolute after:left-8 after:right-8 after:h-1.5 after:rounded-2xl after:bg-primary after:content-[""] after:-bottom-1' : 'text-black-200'}`} 
-                            onClick={() => handleTabClick('videos')}>
+                            <div className={`tabLink text-sm lg:text-2xl font-bold px-7 py-3 cursor-pointer ${activeTab === 'videos' ? 'text-gray-1300 relative after:absolute after:left-8 after:right-8 after:h-1.5 after:rounded-2xl after:bg-primary after:content-[""] after:-bottom-1' : 'text-black-200'}`}
+                                onClick={() => handleTabClick('videos')}>
                                 Videos
                             </div>
                             <div className="text-sm lg:text-2xl font-bold px-7 py-3 text-black-200">
@@ -75,7 +75,7 @@ export default function HeroTab({blogsData, videosData}: any) {
                                 </Link>
                             </div>
                         </TabsList>
-                        
+
                     </Tabs>
                 </div>
             </div>
@@ -83,10 +83,10 @@ export default function HeroTab({blogsData, videosData}: any) {
                 <div ref={blogsRef}>
                     <Blogs blogsData={blogsData} />
                 </div>
-                <div  ref={videosRef}>
-                    <Videos  videosData={videosData} />
+                <div ref={videosRef}>
+                    <Videos videosData={videosData} />
                 </div>
             </div>
-         </>
+        </>
     );
 };

@@ -50,8 +50,8 @@ export default async function Page() {
       </div>
       <HeroTab blogsData={blogsData} videosData={videosData} />
       <div className="container relative">
-        <Newsletter  page="homepage" />
-        <BackToTop /> 
+        <Newsletter page="homepage" />
+        <BackToTop />
       </div>
     </div>
   );

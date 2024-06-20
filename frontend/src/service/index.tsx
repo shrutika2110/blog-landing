@@ -168,6 +168,7 @@ export function BlogService() {
         }
       }
     `,
+
   });
 }
 
@@ -401,6 +402,7 @@ export function VideoService() {
         }
       }
     `,
+
   });
 }
 
