@@ -45,8 +45,8 @@ export default async function Page() {
 
   return (
     <div className="relative ">
-      {blogsData && 
-        <div className="container">
+      {(blogsData && blogsData.length > 0) &&
+         <div className="container"> 
           <HeroSlider blogsData={blogsData} />
         </div>
       }
