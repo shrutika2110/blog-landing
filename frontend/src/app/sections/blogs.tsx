@@ -12,9 +12,7 @@ interface Props {
 
 export default function Blogs({ blogsData }: Props) {
 
-    if (!blogsData || blogsData.length === 0) {
-        return null;
-    }
+
 
     const recommendedList = blogsData || [];
 
@@ -47,6 +45,8 @@ export default function Blogs({ blogsData }: Props) {
                 <Heading level={3} variant="primary" className="font-extrabold">
                     Blogs
                 </Heading>
+                { blogsData && blogsData.length > 0 ?
+                <>
                 <div className="grid lg:grid-cols-2 gap-5 lg:gap-8 mt-5 mb-7">
                     <div className="lg:col-span-1">
                         <Link href={'/blogs/' + firstBlog?.attributes?.slug}>
@@ -99,6 +99,11 @@ export default function Blogs({ blogsData }: Props) {
                         </Link>
                     </Button>
                 </div>
+                </> : 
+                <div className="p-10 text-center">
+                    No blogs to show
+                </div>
+                }
             </div>
             <Trending blogsData={blogsData} />
         </div>

@@ -45,9 +45,11 @@ export default async function Page() {
 
   return (
     <div className="relative ">
-      <div className="container">
-        <HeroSlider blogsData={blogsData} />
-      </div>
+      {blogsData && 
+        <div className="container">
+          <HeroSlider blogsData={blogsData} />
+        </div>
+      }
       <HeroTab blogsData={blogsData} videosData={videosData} />
       <div className="container relative">
         <Newsletter page="homepage" />
