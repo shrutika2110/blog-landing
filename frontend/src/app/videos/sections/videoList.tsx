@@ -38,8 +38,10 @@ export default function VideoList({videosData}: any) {
         <div id="blogs">
             <div className="pt-5 mt-3 mb-10" >
                 <Breadcrumb crumbs={crumbs} />
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 xl:gap-8 mt-5 mb-7">
-                            {paginatedVideos && paginatedVideos.map((video:any, index:any) => (
+                { videosData && videosData.length > 0 ? <>
+                 {  paginatedVideos && 
+                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 xl:gap-8 mt-5 mb-7">
+                            {paginatedVideos.map((video:any, index:any) => (
 
                                     <Card key={index} >
                                         <CardContent className="p-0">
@@ -68,6 +70,7 @@ export default function VideoList({videosData}: any) {
                         
 
                 </div>
+                }
                 <Newsletter page="videoList" />
                 <Pagination
                     items={allVideos && allVideos.length} 
@@ -75,6 +78,13 @@ export default function VideoList({videosData}: any) {
                     pageSize={pageSize} 
                     onPageChange={onPageChange}
                         />
+
+</>
+                     : 
+                    <div className="p-20 text-center">
+                        No videos to show
+                    </div> 
+            }
 
             </div>
         </div>
