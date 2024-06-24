@@ -90,6 +90,8 @@ async function fetchSingleBlogData(slug: string) {
   }
 }
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 export default async function Page() {
   const headerList = headers();
   const pathname = headerList.get("x-current-path");
