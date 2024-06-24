@@ -8,6 +8,7 @@ import FirstFoldBlogs from "./sections/firstFoldBlogs";
 import SecFoldBlogs from "./sections/secFoldBlogs";
 import NullPoint from "@/components/utility/nullPoint";
 import { fetchBlogData } from "@/service/blogService";
+import { fetchRecommendedBlogData } from "@/service/recommendedBlog";
 
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -23,31 +24,31 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!singleBlogData || singleBlogData.length === 0) {
     return {
-        metadataBase: new URL(`${process.env.NEXT_BASE_PATH}`),
+      metadataBase: new URL(`${process.env.NEXT_BASE_PATH}`),
+      title: commonTitle,
+      description: commonDescription,
+      openGraph: {
         title: commonTitle,
         description: commonDescription,
-        openGraph: {
-          title: commonTitle,
-          description: commonDescription,
-          images: [
-            {
-              url: "/og-image.jpg",
-              width: 800, 
-              height: 600,
-            }
-          ],
-        },
-        twitter: {
-          title: commonTitle,
-          description: commonDescription,
-          images: [
-            {
-              url: "/og-image.jpg",
-              width: 800, 
-              height: 600,
-            }
-          ],
-        },
+        images: [
+          {
+            url: "/og-image.jpg",
+            width: 800,
+            height: 600,
+          }
+        ],
+      },
+      twitter: {
+        title: commonTitle,
+        description: commonDescription,
+        images: [
+          {
+            url: "/og-image.jpg",
+            width: 800,
+            height: 600,
+          }
+        ],
+      },
     }
   }
 
@@ -105,7 +106,16 @@ export default async function Page() {
   const sixthFoldDetails = singleBlogData?.[0]?.attributes?.sixthFold;
   const seventhFoldDetails = singleBlogData?.[0]?.attributes?.seventhFold;
 
+
+
   const metadata: any = await generateMetadata();
+
+  const recommendedData = await fetchRecommendedBlogData();
+  const recommendedBlogIds = singleBlogData[0]?.attributes?.RecomendedBlog?.blogs?.data.map((blog: any) => blog.id) || [];
+
+  const filteredRecommendedBlogs = recommendedData.filter((blog: any) => recommendedBlogIds.includes(blog.id));
+
+
 
   return (
     <>
@@ -114,9 +124,9 @@ export default async function Page() {
           <div className="pt-5 mt-3 mb-14" >
             <HeroSection singleBlogData={singleBlogData} />
             {firstFoldDetails && <FoldDescription foldDetails={firstFoldDetails} />}
-            <FirstFoldBlogs blogsData={blogsData} />
+            <FirstFoldBlogs blogsData={filteredRecommendedBlogs} />
             {secFoldDetails && <FoldDescription foldDetails={secFoldDetails} />}
-            <SecFoldBlogs blogsData={blogsData} />
+            <SecFoldBlogs blogsData={filteredRecommendedBlogs} />
             {thirdFoldDetails && <FoldDescription foldDetails={thirdFoldDetails} />}
             {fourthFoldDetails && <FoldDescription foldDetails={fourthFoldDetails} />}
             {fifthFoldDetails && <FoldDescription foldDetails={fifthFoldDetails} />}
