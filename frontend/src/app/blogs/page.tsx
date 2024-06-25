@@ -9,13 +9,13 @@ const commonDescription = 'Kofuku is a one of a kind social media platform for h
 
 async function fetchBlogData() {
   try {
-      const { data } = await BlogService();
-      const content = data.blogs.data;
-      return content
-    }
-    catch (e: any) {
-      console.log("error:\n", e.message);
-    }
+    const { data } = await BlogService();
+    const content = data.blogs.data;
+    return content
+  }
+  catch (e: any) {
+    console.log("error:\n", e.message);
+  }
 }
 
 
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.jpg",
-        width: 800, 
+        width: 800,
         height: 600,
       }
     ],
@@ -41,13 +41,14 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.jpg",
-        width: 800, 
+        width: 800,
         height: 600,
       }
     ],
   },
 }
-
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 export default async function Page() {
 
   const blogsData = await fetchBlogData();
