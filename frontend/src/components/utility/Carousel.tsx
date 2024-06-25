@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 
@@ -6,26 +6,26 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { GoChevronLeft, GoChevronRight } from 'react-icons/go';
 
-function SamplePrevArrow(props:any) {
+function SamplePrevArrow(props: any) {
   const { className, onClick } = props;
-  return(
+  return (
     <div onClick={onClick} className={` ${className}`}>
-       <div className='text-white '>
-          <GoChevronLeft /> 
-       </div>
+      <div className='text-white'>
+        <GoChevronLeft />
+      </div>
     </div>
-  )
-  }
+  );
+}
 
-function SampleNextArrow(props:any) {
+function SampleNextArrow(props: any) {
   const { className, onClick } = props;
-  return(
-    <div onClick={onClick} className={` ${className}`} >
-      <div className='text-white '>
-          <GoChevronRight /> 
-       </div>
+  return (
+    <div onClick={onClick} className={` ${className}`}>
+      <div className='text-white'>
+        <GoChevronRight />
+      </div>
     </div>
-  )
+  );
 }
 
 function Carousel({
@@ -39,36 +39,39 @@ function Carousel({
   fade,
   autoplay,
   infinite,
-  centerMode
+  centerMode,
 }: any) {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const settings = {
     dots: dots ? dots : false,
-    fade: false,
+    fade: fade ? fade : false,
     infinite: infinite ? infinite : false,
     speed: 300,
     slidesToShow: slidesToShow,
     slidesToScroll: slidesToScroll,
     autoplay: autoplay,
+    autoplaySpeed: 2000,
     arrows: arrow ? arrow : true,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow  />,
+    prevArrow: <SamplePrevArrow />,
     touchThreshold: 10,
     draggable: true,
     afterChange: (index: number) => setActiveSlide(index),
     cssEase: 'linear',
+    centerMode: centerMode ? centerMode : false,
+    centerPadding: '0px',
     responsive: [
       {
         breakpoint: 1279,
         settings: {
           slidesToShow: mdSlidesToShow,
-          slidesToScroll: slidesToScroll,
+          slidesToScroll: 1,
           infinite: infinite ? infinite : false,
           arrows: false,
           swipeToSlide: true,
-          centerMode:centerMode ? centerMode : false,
-          centerPadding: '150px',
+          centerMode: centerMode ? centerMode : false,
+          centerPadding: '10px',
         },
       },
       {
@@ -80,8 +83,8 @@ function Carousel({
           infinite: infinite ? infinite : false,
           arrows: false,
           swipeToSlide: true,
-          centerMode:centerMode ? centerMode : false,
-          centerPadding: '150px',
+          centerMode: centerMode ? centerMode : false,
+          centerPadding: '10px',
         },
       },
       {
@@ -92,8 +95,8 @@ function Carousel({
           infinite: infinite ? infinite : false,
           arrows: false,
           swipeToSlide: true,
-          centerMode:centerMode ? centerMode : false,
-          centerPadding: '40px',
+          centerMode: centerMode ? centerMode : false,
+          centerPadding: '10px',
         },
       },
     ],
@@ -102,14 +105,12 @@ function Carousel({
   return (
     <div>
       <style jsx global>{`
-         .slick-slide > div{
+        .slick-slide > div {
           margin: 0 10px;
-      }
-    
-      /* the parent */
-      .slick-list {
+        }
+        .slick-list {
           margin: 0 -10px;
-      }
+        }
         @media only screen and (max-width: 1279px) {
           .slick-slide {
             margin: 0;
@@ -118,7 +119,6 @@ function Carousel({
             margin: 0;
           }
         }
-
         @media only screen and (max-width: 767px) {
           .slick-slide {
             margin: 0;
@@ -128,12 +128,11 @@ function Carousel({
           }
         }
       `}</style>
-      <div>
-        <Slider swipe {...settings}>
-          {children}
-        </Slider>
-      </div>
+      <Slider {...settings}>
+        {children}
+      </Slider>
     </div>
   );
 }
+
 export default Carousel;
