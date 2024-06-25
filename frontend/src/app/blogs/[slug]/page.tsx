@@ -112,10 +112,24 @@ export default async function Page() {
 
   const metadata: any = await generateMetadata();
 
+  // const recommendedData = await fetchRecommendedBlogData();
+  // const recommendedBlogIds = singleBlogData[0]?.attributes?.RecomendedBlog?.blogs?.data.map((blog: any) => blog.id) || [];
+
+  // const filteredRecommendedBlogs = recommendedData.filter((blog: any) => recommendedBlogIds.includes(blog.id));
+
+  // console.log("blog", filteredRecommendedBlogs)
   const recommendedData = await fetchRecommendedBlogData();
   const recommendedBlogIds = singleBlogData[0]?.attributes?.RecomendedBlog?.blogs?.data.map((blog: any) => blog.id) || [];
 
-  const filteredRecommendedBlogs = recommendedData.filter((blog: any) => recommendedBlogIds.includes(blog.id));
+  const uniqueBlogIds = new Set();
+  const filteredRecommendedBlogs = recommendedData.filter((blog: any) => {
+    if (recommendedBlogIds.includes(blog.id) && !uniqueBlogIds.has(blog.id)) {
+      uniqueBlogIds.add(blog.id);
+      return true;
+    }
+    return false;
+  });
+
 
 
 
